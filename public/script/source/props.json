@@ -1,0 +1,8 @@
+{
+    "1":{
+        "name":"sign",
+        "type":1,
+        "img": "sign-wood.png",
+        "isWall":true
+    }
+}

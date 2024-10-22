@@ -1,0 +1,14 @@
+{
+    "0":{
+        "type": 0,
+        "img":"base-sol.png"
+    },
+    "1":{
+        "type": 0,
+        "img":"wall.png"
+    },
+    "2":{
+        "type": 1,
+        "img":"rock-1.png"
+    }
+}

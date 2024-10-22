@@ -1,0 +1,14 @@
+concept : un aventurier doit affronter le maitre des elements, gameplay zelda 1 mais temporisé.
+
+le tableau est divisé en plusieurs vue.
+chaque vue est divisé en plusieurs cases
+chaque vue possède des murs, des coffres, des monstres, des objets, des entrée
+quand le joueur se déplace, les monstres se déplacent aussi
+quand le joueur se déplace vers un monstre, il lui inflige des degats
+quand un monstre se déplace vers le joueur, il lui inflige des degats
+le joueur peux choisir sa classe de départ, qui influence ses stats et son equipement
+
+le joueur doit trouver et affronter les 4 boss élémentaire dans 4 donjons.
+à chaque fois que le joueur bat un boss, il obtient un bonus majeur associé à son élément
+chaque donjon se trouve dans une vue, caché du joueur
+la composition du tableau est généré aléatoirement à chaque début

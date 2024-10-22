@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <title>Primordial</title>
+    <meta name="description" content="Joue au jeu Primordial et tente de devenir le Maître des Éléments !"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+</head>
+<body>
+    <div id="ensemble-menu">
+        <div id="menu"></div>
+    </div>
+    <main>
+
+        <div id="ensemble-gameplay">
+            <div id="game">
+                <div id="props"></div>
+                <div id="units"></div>
+                <div id="ensemble-dialog">
+                    <div id="dialog">
+                        <div id="dialog-text"></div>
+                        <div id="dialog-choices"></div>
+                    </div>
+                </div>
+                <table id="map">
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div id="info">
+                <div id="stats">
+
+                    <div class="stat" id="stat-PV" style="display: none;">
+                        <img src="./public/assets/life.png">
+                        <p id="stat-PVtex">5/5</p>
+                        <progress  id="stat-PVbar" max="5" value="5"> 5/5</progress>
+                    </div>
+
+                    <!-- <div class="stat"  id="stat-PM" style="display: none;">
+                        <img src="./public/assets/mana.png">
+                        <p id="stat-PMtex">5/5</p>
+                        <progress  id="stat-PMbar" max="5" value="3"> 5/5</progress>
+                    </div> -->
+
+                </div>
+                <div id="competences"></div>
+                
+                <div class="control">
+                    <button class="haut" onclick="move(2)"><i class="fas fa-chevron-up"></i></button>
+                    <button class="gauche" onclick="move(1)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="droite" onclick="move(3)"><i class="fas fa-chevron-right"></i></button>
+                    <button class="bas" onclick="move(0)"><i class="fas fa-chevron-down"></i></button>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </main>
+    <footer>Version 0.1</footer>
+</body>
+<script type="module" src="./public/script/script.js"></script>
+</html>

@@ -1,0 +1,39 @@
+{
+    "0":{
+        "name":"orc",
+        "PV" : 5,
+        "PM" : 0,
+        "FOR" : 2,
+        "ADR" : 1,
+        "INT" : 0,
+        "ARMO" : 0,
+        "XP" : 20,
+        "IA" : "berzerk",
+        "vision" : 5,
+        "img":{
+            "0" : "orc-face.png",
+            "1" : "orc-gauche.png",
+            "2" : "orc-dos.png",
+            "3" : "orc-droite.png"
+        }
+    },
+    
+    "1":{
+        "name":"grand orc",
+        "PV" : 8,
+        "PM" : 0,
+        "FOR" : 3,
+        "ADR" : 1,
+        "INT" : 0,
+        "ARMO" : 0,
+        "XP" : 20,
+        "IA" : "berzerk",
+        "vision" : 5,
+        "img":{
+            "0" : "bigorc-face.png",
+            "1" : "bigorc-gauche.png",
+            "2" : "bigorc-dos.png",
+            "3" : "bigorc-droite.png"
+        }
+    }
+}
