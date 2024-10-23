@@ -2,6 +2,9 @@
 
 CONCEPT : faire un jeu de type RPG complet uniquement en JavaScript, sans framework
 
+0.1.1
+modification du format d'affichage pour le format mobile
+
 ajouts prévus : 
 
 faire le loader
@@ -24,7 +27,6 @@ faire la compétence tir à l'arc
 faire les biomes fixes
 faire les biomes aléatoires
 ajouter les boss
-eliminer les traits de sous-pixel (utiliser flexbox ???)
 faire des monstres à 4 cases
 faire l'intro
 faire la liste des MAJ

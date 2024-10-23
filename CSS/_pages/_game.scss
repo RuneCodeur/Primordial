@@ -3,31 +3,71 @@
     position: relative;
     overflow: hidden;
     border: 5px black solid;
-    width: 649px;
-    height: 649px;
-    min-height: 649px;
-    min-width: 649px;
+    width: 640px;
+    height: 640px;
     #map{
         border-collapse: collapse;
         background-color: rgb(0, 0, 0);
         overflow: hidden;
         border-spacing: 0;
+        width: 640px;
+        height: 640px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .lign{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 64px;
+            min-height: 64px;
+            max-height: 64px;
+            width: calc(64 * 10 )px;
+            .cell{
+                height: 64px;
+                width: 64px;
+                min-height: 64px;
+                min-width: 64px;
+                max-height: 64px;
+                max-width: 64px;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                img{
+                    display: block;
+                    object-fit: contain;
+                    box-sizing: border-box;
+                    border: 0;
+                    height: 64px;
+                    width: 64px;
+                    min-height: 64px;
+                    min-width: 64px;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
         td{
             height: 64px;
             width: 64px;
             min-height: 64px;
             min-width: 64px;
+            max-height: 64px;
+            max-width: 64px;
             margin: 0;
             padding: 0;
+            border: 0;
             img{
                 display: block;
                 object-fit: contain;
                 box-sizing: border-box;
-                
-            height: 64px;
-            width: 64px;
-            min-height: 64px;
-            min-width: 64px;
+                border: 0;
+                height: 64px;
+                width: 64px;
+                min-height: 64px;
+                min-width: 64px;
                 margin: 0;
                 padding: 0;
             }
@@ -51,7 +91,7 @@
         position: absolute;
         bottom: 0;
         width: 100%;
-        height: 160px;
+        height: 210px;
         display: none;
         overflow: hidden;
         justify-content: center;
@@ -70,8 +110,8 @@
                 line-height: 1.7;
                 width: 100%;
                 height: auto;
-                min-height: 85px;
-                font-size: 1rem;
+                min-height: 132px;
+                font-size: 1.6rem;
                 display: flex;
                 color: white;
             }
@@ -82,8 +122,9 @@
                 justify-content: center;
                 align-items: center;
                 button{
-                    height: 25px;
+                    height: 45px;
                     font-weight: bolder;
+                    font-size: 1.4rem;
                     width: auto;
                 }
             }

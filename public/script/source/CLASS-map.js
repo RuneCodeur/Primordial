@@ -2,7 +2,7 @@
 class CLASSmap {
     constructor(idTableauInit) {
         this.idTableau = idTableauInit;
-        this.mapAffichage = document.getElementById('map').children[0];
+        this.mapAffichage = document.getElementById('map');
         this.allMap = {};
         this.RESSOURCEmapTiles = {};
         this.RESSOURCEprops = {}
@@ -85,15 +85,15 @@ class CLASSmap {
         let tableau = "";
         
         for (let H = 0; H < TABhauteur; H++) {
-            tableau += "<tr>"
+            tableau += "<div class='lign'>"
             for (let L = 0; L < TABlargeur; L++) {
                 let tile ='';
                 if(showTile){
                     tile = "<img src='./public/assets/" + this.RESSOURCEmapTiles[this.allMap[this.idTableau[0]][this.idTableau[1]].tab.tiles[H][L]].img + "'>";
                 }
-                tableau += "<td>"+tile+"</td>"
+                tableau += "<div class='cell'>"+tile+"</div>"
             }
-            tableau += "</tr>"
+            tableau += "</div>"
         }
         this.mapAffichage.innerHTML = tableau;
     }

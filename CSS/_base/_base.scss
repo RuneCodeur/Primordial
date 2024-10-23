@@ -53,49 +53,50 @@ footer{
     color: white;
 }
 
-@media screen and (min-height: 760px), screen and (min-width: 920px){
+// format paysage
+@media screen and (min-height: 760px), screen and (min-width: 980px){
 	main, #menu{
         transform: scale(1);
     }
 }
 
-@media screen and (max-height: 760px), screen and (max-width: 920px){
+@media screen and (max-height: 760px), screen and (max-width: 980px){
 	main, #menu{
         transform: scale(0.9);
     }
 }
 
-@media screen and (max-height: 700px), screen and (max-width: 840px){
+@media screen and (max-height: 700px), screen and (max-width: 880px){
 	main, #menu{
         transform: scale(0.8);
     }
 }
 
-@media screen and (max-height: 630px), screen and (max-width: 760px){
+@media screen and (max-height: 630px), screen and (max-width: 780px){
 	main, #menu{
         transform: scale(0.7);
     }
 }
 
-@media screen and (max-height: 560px), screen and (max-width: 650px){
+@media screen and (max-height: 560px), screen and (max-width: 685px){
 	main, #menu{
         transform: scale(0.6);
     }
 }
 
-@media screen and (max-height: 500px), screen and (max-width: 560px){
+@media screen and (max-height: 500px), screen and (max-width: 585px){
 	main, #menu{
         transform: scale(0.5);
     }
 }
 
-@media screen and (max-height: 430px), screen and (max-width: 470px){
+@media screen and (max-height: 430px), screen and (max-width: 485px){
 	main, #menu{
         transform: scale(0.4);
     }
 }
 
-@media screen and (max-height: 350px), screen and (max-width: 380px){
+@media screen and (max-height: 350px), screen and (max-width: 390px){
 	main, #menu{
         transform: scale(0.3);
     }
@@ -104,5 +105,54 @@ footer{
 @media screen and (max-height: 300px), screen and (max-width: 290px){
 	main, #menu{
         transform: scale(0.2);
+    }
+}
+
+// format portrait
+@media screen and (max-aspect-ratio: 1/1) and (min-height: 1055px), (max-aspect-ratio: 1/1) and (min-width: 690px){
+	main, #menu{
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-aspect-ratio: 1/1) and (max-height: 1055px), (max-aspect-ratio: 1/1) and (max-width: 690px){
+	main, #menu{
+        transform: scale(0.9);
+    }
+}
+
+@media screen and (max-aspect-ratio: 1/1) and (max-height: 955px), (max-aspect-ratio: 1/1) and (max-width: 615px){
+	main, #menu{
+        transform: scale(0.8);
+    }
+}
+
+@media screen and (max-aspect-ratio: 1/1) and (max-height: 855px), (max-aspect-ratio: 1/1) and (max-width: 545px){
+	main, #menu{
+        transform: scale(0.7);
+    }
+}
+
+@media screen and (max-aspect-ratio: 1/1) and (max-height: 755px), (max-aspect-ratio: 1/1) and (max-width: 475px){
+	main, #menu{
+        transform: scale(0.6);
+    }
+}
+
+@media screen and (max-aspect-ratio: 1/1) and (max-height: 650px), (max-aspect-ratio: 1/1) and (max-width: 410px){
+	main, #menu{
+        transform: scale(0.5);
+    }
+}
+
+@media screen and (max-aspect-ratio: 1/1) and (max-height: 550px), (max-aspect-ratio: 1/1) and (max-width: 340px){
+	main, #menu{
+        transform: scale(0.4);
+    }
+}
+
+@media screen and (max-aspect-ratio: 1/1) and (max-height: 450px), (max-aspect-ratio: 1/1) and (max-width: 275px){
+	main, #menu{
+        transform: scale(0.3);
     }
 }
