@@ -3,6 +3,13 @@
     display: flex;
 }
 
+#loader{
+    z-index: -50000;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
 @media screen and (max-aspect-ratio: 1/1) {
     #ensemble-gameplay {
         flex-direction: column;

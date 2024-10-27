@@ -17,6 +17,10 @@ img{
     image-rendering: pixelated;
 }
 
+ul{
+    list-style-type: none;
+}
+
 body, html{
     display: flex;
     justify-content:center;

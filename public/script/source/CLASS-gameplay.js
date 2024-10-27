@@ -21,6 +21,8 @@ class CLASSgameplay {
         this.RESSOURCEmapTiles = {};
         this.RESSOURCEmonster = {};
         this.RESSOURCEprops = {};
+        this.RESSOURCEnotesMAJ = {};
+        this.RESSOURCEextra = [];
         this.idTableauInit = [2, 1];
         this.idTableau = 0;
         this.waiting = false;
@@ -31,18 +33,82 @@ class CLASSgameplay {
     // initialisation du jeu
     async init(){
 
-        await this.DLmapTAB();
-        await this.DLmapTiles();
-        await this.DLmonsters();
-        await this.DLprops();
+        this.menu(1);
+        await this.loader();
         this.map = new CLASSmap(this.idTableau);
         this.player = new CLASSplayer();
 
         this.map.LETTRESSOURCEmapTAB(this.RESSOURCEmapTAB);
         this.map.LETTRESSOURCEmapTiles(this.RESSOURCEmapTiles);
         this.map.LETTRESSOURCEprops(this.RESSOURCEprops);
-
         this.menu(2);
+    }
+
+    async loader(){
+        let urls = [];
+        let loadedImages = 0;
+        let loadingCount = document.getElementById('loading-count');
+        let loadingGroup = document.getElementById('loader');
+
+        loadingCount.innerText = '0/6';
+
+        await this.DLmapTAB();
+        loadingCount.innerText = '1/6';
+
+        await this.DLmapTiles();
+        loadingCount.innerText = '2/6';
+
+        await this.DLmonsters();
+        loadingCount.innerText = '3/6';
+
+        await this.DLprops();
+        loadingCount.innerText ='4/6';
+
+        await this.DLextra();
+        loadingCount.innerText ='5/6';
+
+        await this.DLnotesMAJ();
+        loadingCount.innerText ='6/6';
+
+        urls = [...urls, ...this.RESSOURCEextra];
+
+        Object.keys(this.RESSOURCEmapTiles).forEach(id => {
+            urls.push(this.RESSOURCEmapTiles[id].img);
+        });
+        Object.keys(this.RESSOURCEprops).forEach(id => {
+            urls.push(this.RESSOURCEprops[id].img);
+        });
+        Object.keys(this.RESSOURCEmonster).forEach(id => {
+            Object.keys(this.RESSOURCEmonster[id].img).forEach(idimg => {
+                urls.push(this.RESSOURCEmonster[id].img[idimg]);
+            });
+        });
+
+        urls.forEach((url) => {
+            loadingGroup.insertAdjacentHTML('beforeend', '<img src="./public/assets/'+url+'">');
+        });
+        
+        loadingCount.innerText ='0/'+urls.length;
+        return new Promise((resolve) => {
+            
+            loadingGroup.querySelectorAll('img').forEach((img) => {
+                img.addEventListener('load', () => {
+                loadedImages++; 
+                loadingCount.innerText = loadedImages + '/' + urls.length;
+                
+                // toutes les images sont chargées
+                if (loadedImages === urls.length) {
+                    resolve(true);
+                }
+                });
+            
+                img.addEventListener('error', () => {
+                    //console.error(`Erreur lors du chargement de l'image : ${img.src}`);
+                });
+            });
+            
+          });
+        
     }
 
     start(){
@@ -90,6 +156,22 @@ class CLASSgameplay {
         return fetch('./public/script/source/props.json')
         .then(response => response.json())
         .then(data => this.RESSOURCEprops = data)
+        .catch(error => console.error('Erreur :', error));
+    }
+
+    // telecharge les images bonus
+    async DLextra(){
+        return fetch('./public/script/source/extra.json')
+        .then(response => response.json())
+        .then(data => this.RESSOURCEextra = data)
+        .catch(error => console.error('Erreur :', error));
+    }
+    
+    // telecharge les notes de maj
+    async DLnotesMAJ(){
+        return fetch('./public/script/source/notesMAJ.json')
+        .then(response => response.json())
+        .then(data => this.RESSOURCEnotesMAJ = data)
         .catch(error => console.error('Erreur :', error));
     }
 
@@ -452,14 +534,13 @@ class CLASSgameplay {
 
             // loader 
             case 1:
-                /*
-                    chargement de chaque image dans le loader. quand fini -> menu principal
-                */
+                this.menuAffichage.innerHTML = "<p id='text-loading'>Chargement <b id='loading-count'></b></p>";
+                this.showMenu(true);
                 break;
 
             // menu principal
             case 2:
-                this.menuAffichage.innerHTML = "<h1><img src='./public/assets/gamelogo.png'></h1><button onclick='menu(3)'>Nouvelle partie</button>";
+                this.menuAffichage.innerHTML = "<h1><img src='./public/assets/gamelogo.png'></h1><button onclick='menu(3)'>Nouvelle partie</button> <button onclick='menu(7)'>Notes de mise à jour</button>";
                 this.clearMap();
                 this.showMenu(true);
                 break;
@@ -499,6 +580,23 @@ class CLASSgameplay {
                 */
                 break;
 
+            // notes de maj
+            case 7:
+                let notes = "<ul id='notes'>";
+                Object.keys(this.RESSOURCEnotesMAJ).forEach(MAJ => {
+
+                    notes += "<li class='maj'>"+MAJ+"</li>";
+
+                    this.RESSOURCEnotesMAJ[MAJ].forEach(note => {
+                        notes += "<li>"+note+"</li>";
+                    });
+                });
+
+                notes += "</ul>";
+                this.menuAffichage.innerHTML = "<h1 id='notes-title'>NOTES DE MISE À JOUR</h1>"+notes+"<button onclick='menu(2)'>RETOUR</button>";
+                
+                this.showMenu(true);
+                break;
                 
             // relance la partie mis en pause
             default:

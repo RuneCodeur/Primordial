@@ -1,0 +1,12 @@
+{
+    "0.2.0":[
+        "Ajout d'un loader, pour précharger toutes les images utilisés.",
+        "Ajout de la liste des notes de Mise à jour."
+    ],
+    "0.1.1":[
+        "Correction de la vue format mobile."
+    ],
+    "0.1":[
+        "Mise en place du système de jeu de base."
+    ]
+}
