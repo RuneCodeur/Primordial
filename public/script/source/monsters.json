@@ -1,39 +1,81 @@
 {
-    "0":{
-        "name":"orc",
-        "PV" : 5,
-        "PM" : 0,
-        "FOR" : 2,
-        "ADR" : 1,
-        "INT" : 0,
-        "ARMO" : 0,
-        "XP" : 20,
-        "IA" : "berzerk",
-        "vision" : 5,
-        "img":{
-            "0" : "orc-face.png",
-            "1" : "orc-gauche.png",
-            "2" : "orc-dos.png",
-            "3" : "orc-droite.png"
+    "0":[
+        {
+            "name":"blob",
+            "PV" : 5,
+            "PM" : 0,
+            "FOR" : 1,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 10,
+            "IA" : "débile",
+            "vision" : 0,
+            "img":{
+                "0" : "blob-0-face.png",
+                "1" : "blob-0-gauche.png",
+                "2" : "blob-0-dos.png",
+                "3" : "blob-0-droite.png"
+            }
         }
-    },
+    ],
+    "1":[
+        {
+            "name":"orc",
+            "PV" : 5,
+            "PM" : 0,
+            "FOR" : 2,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 20,
+            "IA" : "berzerk",
+            "vision" : 5,
+            "img":{
+                "0" : "orc-1-face.png",
+                "1" : "orc-1-gauche.png",
+                "2" : "orc-1-dos.png",
+                "3" : "orc-1-droite.png"
+            }
+        }
+    ],
     
-    "1":{
-        "name":"grand orc",
-        "PV" : 8,
-        "PM" : 0,
-        "FOR" : 3,
-        "ADR" : 1,
-        "INT" : 0,
-        "ARMO" : 0,
-        "XP" : 20,
-        "IA" : "berzerk",
-        "vision" : 5,
-        "img":{
-            "0" : "bigorc-face.png",
-            "1" : "bigorc-gauche.png",
-            "2" : "bigorc-dos.png",
-            "3" : "bigorc-droite.png"
+    "2":[
+        {
+            "name":"orc",
+            "PV" : 10,
+            "PM" : 0,
+            "FOR" : 3,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 20,
+            "IA" : "berzerk",
+            "vision" : 5,
+            "img":{
+                "0" : "orc-2-face.png",
+                "1" : "orc-2-gauche.png",
+                "2" : "orc-2-dos.png",
+                "3" : "orc-2-droite.png"
+            }
+        },
+        {
+            "name":"blob",
+            "PV" : 6,
+            "PM" : 0,
+            "FOR" : 5,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 20,
+            "IA" : "berzerk",
+            "vision" : 5,
+            "img":{
+                "0" : "blob-2-face.png",
+                "1" : "blob-2-gauche.png",
+                "2" : "blob-2-dos.png",
+                "3" : "blob-2-droite.png"
+            }
         }
-    }
+    ]
 }

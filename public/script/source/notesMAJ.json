@@ -1,4 +1,8 @@
 {
+    "0.3.0":[
+        "Ajout de 2 monstres Blob.",
+        "Ajout d'un aléatoire sur l'apparition des monstres."
+    ],
     "0.2.0":[
         "Ajout d'un loader, pour précharger toutes les images utilisés.",
         "Ajout de la liste des notes de Mise à jour."

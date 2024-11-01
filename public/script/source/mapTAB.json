@@ -23,7 +23,7 @@
                 },
                 "monsters" : [
                     {
-                        "type" : 0,
+                        "lvl":[1],
                         "direction":3,
                         "position": [5, 6]
                     }
@@ -50,11 +50,13 @@
                 },
                 "monsters" : [
                     {
+                        "lvl":[0,1],
                         "type" : 0,
                         "direction":3,
                         "position": [5, 6]
                     },
                     {
+                        "lvl":[1],
                         "type" : 0,
                         "direction":0,
                         "position": [1, 5]
@@ -82,17 +84,17 @@
                 },
                 "monsters" : [
                     {
-                        "type" : 0,
+                        "lvl":[0,1],
                         "direction":3,
                         "position": [5, 6]
                     },
                     {
-                        "type" : 0,
+                        "lvl":[1],
                         "direction":0,
                         "position": [1, 5]
                     },
                     {
-                        "type" : 0,
+                        "lvl":[0,1],
                         "direction":1,
                         "position": [8, 7]
                     }
@@ -158,12 +160,12 @@
                 "monsters" : [
                    
                     {
-                        "type" : 0,
+                        "lvl":[0,1],
                         "direction":1,
                         "position": [8, 7]
                     },
                     {
-                        "type" : 0,
+                        "lvl":[0,1],
                         "direction":0,
                         "position": [4, 2]
                     }
@@ -190,12 +192,12 @@
                 },
                 "monsters" : [
                     {
-                        "type" : 0,
+                        "lvl":[0,1],
                         "direction":0,
                         "position": [1, 5]
                     },
                     {
-                        "type" : 0,
+                        "lvl":[0,1],
                         "direction":2,
                         "position": [3, 1]
                     }
@@ -266,7 +268,7 @@
                 },
                 "monsters" : [
                     {
-                        "type" : 1,
+                        "lvl":[2],
                         "direction":0,
                         "position": [6, 6]
                     }

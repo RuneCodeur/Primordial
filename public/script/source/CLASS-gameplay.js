@@ -79,9 +79,11 @@ class CLASSgameplay {
             urls.push(this.RESSOURCEprops[id].img);
         });
         Object.keys(this.RESSOURCEmonster).forEach(id => {
-            Object.keys(this.RESSOURCEmonster[id].img).forEach(idimg => {
-                urls.push(this.RESSOURCEmonster[id].img[idimg]);
-            });
+            for (let i = 0; i < this.RESSOURCEmonster[id].length; i++) {
+                Object.keys(this.RESSOURCEmonster[id][i].img).forEach(idimg => {
+                    urls.push(this.RESSOURCEmonster[id][i].img[idimg]);
+                });
+            }
         });
 
         urls.forEach((url) => {
@@ -184,10 +186,18 @@ class CLASSgameplay {
     
                 if(!this.monsters[idMonster]){
                     this.monsters[idMonster] = new CLASSmonster(GETmonsters[i].position, GETmonsters[i].direction, idMonster);
-                    this.monsters[idMonster].POSTRESSOURCEmonster(this.RESSOURCEmonster[GETmonsters[i].type]);
+                    let InfoMonster = this.GETmonster(GETmonsters[i]);
+                    this.monsters[idMonster].POSTRESSOURCEmonster(InfoMonster);
                 }
             }
         }
+    }
+
+    GETmonster(InfoMonster){
+        let RandLVL = Math.floor(Math.random()*InfoMonster.lvl.length);
+        let lvl = InfoMonster.lvl[RandLVL];
+        let RandMonster = Math.floor(Math.random()*this.RESSOURCEmonster[lvl].length);
+        return this.RESSOURCEmonster[lvl][RandMonster]
     }
 
     // fait placer tout les props dans le tableau

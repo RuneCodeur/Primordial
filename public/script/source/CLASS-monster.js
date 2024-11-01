@@ -12,6 +12,7 @@ class CLASSmonster extends CLASSunit{
     }
 
     POSTRESSOURCEmonster(RESSOURCEmonster){
+
         this.name = RESSOURCEmonster.name;
 
         this.PV = RESSOURCEmonster.PV;
@@ -31,6 +32,11 @@ class CLASSmonster extends CLASSunit{
             2 : RESSOURCEmonster.img[2],
             3 : RESSOURCEmonster.img[3]
         }
+    }
+
+    unitDepop(){
+        this.comportementEtat = 0;
+        super.unitDepop();
     }
 
     //change le comportement selon certaines logique

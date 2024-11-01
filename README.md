@@ -6,8 +6,6 @@ CONCEPT : faire un jeu de type RPG complet uniquement en JavaScript, sans framew
 modification du format d'affichage pour le format mobile
 
 ajouts prévus : 
-
-faire le loader
 faire l'inventaire
 afficher les stats
 faire un prop coffre
@@ -46,6 +44,11 @@ faire la compétence boule de feu
 faire la compétence soin
 faire la compétence invisibilité
 faire la compétence piège à ours *
+faire des alterations d'etats(paralysé -> ne peux attaquer; sommeil -> ne peux ni attaquer, ni bouger, ni se tourner; poison -> degats X*temps restants; brulé -> degats fixes)
+afficher une icone pour chaque alteration d'etat
+afficher une icone  "!" rouge quand le monstre repère le joueur
+afficher une icone  "!" bleu quand le monstre veux fuir le joueur
+afficher une icone  "?" blanc quand le monstre perd le joueur
 modifier les images des unités pour pouvoir faire depasser la hauteur de 64px
 la hauteur doit être centré vers le bas pour pouvoir s'étendre vers le haut à l'infini
 quand l'unité change sa position de la hauteur -> change le zindex
