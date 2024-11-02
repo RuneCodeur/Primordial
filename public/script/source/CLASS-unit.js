@@ -86,7 +86,7 @@ class CLASSunit {
         if(!document.getElementById('unit-'+this.id)){
             this.unitAffichage();
         }else{
-            document.getElementById('unit-'+this.id).src ='./public/assets/'+this.assets[this.direction];
+            document.getElementById('unit-'+this.id+'-img').src ='./public/assets/'+this.assets[this.direction];
         }
     } 
 
@@ -102,7 +102,7 @@ class CLASSunit {
 
     // affiche l'unité
     unitAffichage(){
-        let unit = '<img id="unit-'+this.id+'" src="./public/assets/'+this.assets[this.direction] +'" style="top:'+(this.position[0]*64) +'px; left:'+(this.position[1]*64) +'px;">';
+        let unit = '<div id="unit-'+this.id+'"  style="top:'+(this.position[0]*64) +'px; left:'+(this.position[1]*64) +'px;" ><img id="unit-'+this.id+'-img" src="./public/assets/'+this.assets[this.direction] +'"></div>';
         document.getElementById('units').insertAdjacentHTML('beforeend', unit);
     }
 

@@ -5,7 +5,7 @@ CONCEPT : faire un jeu de type RPG complet uniquement en JavaScript, sans framew
 0.1.1
 modification du format d'affichage pour le format mobile
 
-ajouts prévus : 
+ajouts prévus :
 faire l'inventaire
 afficher les stats
 faire un prop coffre
@@ -49,8 +49,6 @@ afficher une icone pour chaque alteration d'etat
 afficher une icone  "!" rouge quand le monstre repère le joueur
 afficher une icone  "!" bleu quand le monstre veux fuir le joueur
 afficher une icone  "?" blanc quand le monstre perd le joueur
-modifier les images des unités pour pouvoir faire depasser la hauteur de 64px
-la hauteur doit être centré vers le bas pour pouvoir s'étendre vers le haut à l'infini
 quand l'unité change sa position de la hauteur -> change le zindex
 props et monstres dans la meme div
 les props traversables -> fixer le zindex = 0 

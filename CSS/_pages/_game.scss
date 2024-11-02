@@ -5,6 +5,16 @@
     outline: 5px black solid;
     width: 640px;
     height: 640px;
+    #transition{
+        width: 100%;
+        height: 100%;
+        display: none;
+        background-color: black;
+        position: absolute;
+        z-index: 500;
+        left: -100%;
+        transition: all 0.2s;
+    }
     #map{
         border-collapse: collapse;
         background-color: rgb(0, 0, 0);
@@ -49,43 +59,37 @@
                 }
             }
         }
-        td{
-            height: 64px;
-            width: 64px;
-            min-height: 64px;
-            min-width: 64px;
-            max-height: 64px;
-            max-width: 64px;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            img{
-                display: block;
-                object-fit: contain;
-                box-sizing: border-box;
-                border: 0;
-                height: 64px;
-                width: 64px;
-                min-height: 64px;
-                min-width: 64px;
-                margin: 0;
-                padding: 0;
-            }
-        }
-        
     }
     #props, #units{
         position: absolute;
         width: 100%;
         height: 100%;
+        div{
+            width: 64px;
+            min-height: 64px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: absolute;
+            transition: all 0.2s;
+            img{
+                min-height: 64px;
+                width: 64px;
+                display: block;
+                object-fit: contain;
+            }
+        }
+
+
         img{
-            height: 64px;
+            min-height: 64px;
             width: 64px;
             display: block;
             object-fit: contain;
             position: absolute;
             
         }
+
     }
     #ensemble-dialog{
         position: absolute;

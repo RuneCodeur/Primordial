@@ -182,7 +182,7 @@ class CLASSgameplay {
         let GETmonsters = this.map.GETmonsters();
         if(GETmonsters){
             for (let i = 0; i < GETmonsters.length; i++) {
-                let idMonster = this.idTableau + '' + GETmonsters[i].position[0]+ '' + GETmonsters[i].position[1]+ '' + GETmonsters[i].type;
+                let idMonster = this.idTableau[0] + '' + this.idTableau[1] + '' + GETmonsters[i].position[0] + '' + GETmonsters[i].position[1] + '' + GETmonsters[i].direction;
     
                 if(!this.monsters[idMonster]){
                     this.monsters[idMonster] = new CLASSmonster(GETmonsters[i].position, GETmonsters[i].direction, idMonster);
@@ -274,7 +274,8 @@ class CLASSgameplay {
 
                 //le joueur se déplace vers un autre tableau
                 if(testLimit){
-
+                    this.transitionTableau(direction);
+                    await this.awaitTransition(300);
                     // fait dépop les monstres
                     this.depopMonster();
                     this.depopProps();
@@ -321,6 +322,7 @@ class CLASSgameplay {
 
                 // met à jour les stats du joueur
 
+                await this.awaitTransition(300);
                 this.waiting = false
             }
             this.player.updateStats();
@@ -331,11 +333,79 @@ class CLASSgameplay {
         }
     }
 
+    async transitionTableau(direction){
+        console.log(direction);
+        let transitionAffichage = document.getElementById('transition');
+        switch (direction) {
+            
+            // vers le bas
+            case 0:
+                
+                transitionAffichage.style.display="none";
+                transitionAffichage.style.left="0";
+                transitionAffichage.style.top="100%";
+                transitionAffichage.style.display="flex";
+                await this.awaitTransition(100);
+                transitionAffichage.style.top="0";
+                await this.awaitTransition(500);
+                transitionAffichage.style.top="-200%";
+                await this.awaitTransition(100);
+                transitionAffichage.style.display="none";
+                break;
+
+            // vers la gauche
+            case 1:
+                transitionAffichage.style.left="-100%";
+                transitionAffichage.style.top="0";
+                transitionAffichage.style.display="flex";
+                await this.awaitTransition(100);
+                transitionAffichage.style.left="0";
+                await this.awaitTransition(500);
+                transitionAffichage.style.left="100%";
+                await this.awaitTransition(100);
+                transitionAffichage.style.display="none";
+                break;
+
+            // vers le haut
+            case 2:
+                transitionAffichage.style.display="none";
+                transitionAffichage.style.left="0";
+                transitionAffichage.style.top="-200%";
+                transitionAffichage.style.display="flex";
+                await this.awaitTransition(100);
+                transitionAffichage.style.top="0";
+                await this.awaitTransition(500);
+                transitionAffichage.style.top="100%";
+                await this.awaitTransition(100);
+                transitionAffichage.style.display="none";
+                break;
+
+            // vers la droite
+            case 3:
+                
+                transitionAffichage.style.left="200%";
+                transitionAffichage.style.top="0";
+                transitionAffichage.style.display="flex";
+                await this.awaitTransition(100);
+                transitionAffichage.style.left="0";
+                await this.awaitTransition(500);
+                transitionAffichage.style.left="-200%";
+                await this.awaitTransition(100);
+                transitionAffichage.style.display="none";
+                break;
+           
+        }
+    }
+
+    awaitTransition(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     // déplacement de tout les monstres dans le tableau
     async moveAllMonsters(){
 
         Object.values(this.monsters).forEach(monster => {
-            if (monster.id.startsWith(this.idTableau)) {
+            if (monster.id.startsWith(this.idTableau[0] + '' + this.idTableau[1])) {
                 if(monster.active()){
                     let direction = null;
 
@@ -603,7 +673,7 @@ class CLASSgameplay {
                 });
 
                 notes += "</ul>";
-                this.menuAffichage.innerHTML = "<h1 id='notes-title'>NOTES DE MISE À JOUR</h1>"+notes+"<button onclick='menu(2)'>RETOUR</button>";
+                this.menuAffichage.innerHTML = "<h1 id='notes-title'>NOTES DE MISE À JOUR</h1>"+notes+"<button onclick='menu(2)'>Retour</button>";
                 
                 this.showMenu(true);
                 break;

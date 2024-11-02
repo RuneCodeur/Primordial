@@ -1,4 +1,8 @@
 {
+    "0.4.0":[
+        "Ajout d'une transition fluide sur les monstres et personnages.",
+        "Ajout d'une transition fluide sur le deplacement des tableaux."
+    ],
     "0.3.0":[
         "Ajout de 2 monstres Blob.",
         "Ajout d'un aléatoire sur l'apparition des monstres."

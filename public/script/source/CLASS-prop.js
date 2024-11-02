@@ -35,7 +35,7 @@ class CLASSprop {
     // affichage des props
     propsAffichage(){
         let position = this.GETposition();
-        let props = '<img id="prop-'+this.id+'" src="./public/assets/'+this.assets +'" style="top:'+(position[0]*64) +'px; left:'+(position[1]*64) +'px;">';
+        let props = '<div id="prop-'+this.id+'" style="top:'+(position[0]*64) +'px; left:'+(position[1]*64) +'px;"><img id="prop-'+this.id+'-img" src="./public/assets/'+this.assets +'" ></div>';
         document.getElementById('props').insertAdjacentHTML('beforeend', props);
     }
 
