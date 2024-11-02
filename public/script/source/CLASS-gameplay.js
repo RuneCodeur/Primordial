@@ -334,7 +334,6 @@ class CLASSgameplay {
     }
 
     async transitionTableau(direction){
-        console.log(direction);
         let transitionAffichage = document.getElementById('transition');
         switch (direction) {
             
