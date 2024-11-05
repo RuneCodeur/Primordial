@@ -9,6 +9,7 @@ class CLASSmonster extends CLASSunit{
         this.directionPrec = direction;
         this.comportementEtat = 0;
         this.IA = null;
+        this.debileAnim = false;
     }
 
     POSTRESSOURCEmonster(RESSOURCEmonster){
@@ -56,11 +57,14 @@ class CLASSmonster extends CLASSunit{
             // si il voit le joueur, attaque. si les PV sont inferieur aux PVmax, fuit
             case 'voleur': 
                 if(this.PV < this.PVmax){
+                    if(this.comportementEtat != 2){
+                        this.fearEffect();
+                    }
                     this.comportementEtat = 2; // -> fuit
                 }
                 else if(this.detection(positionPlayer, tableau) || this.comportementEtat == 1){
                     if(this.comportementEtat != 1){
-                        this.aggroEffect(); // -> effet d'agro
+                        this.aggroEffect();
                     }
                     this.comportementEtat = 1; // -> attaque
                 }
@@ -72,6 +76,9 @@ class CLASSmonster extends CLASSunit{
             // si il voit le joueur, attaque. si les PV sont inferieur à la moitié des PVmax, fuit
             case 'guerrier':
                 if(this.PV < Math.ceil(this.PVmax/2)){
+                    if(this.comportementEtat != 2){
+                        this.fearEffect();
+                    }
                     this.comportementEtat = 2; // -> fuit
                 }
                 else if(this.detection(positionPlayer, tableau) || this.comportementEtat == 1){
@@ -104,9 +111,18 @@ class CLASSmonster extends CLASSunit{
                 break;
 
             // gros débile 
+            case 'débile':
             default:
                 this.comportementEtat = 0; // -> repos
                 break;
+        }
+    }
+
+    testLimit(newPosi){
+        if(newPosi[0] >= window.TABhauteur-1 || newPosi[0] < 0 || newPosi[1] >= window.TABlargeur-1 || newPosi[1] < 0){
+            return true;
+        }else{
+            return false;
         }
     }
 
@@ -132,6 +148,17 @@ class CLASSmonster extends CLASSunit{
                 let IsMove = Math.floor(Math.random()*3);
                 if(IsMove == 0){
                     deplacement = Math.floor(Math.random()*4)
+                }
+
+                // si l'IA est un gros débile, lui donne le QI d'une moule de temps en temps
+                else if(this.IA == 'débile'){
+                    let IsIntero = Math.floor(Math.random()*4);
+                    if( IsIntero == 0 && this.debileAnim == false){
+                        this.interoEffect();
+                        this.debileAnim = true;
+                    }else{
+                        this.debileAnim = false;
+                    }
                 }
                 break;
         }
@@ -242,9 +269,28 @@ class CLASSmonster extends CLASSunit{
         return y >= 0 && y < window.TABhauteur && x >= 0 && x < window.TABlargeur && tableau[y][x] !== 1;
     }
     
-    //ajoute un point d'exclamation en haut du personnage
-    aggroEffect(){
-        //console.log("effet d'aggro");
+    //ajoute un point d'exclamation rouge en haut du personnage
+    async aggroEffect(){
+        document.getElementById('unit-'+this.id).innerHTML += '<img class ="etat-bulle" id="unit-'+this.id+'-aggro" src="./public/assets/excla-R.png">'
+        setTimeout(() => {
+            document.getElementById('unit-'+this.id+'-aggro').remove();
+        }, 1000); 
+    }
+
+    //ajoute un point d'exclamation bleu en haut du personnage
+    async fearEffect(){
+        document.getElementById('unit-'+this.id).innerHTML += '<img class ="etat-bulle" id="unit-'+this.id+'-aggro" src="./public/assets/excla-B.png">'
+        setTimeout(() => {
+            document.getElementById('unit-'+this.id+'-aggro').remove();
+        }, 1000); 
+    }
+    
+    //ajoute un point d'exclamation bleu en haut du personnage
+    async interoEffect(){
+        document.getElementById('unit-'+this.id).innerHTML += '<img class ="etat-bulle" id="unit-'+this.id+'-aggro" src="./public/assets/intero-W.png">'
+        setTimeout(() => {
+            document.getElementById('unit-'+this.id+'-aggro').remove();
+        }, 1000); 
     }
 
     // detection du joueur

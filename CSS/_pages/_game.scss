@@ -78,6 +78,14 @@
                 display: block;
                 object-fit: contain;
             }
+            .etat-bulle{
+                width: 32px;
+                position: absolute;
+                top: -50px; 
+                animation-name: etat-Bulle-show;
+                animation-duration: 100ms; 
+                animation-iteration-count: 1;
+            }
         }
 
 

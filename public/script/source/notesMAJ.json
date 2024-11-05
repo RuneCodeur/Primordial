@@ -1,4 +1,8 @@
 {
+    "0.5.0":[
+        "Ajout d'un effet d'aggro des monstres.",
+        "Ajout d'un effet d'intelligence sur les monstres les plus futés."
+    ],
     "0.4.0":[
         "Ajout d'une transition fluide sur les monstres et personnages.",
         "Ajout d'une transition fluide sur le deplacement des tableaux."
