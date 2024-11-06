@@ -13,6 +13,7 @@ class CLASSgameplay {
         this.menuAffichage = document.getElementById('menu');
         this.player = null;
         this.map = null;
+        this.idMoveMaintenu = null;
         this.monsters = {};
         this.monsterPosition = [];
         this.props = {};
@@ -27,6 +28,7 @@ class CLASSgameplay {
         this.idTableau = 0;
         this.waiting = false;
         this.dialogActivate = false;
+        this.isMoveMaintenu = false;
         this.init();
     }
 
@@ -69,6 +71,7 @@ class CLASSgameplay {
 
         await this.DLnotesMAJ();
         loadingCount.innerText ='6/6';
+        this.AfficheMAJ();
 
         urls = [...urls, ...this.RESSOURCEextra];
 
@@ -177,6 +180,12 @@ class CLASSgameplay {
         .catch(error => console.error('Erreur :', error));
     }
 
+    // affichage du numero de version du jeu dans le footer
+    AfficheMAJ(){
+        let lastMAJ = Object.keys(this.RESSOURCEnotesMAJ)[0];
+        document.getElementById('footer').innerHTML = "Version " + lastMAJ;
+    }
+
     // fait placer tout les monstres dans le tableau
     initMonstersTab(){
         let GETmonsters = this.map.GETmonsters();
@@ -253,7 +262,25 @@ class CLASSgameplay {
         this.unshowText();
     }
 
-    //deplacement du personnage
+    // deplacement maintenu du personnage
+    async moveMaintenu(direction, isDesactive = false){
+        if (isDesactive){
+            this.isMoveMaintenu = false;
+            clearInterval(this.idMoveMaintenu);
+        }else {
+            this.isMoveMaintenu = true;
+            this.move(direction);
+            setTimeout(() => {
+                if(this.isMoveMaintenu){
+                    this.idMoveMaintenu = setInterval(() => {
+                        this.move(direction);
+                    }, 100);
+                }
+            }, 300);
+        }
+    }
+
+    // deplacement du personnage
     async move(direction = null){
         if(this.waiting == false){
             this.waiting = true

@@ -1,4 +1,8 @@
 {
+    "0.5.1":[
+        "Correction du maintien des touches.",
+        "Numéro de MAJ automatique."
+    ],
     "0.5.0":[
         "Ajout d'un effet d'aggro des monstres.",
         "Ajout d'un effet d'intelligence sur les monstres les plus futés."
