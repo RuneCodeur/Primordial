@@ -2,9 +2,6 @@
 
 CONCEPT : faire un jeu de type RPG complet uniquement en JavaScript, sans framework
 
-0.1.1
-modification du format d'affichage pour le format mobile
-
 ajouts prévus :
 faire l'inventaire
 afficher les stats
@@ -27,7 +24,6 @@ faire les biomes aléatoires
 ajouter les boss
 faire des monstres à 4 cases
 faire l'intro
-faire la liste des MAJ
 faire un groupe tableaux spéciaux (marchands, donneurs de quetes, la tour, etc...)
 faire les classes
 faire l'arbre de compétence
@@ -46,9 +42,6 @@ faire la compétence invisibilité
 faire la compétence piège à ours *
 faire des alterations d'etats(paralysé -> ne peux attaquer; sommeil -> ne peux ni attaquer, ni bouger, ni se tourner; poison -> degats X*temps restants; brulé -> degats fixes)
 afficher une icone pour chaque alteration d'etat
-afficher une icone  "!" rouge quand le monstre repère le joueur
-afficher une icone  "!" bleu quand le monstre veux fuir le joueur
-afficher une icone  "?" blanc quand le monstre perd le joueur
 quand l'unité change sa position de la hauteur -> change le zindex
 props et monstres dans la meme div
 les props traversables -> fixer le zindex = 0 

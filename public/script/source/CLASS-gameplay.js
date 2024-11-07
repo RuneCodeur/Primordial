@@ -267,7 +267,8 @@ class CLASSgameplay {
         if (isDesactive){
             this.isMoveMaintenu = false;
             clearInterval(this.idMoveMaintenu);
-        }else {
+            this.idMoveMaintenu = null;
+        }else if( this.idMoveMaintenu == null){
             this.isMoveMaintenu = true;
             this.move(direction);
             setTimeout(() => {
