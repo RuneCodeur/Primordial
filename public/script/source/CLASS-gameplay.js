@@ -14,6 +14,7 @@ class CLASSgameplay {
         this.player = null;
         this.map = null;
         this.idMoveMaintenu = null;
+        this.OldidMoveMaintenu = null;
         this.monsters = {};
         this.monsterPosition = [];
         this.props = {};
@@ -268,18 +269,17 @@ class CLASSgameplay {
             this.isMoveMaintenu = false;
             clearInterval(this.idMoveMaintenu);
             this.idMoveMaintenu = null;
-        }else if( this.idMoveMaintenu == null){
+        }
+        else if( this.idMoveMaintenu == null){
             this.isMoveMaintenu = true;
             this.move(direction);
             setTimeout(() => {
                 if(this.isMoveMaintenu){
                     this.idMoveMaintenu = setInterval(() => {
-                        this.move(direction);
+                        if(this.isMoveMaintenu){
+                            this.move(direction);
+                        }
                     }, 100);
-                }
-                else{
-                    clearInterval(this.idMoveMaintenu);
-                    this.idMoveMaintenu = null;
                 }
             }, 300);
         }
@@ -641,6 +641,7 @@ class CLASSgameplay {
     }
 
     menu(etat){
+        this.moveMaintenu(0);
         switch (etat) {
 
             // loader 
