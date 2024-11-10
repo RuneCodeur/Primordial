@@ -264,7 +264,7 @@ class CLASSgameplay {
 
     // deplacement maintenu du personnage
     async moveMaintenu(direction, isDesactive = false){
-        if (isDesactive){
+        if (isDesactive == false){
             this.isMoveMaintenu = false;
             clearInterval(this.idMoveMaintenu);
             this.idMoveMaintenu = null;
@@ -276,6 +276,10 @@ class CLASSgameplay {
                     this.idMoveMaintenu = setInterval(() => {
                         this.move(direction);
                     }, 100);
+                }
+                else{
+                    clearInterval(this.idMoveMaintenu);
+                    this.idMoveMaintenu = null;
                 }
             }, 300);
         }
