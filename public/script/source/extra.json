@@ -5,5 +5,20 @@
     "base-dos.png",
     "base-droite.png",
     "base-face.png",
-    "base-gauche.png"
+    "base-gauche.png",
+    "up.png",
+    "left.png",
+    "right.png",
+    "down.png",
+    "inventory.png",
+    "life.png",
+    "empty-head.png",
+    "empty-torso.png",
+    "empty-hand.png",
+    "empty-feet.png",
+    "empty-weapon.png",
+    "sword-1.png",
+    "excla-B.png",
+    "excla-R.png",
+    "intero-W.png"
 ]

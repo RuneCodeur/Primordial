@@ -16,3 +16,4 @@ window.move = gameplay.move.bind(gameplay);
 window.moveMaintenu = gameplay.moveMaintenu.bind(gameplay);
 window.menu = gameplay.menu.bind(gameplay);
 window.dialogChoice = gameplay.dialogChoice.bind(gameplay);
+window.showInventory = gameplay.showInventory.bind(gameplay);

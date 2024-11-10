@@ -23,7 +23,12 @@
         <div id="ensemble-gameplay">
             <div id="game">
                 <div id="transition"></div>
-                <div id="props"></div>
+                <div id="inventory">
+                    <div id="inventory-stats"></div>
+                    <div id="equipments"></div>
+                    <!-- <div id="navigation"></div> -->
+                    <div id="inventory-content"></div>
+                </div>
                 <div id="units"></div>
                 <div id="ensemble-dialog">
                     <div id="dialog">
@@ -50,9 +55,9 @@
                     </div> -->
 
                 </div>
-                <!-- <div class="actions">
-                    <button class="button inventaire" id="inventory" onclick="" ></button>
-                </div> -->
+                <div class="actions">
+                    <button class="button inventaire" id="button-inventory" onclick="showInventory()" ></button>
+                </div>
                 
                 <div class="control" >
                     <button class="button haut" onclick="move(2)" onmousedown="moveMaintenu(2, true)" onmouseup="moveMaintenu(2)" ontouchstart="moveMaintenu(2, true)" ontouchend="moveMaintenu(2)" ></button>

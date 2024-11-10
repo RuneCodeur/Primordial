@@ -9,12 +9,21 @@ class CLASSplayer extends CLASSunit {
         this.PM = 10;
         this.PMmax = 10;
         this.FOR = 3;
-        this.ADR = 3;
-        this.INT = 3;
+        this.ADR = 1;
+        this.INT = 1;
         this.ARMO = 0;
         this.XP = 0;
         this.LVL = 1;
         this.id = 'player';
+        this.equipment = {
+            'tete' : null,
+            'torse' : null,
+            'pied' : null,
+            'main' : null,
+            'arme' : null,
+        };
+        this.lengthItems = 28;
+        this.items = []
         this.assets = {
             0 : 'base-face.png',
             1 : 'base-gauche.png',
@@ -36,19 +45,16 @@ class CLASSplayer extends CLASSunit {
             // vers la gauche
             case 1:
                 this.POSTdeplacement([position[0], window.TABlargeur-1]);
-                
                 break;
             
             // vers le haut
             case 2:
                 this.POSTdeplacement([window.TABhauteur-1, position[1]]);
-                
                 break;
                 
             // vers la droite
             case 3:
                 this.POSTdeplacement([position[0], 0]);
-                
                 break;
         
         }
@@ -62,6 +68,48 @@ class CLASSplayer extends CLASSunit {
         if(document.getElementById('stat-PM')){
             this.updatePM();
         }
+        let stats = '';
+        stats += '<div> <p>LEVEL:</p> <p>'+ this.LVL +'</p> </div>';
+        stats += '<div> <p>EXP:</p> <p>'+ this.XP +'/100</p> </div>';
+        stats += '<div> <p>FORCE:</p> <p>'+ this.FOR +'</p> </div>';
+        stats += '<div> <p>ADRESSE:</p> <p>'+ this.ADR +'</p> </div>';
+        stats += '<div> <p>INTELLIGENCE:</p> <p>'+ this.INT +'</p> </div>';
+        stats += '<div> <p>ARMURE:</p> <p>'+ this.ARMO +'</p> </div>';
+        
+        document.getElementById('inventory-stats').innerHTML = stats;
+    }
+
+    updateEquipment(){
+        let equipments = '';
+
+        // tete
+        equipments += "<button><img src='./public/assets/empty-head.png'></button>"
+
+        // torse
+        equipments += "<button><img src='./public/assets/empty-torso.png'></button>"
+
+        // main
+        equipments += "<button><img src='./public/assets/empty-hand.png'></button>"
+
+        // pied 
+        equipments += "<button><img src='./public/assets/empty-feet.png'></button>"
+
+        //arme
+        equipments += "<button><img src='./public/assets/sword-1.png'></button>"
+        
+        document.getElementById('equipments').innerHTML = equipments;
+    }
+
+    updateItems(){
+
+        let content = '';
+
+        for (let i = 0; i < this.lengthItems; i++) {
+            
+            content += "<button></button>";
+        }
+        
+        document.getElementById('inventory-content').innerHTML = content;
     }
 
     unshowStats(){
@@ -89,6 +137,21 @@ class CLASSplayer extends CLASSunit {
         document.getElementById('stat-PMtex').innerText=this.PM + "/" + this.PMmax
         document.getElementById('stat-PMbar').attributes.max.value = this.PMmax
         document.getElementById('stat-PMbar').value = this.PM
+    }
+
+    showInventory(){
+        if(document.getElementById('inventory').style.display == 'flex'){
+            document.getElementById('inventory').style.display = 'none';
+        }else{
+            document.getElementById('inventory').style.display = 'flex';
+            this.MAJinventory();
+        }
+    }
+
+    MAJinventory(){
+        this.updateStats();
+        this.updateEquipment();
+        this.updateItems();
     }
 }
 

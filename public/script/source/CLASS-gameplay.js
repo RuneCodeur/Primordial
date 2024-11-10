@@ -14,7 +14,6 @@ class CLASSgameplay {
         this.player = null;
         this.map = null;
         this.idMoveMaintenu = null;
-        this.OldidMoveMaintenu = null;
         this.monsters = {};
         this.monsterPosition = [];
         this.props = {};
@@ -29,6 +28,7 @@ class CLASSgameplay {
         this.idTableau = 0;
         this.waiting = false;
         this.dialogActivate = false;
+        this.inventoryActivate = false;
         this.isMoveMaintenu = false;
         this.init();
     }
@@ -256,7 +256,6 @@ class CLASSgameplay {
     }
 
     clearMap(){
-        document.getElementById('props').innerHTML= '';
         document.getElementById('units').innerHTML= '';
         this.map.showTableau();
         this.player.unshowStats();
@@ -287,7 +286,7 @@ class CLASSgameplay {
 
     // deplacement du personnage
     async move(direction = null){
-        if(this.waiting == false){
+        if(this.waiting == false && this.inventoryActivate == false){
             this.waiting = true
 
             if(direction === null){
@@ -363,6 +362,16 @@ class CLASSgameplay {
                 this.menu(5);
             }
         }
+    }
+
+    showInventory(){
+        if(this.inventoryActivate == true){
+            this.inventoryActivate = false;
+        }
+        else{
+            this.inventoryActivate = true;
+        }
+        this.player.showInventory();
     }
 
     async transitionTableau(direction){

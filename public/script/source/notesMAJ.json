@@ -1,4 +1,7 @@
 {
+    "0.7.0":[
+        "Ajout de l'inventaire."
+    ],
     "0.6.0":[
         "Amelioration visuel des icones de l'interface.",
         "Correction du maintien des touches au format mobile."

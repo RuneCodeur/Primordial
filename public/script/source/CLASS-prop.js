@@ -36,7 +36,7 @@ class CLASSprop {
     propsAffichage(){
         let position = this.GETposition();
         let props = '<div id="prop-'+this.id+'" style="top:'+(position[0]*64) +'px; left:'+(position[1]*64) +'px;"><img id="prop-'+this.id+'-img" src="./public/assets/'+this.assets +'" ></div>';
-        document.getElementById('props').insertAdjacentHTML('beforeend', props);
+        document.getElementById('units').insertAdjacentHTML('beforeend', props);
     }
 
 
