@@ -5,8 +5,13 @@
     flex-direction: column;
     min-width: 175px;
     padding-left: 15px;
+    button{
+        width: 80px;
+        height: 80px;
+    }
     #stats{
         width: 100%;
+        min-height: 60px;
         .stat{
             display: flex;
             justify-content: center;
@@ -53,13 +58,12 @@
                 background-color: #5596e1;
             }
         }
-        
     }
     #competences{
         flex: 1;
         width: 100%;
     }
-    .control{
+    .control, #actions{
         margin-top: 15px;
         display: flex;
         align-items:center;
@@ -67,25 +71,26 @@
         justify-content: center;
         padding: 5px 15px;
         width: 270px;
-        button{
-            background-color: red;
-            border: 5px gold solid;
-            border-radius: 10px;
-            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
-            i{
-                color: white;
-                font-weight: bolder;
-                font-size: 2.5rem;
-            }
+        
+        .haut{
+            background-image: url('./public/assets/up.png');
+            margin: 0 calc(50% - 80px);
         }
-        .haut, .bas{
+        .bas{
+            background-image: url('./public/assets/down.png');
             margin: 0 calc(50% - 80px);
         }
         .gauche{
+            background-image: url('./public/assets/left.png');
             margin: 5px 40px 5px 0;
         }
         .droite{
+            background-image: url('./public/assets/right.png');
             margin: 5px 0 5px 40px;
+        }
+        .button{
+            background-position: center;
+            background-size: cover;
         }
     }
 }

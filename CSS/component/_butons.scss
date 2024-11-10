@@ -13,3 +13,25 @@ button:active{
     transform: scale(0.9);
 
 }
+
+.button{
+    width: auto;
+    height: auto;
+    background-color: red;
+    border: 5px gold solid;
+    color: white;
+    font-weight:normal;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+    i{
+        color: white;
+        font-weight: bolder;
+        font-size: 2.5rem;
+    }
+}
+
+.inventaire{
+    background-image: url('./public/assets/inventory.png');
+    background-position: center;
+    background-size: cover;
+}

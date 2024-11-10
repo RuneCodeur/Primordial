@@ -50,14 +50,18 @@
                     </div> -->
 
                 </div>
-                <div id="competences"></div>
+                <!-- <div class="actions">
+                    <button class="button inventaire" id="inventory" onclick="" ></button>
+                </div> -->
                 
                 <div class="control">
-                    <button class="haut" onclick="move(2)" onmousedown="moveMaintenu(2)" onmouseup="moveMaintenu(2, true)" onmouseleave="moveMaintenu(2, true)"><i class="fas fa-chevron-up"></i></button>
-                    <button class="gauche" onclick="move(1)" onmousedown="moveMaintenu(1)" onmouseup="moveMaintenu(1, true)" onmouseleave="moveMaintenu(1, true)"><i class="fas fa-chevron-left"></i></button>
-                    <button class="droite" onclick="move(3)" onmousedown="moveMaintenu(3)" onmouseup="moveMaintenu(3, true)" onmouseleave="moveMaintenu(3, true)"><i class="fas fa-chevron-right"></i></button>
-                    <button class="bas" onclick="move(0)" onmousedown="moveMaintenu(0)" onmouseup="moveMaintenu(0, true)" onmouseleave="moveMaintenu(0, true)"><i class="fas fa-chevron-down"></i></button>
+                    <button class="button haut" onclick="move(2)" onmousedown="moveMaintenu(2)" onmouseup="moveMaintenu(2, true)" onmouseleave="moveMaintenu(2, true)" ontouchstart="moveMaintenu(2)" ontouchend="moveMaintenu(2, true)" ontouchcancel="moveMaintenu(2, true)"></button>
+                    <button class="button gauche" onclick="move(1)" onmousedown="moveMaintenu(1)" onmouseup="moveMaintenu(1, true)" onmouseleave="moveMaintenu(1, true)" ontouchstart="moveMaintenu(1)" ontouchend="moveMaintenu(1, true)" ontouchcancel="moveMaintenu(1, true)"></button>
+                    <button class="button droite" onclick="move(3)" onmousedown="moveMaintenu(3)" onmouseup="moveMaintenu(3, true)" onmouseleave="moveMaintenu(3, true)" ontouchstart="moveMaintenu(3)" ontouchend="moveMaintenu(3, true)" ontouchcancel="moveMaintenu(3, true)"></button>
+                    <button class="button bas" onclick="move(0)" onmousedown="moveMaintenu(0)" onmouseup="moveMaintenu(0, true)" onmouseleave="moveMaintenu(0, true)" ontouchstart="moveMaintenu(0)" ontouchend="moveMaintenu(0, true)" ontouchcancel="moveMaintenu(0, true)"></button>
                 </div>
+
+                <div id="competences"></div>
             </div>
         </div>
 

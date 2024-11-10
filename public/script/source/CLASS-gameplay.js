@@ -647,7 +647,7 @@ class CLASSgameplay {
 
             // menu principal
             case 2:
-                this.menuAffichage.innerHTML = "<h1><img src='./public/assets/gamelogo.png'></h1><button onclick='menu(3)'>Nouvelle partie</button> <button onclick='menu(7)'>Notes de mise à jour</button>";
+                this.menuAffichage.innerHTML = "<h1><img src='./public/assets/gamelogo.png'></h1><button class='button' onclick='menu(3)'>Nouvelle partie</button> <button class='button' onclick='menu(7)'>Notes de mise à jour</button>";
                 this.clearMap();
                 this.showMenu(true);
                 break;
@@ -674,7 +674,7 @@ class CLASSgameplay {
 
             // game over
             case 5:
-                this.menuAffichage.innerHTML = "<h1>GAME OVER</h1><button onclick='menu(2)'>Recommencer</button>";
+                this.menuAffichage.innerHTML = "<h1>GAME OVER</h1><button class='button' onclick='menu(2)'>Recommencer</button>";
                 
                 this.showMenu(true);
                 break;
@@ -700,7 +700,7 @@ class CLASSgameplay {
                 });
 
                 notes += "</ul>";
-                this.menuAffichage.innerHTML = "<h1 id='notes-title'>NOTES DE MISE À JOUR</h1>"+notes+"<button onclick='menu(2)'>Retour</button>";
+                this.menuAffichage.innerHTML = "<h1 id='notes-title'>NOTES DE MISE À JOUR</h1>"+notes+"<button class='button' onclick='menu(2)'>Retour</button>";
                 
                 this.showMenu(true);
                 break;

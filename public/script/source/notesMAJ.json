@@ -1,4 +1,8 @@
 {
+    "0.6.0":[
+        "Amelioration visuel des icones de l'interface.",
+        "Correction du maintien des touches au format mobile."
+    ],
     "0.5.2":[
         "Correction d'un bug qui bloque le maintien des touches."
     ],
