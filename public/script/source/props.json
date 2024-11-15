@@ -4,5 +4,24 @@
         "type":1,
         "img": "sign-wood.png",
         "isWall":true
+    },
+    "2":{
+        "name":"loot",
+        "type":3,
+        "img": "loot.png",
+        "isWall":false
+    },
+    "3":{
+        "name":"chest",
+        "type":4,
+        "img": "chest-wood.png",
+        "after": 4,
+        "isWall":true
+    },
+    "4":{
+        "name":"empty chest",
+        "type":2,
+        "img": "chest-wood-empty.png",
+        "isWall":true
     }
 }

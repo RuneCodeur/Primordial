@@ -1,4 +1,17 @@
 {
+    "0.8.0":[
+        "Ajout de coffres.",
+        "Les monstres peuvent lacher des objets.",
+        "Possibilité d'utiliser l'équipement trouvé.",
+        "Ajout des potions de vie.",
+        "Ajout du set du chevalier.",
+        "Ajout du set du rodeur.",
+        "Ajout du set du paysan.",
+        "Ajout du set du magicien.",
+        "Ajout de 4 armes.",
+        "Ajout de la logique d'armure.",
+        "Ajout de la logique d'adresse."
+    ],
     "0.7.0":[
         "Ajout de l'inventaire."
     ],

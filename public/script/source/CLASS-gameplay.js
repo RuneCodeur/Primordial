@@ -16,6 +16,8 @@ class CLASSgameplay {
         this.idMoveMaintenu = null;
         this.monsters = {};
         this.monsterPosition = [];
+        this.equipments = [];
+        this.consomables = [];
         this.props = {};
         this.propPosition = [];
         this.RESSOURCEmapTAB = {};
@@ -23,6 +25,7 @@ class CLASSgameplay {
         this.RESSOURCEmonster = {};
         this.RESSOURCEprops = {};
         this.RESSOURCEnotesMAJ = {};
+        this.RESSOURCEequipments = {};
         this.RESSOURCEextra = [];
         this.idTableauInit = [2, 1];
         this.idTableau = 0;
@@ -53,25 +56,28 @@ class CLASSgameplay {
         let loadingCount = document.getElementById('loading-count');
         let loadingGroup = document.getElementById('loader');
 
-        loadingCount.innerText = '0/6';
+        loadingCount.innerText = '0/7';
 
         await this.DLmapTAB();
-        loadingCount.innerText = '1/6';
+        loadingCount.innerText = '1/7';
 
         await this.DLmapTiles();
-        loadingCount.innerText = '2/6';
+        loadingCount.innerText = '2/7';
 
         await this.DLmonsters();
-        loadingCount.innerText = '3/6';
+        loadingCount.innerText = '3/7';
 
         await this.DLprops();
-        loadingCount.innerText ='4/6';
+        loadingCount.innerText ='4/7';
+
+        await this.DLequipments();
+        loadingCount.innerText ='5/7';
 
         await this.DLextra();
-        loadingCount.innerText ='5/6';
+        loadingCount.innerText ='6/7';
 
         await this.DLnotesMAJ();
-        loadingCount.innerText ='6/6';
+        loadingCount.innerText ='7/7';
         this.AfficheMAJ();
 
         urls = [...urls, ...this.RESSOURCEextra];
@@ -125,11 +131,13 @@ class CLASSgameplay {
         this.idTableau = this.idTableauInit;
         this.player = null;
         this.player = new CLASSplayer();
+        this.initEquipments();
         this.map.createMap();
         this.map.LETTtableau(this.idTableau);
         this.map.showTableau(true);
         this.initMonstersTab();
         this.initPropsTab();
+        this.showInventory(true);
         this.move();
     }
     
@@ -165,6 +173,13 @@ class CLASSgameplay {
         .catch(error => console.error('Erreur :', error));
     }
 
+    async DLequipments(){
+        return fetch('./public/script/source/equipments.json')
+        .then(response => response.json())
+        .then(data => this.RESSOURCEequipments = data)
+        .catch(error => console.error('Erreur :', error));
+    }
+
     // telecharge les images bonus
     async DLextra(){
         return fetch('./public/script/source/extra.json')
@@ -185,6 +200,39 @@ class CLASSgameplay {
     AfficheMAJ(){
         let lastMAJ = Object.keys(this.RESSOURCEnotesMAJ)[0];
         document.getElementById('footer').innerHTML = "Version " + lastMAJ;
+    }
+
+    initEquipments(){
+        this.equipments = [];
+
+        this.RESSOURCEequipments.casques.forEach(equipment => {
+            equipment.type="casque";
+            this.equipments.push(equipment);
+        });
+        this.RESSOURCEequipments.armures.forEach(equipment => {
+            equipment.type="armure";
+            this.equipments.push(equipment);
+        });
+        this.RESSOURCEequipments.gants.forEach(equipment => {
+            equipment.type="gant";
+            this.equipments.push(equipment);
+        });
+        this.RESSOURCEequipments.bottes.forEach(equipment => {
+            equipment.type="botte";
+            this.equipments.push(equipment);
+        });
+        this.RESSOURCEequipments.armes.forEach(equipment => {
+            equipment.type="arme";
+            this.equipments.push(equipment);
+        });
+
+        this.consomables = [];
+        this.RESSOURCEequipments.consomables.forEach(equipment => {
+            equipment.type="consomable";
+            this.consomables.push(equipment);
+        });
+
+        this.equipments = this.equipments.sort((a, b) => 0.5 - Math.random());
     }
 
     // fait placer tout les monstres dans le tableau
@@ -215,13 +263,35 @@ class CLASSgameplay {
         let GETProps = this.map.GETprops();
         if(GETProps){
             for (let i = 0; i < GETProps.length; i++) {
-                let idProps = this.idTableau + '' + GETProps[i].position[0]+ '' + GETProps[i].position[1]+ '' + GETProps[i].type;
-    
+                let idProps = this.idTableau [0] + '' + this.idTableau[1] + '' + GETProps[i].position[0]+ '' + GETProps[i].position[1]+ '' + GETProps[i].type;
+
                 if(!this.props[idProps]){
-                    this.props[idProps] = new CLASSprop( idProps, GETProps[i].position, GETProps[i].info);
+                    this.props[idProps] = new CLASSprop( idProps, GETProps[i].position, GETProps[i].info );
                     this.props[idProps].POSTRESSOURCEprops(this.RESSOURCEprops[GETProps[i].type]);
+
+                    // si type coffre -> lui assigne un objet
+                    if(this.props[idProps].GETtype() == 4){
+                        this.props[idProps].SETobject(this.dropObject());
+                    }
                 }
             }
+        }
+    }
+
+    dropObject(){
+        let randomTypeObject = Math.floor(Math.random()*3);
+
+        //type consomable
+        if(randomTypeObject == 1){
+            let randomConso = Math.floor(Math.random()*this.consomables.length);
+            return this.consomables[randomConso];
+        }
+        
+        //type equipement
+        else{
+            let equipement = this.equipments[0];
+            this.equipments.shift();
+            return equipement;
         }
     }
 
@@ -351,27 +421,41 @@ class CLASSgameplay {
                 // met à jour les props de la carte
                 this.majProps();
 
-                // met à jour les stats du joueur
-
                 await this.awaitTransition(300);
                 this.waiting = false
             }
-            this.player.updateStats();
+            this.player.updateJauges();
 
             if(this.player.active() == false){
                 this.menu(5);
             }
+            this.playerIsOnLoot();
         }
     }
 
-    showInventory(){
-        if(this.inventoryActivate == true){
+    playerIsOnLoot(){
+        let posiPlayer = this.player.GETposition();
+        if( this.propPosition[posiPlayer[0]] && this.propPosition[posiPlayer[0]][posiPlayer[1]]){
+            
+            let idProp = this.propPosition[posiPlayer[0]][posiPlayer[1]];
+
+            if(this.props[idProp].GETtype() == 3){
+                
+                let info = this.props[idProp].activation(this.player.GETdirection());
+                this.showText(info);
+            }
+        }
+        return false;
+    }
+
+    showInventory(force = false){
+        if(this.inventoryActivate == true || force){
             this.inventoryActivate = false;
         }
         else{
             this.inventoryActivate = true;
         }
-        this.player.showInventory();
+        this.player.showInventory(force);
     }
 
     async transitionTableau(direction){
@@ -492,6 +576,11 @@ class CLASSgameplay {
                     }
                     this.monsterPosition[monsterPosition[0]][monsterPosition[1]] = monster.id;
                 }
+                else if(monster.dropLoot()){
+                    let item = this.dropObject();
+                    let position = monster.GETposition();
+                    this.dropItem(item, position);
+                }
             }
           });
           return;
@@ -499,7 +588,7 @@ class CLASSgameplay {
 
     majProps(){
         Object.values(this.props).forEach(prop => {
-            if(prop.active() && prop.id.startsWith(this.idTableau)){
+            if(prop.active() && prop.id.startsWith(this.idTableau[0]+''+this.idTableau[1])){
                 let propPosition = prop.GETposition();
                 if(!this.propPosition[propPosition[0]]){
                     this.propPosition[propPosition[0]] = [];
@@ -535,7 +624,7 @@ class CLASSgameplay {
         }
     }
 
-    // renvoie TRUE si la nouvelle position touche un mur
+    // renvoie TRUE si la nouvelle position touche un prop
     touchProp(newPosition, id="player"){
         for (let H = 0; H < this.propPosition.length; H++) {
             if(this.propPosition[H]){
@@ -545,7 +634,14 @@ class CLASSgameplay {
                         if(posiProp[0] == newPosition[0] && posiProp[1] == newPosition[1]){
                             if(id == "player"){
                                 let info = this.props[this.propPosition[H][L]].activation(this.player.GETdirection());
+                                
+                                // prop de type panneau informatif
                                 if(this.props[this.propPosition[H][L]].GETtype() == 1 && info){
+                                    this.showText(info);
+                                }
+                                
+                                // prop de type coffre
+                                else if (this.props[this.propPosition[H][L]].GETtype() == 4 && info){
                                     this.showText(info);
                                 }
                             }
@@ -560,15 +656,74 @@ class CLASSgameplay {
                 }
             }
         }
-        return false
+        return false;
+    }
+
+    actionItemInventory(action, idItem = null){
+        switch (action) {
+            case 1:
+                this.player.showItemInventory(idItem);
+                break;
+        
+            case 2:
+                this.player.unshowItemInventory();
+                break;
+                
+            case 3:
+                this.player.equipItemInventory(idItem);
+                break;
+            
+            case 4:
+                this.player.unequipItemInventory(idItem);
+                break;
+                
+            case 5:
+                this.player.useItemInventory(idItem);
+                break;
+
+            case 6:
+                let item = this.player.getItemInventory(idItem);
+                let position = this.player.GETposition();
+                this.dropItem(item, position, idItem);
+                this.player.unshowItemInventory();
+                break;
+        }
+
+        if(this.player.active() == false){
+            this.menu(5);
+        }
     }
     
+    dropItem(item, position, idItem = false){
+        if( !this.propPosition[position[0]] || !(this.propPosition[position[0]] && this.propPosition[position[0]][position[1]])){
+            let idProp = this.idTableau [0] + '' + this.idTableau[1] + '' + position[0]+ '' + position[1]+ 'L';
+            if(!this.propPosition[position[0]]){
+                this.propPosition[position[0]] = [];
+            }
+            this.propPosition[position[0]][position[1]] = idProp;
+            this.props[idProp] = new CLASSprop(idProp, position);
+            this.props[idProp].POSTRESSOURCEprops(this.RESSOURCEprops[2]);
+            this.props[idProp].SETobject(item);
+            this.props[idProp].propsAffichage();
+            if(idItem !== false){
+                this.player.dropItemInventory(idItem);
+            }
+        }
+    }
+
     // choix à faire dans une boite de dialogue
-    dialogChoice(type){
+    dialogChoice(type, idProp){
         switch (type) {
 
-            // magasin
+            // prendre l'objet du prop
             case 1:
+                if(this.player.asPlaceInInventory() > 0){
+                    let object = this.props[idProp].GETcontent();
+                    this.player.insertItemInInventory(object);
+                    this.PropChangeEtat(idProp);
+                }
+
+                this.unshowText();
                 break;
         
             // ferme la boite de dialogue
@@ -578,25 +733,52 @@ class CLASSgameplay {
         }
     }
 
+    PropChangeEtat(idProp){
+        if(this.props[idProp]){
+            let idAfter = this.props[idProp].GETafter();
+            if(idAfter != false){
+                let nextProp = this.RESSOURCEprops[idAfter];
+                this.props[idProp].POSTRESSOURCEprops(nextProp);
+                this.props[idProp].propsAffichage();
+            }
+            if(this.props[idProp].GETtype() == 3){
+                let posiProp = this.props[idProp].GETposition();
+                this.props[idProp].propDepop();
+
+                if(this.propPosition[posiProp[0]] && this.propPosition[posiProp[0]][posiProp[1]]){
+                    this.propPosition[posiProp[0]][posiProp[1]] = null;
+                }
+                delete this.props[idProp];
+            }
+        }
+    }
+
     // affiche le texte dans la boite de dialogue
     showText(text){
-        this.dialogActivate = true;
-        let letterPosition = 0;
-        let dialogText = document.getElementById('dialog-text');
-        let dialogChoices = document.getElementById('dialog-choices');
-        document.getElementById('ensemble-dialog').style.display = 'flex';
-        
-        const interval = setInterval(() => {
-            dialogText.innerHTML += text.dialog[letterPosition ++];
 
-            // bouton de choix, lors de la fin d'un dialogue
-            if (letterPosition >= text.dialog.length) {
-                for (let i = 0; i < text.buttons.length; i++) {
-                    dialogChoices.innerHTML += '<button onclick="dialogChoice('+text.buttons[i].type+')">'+text.buttons[i].name+'</button>'
+        if(text){
+            this.dialogActivate = true;
+            let letterPosition = 0;
+            let dialogText = document.getElementById('dialog-text');
+            let dialogChoices = document.getElementById('dialog-choices');
+            document.getElementById('ensemble-dialog').style.display = 'flex';
+            
+            const interval = setInterval(() => {
+                dialogText.innerHTML += text.dialog[letterPosition ++].replace(/\n/g, "<br>");
+    
+                // bouton de choix, lors de la fin d'un dialogue
+                if (letterPosition >= text.dialog.length) {
+                    for (let i = 0; i < text.buttons.length; i++) {
+                        let idProp = 0;
+                        if(text.buttons[i].idProp){
+                            idProp = text.buttons[i].idProp;
+                        }
+                        dialogChoices.innerHTML += '<button onclick="dialogChoice('+text.buttons[i].type+',\''+idProp+'\')">'+text.buttons[i].name+'</button>'
+                    }
+                    clearInterval(interval);
                 }
-                clearInterval(interval);
-            }
-        }, 25);
+            }, 25);
+        }
     }
 
     // masque la boite de dialogue
@@ -624,12 +806,25 @@ class CLASSgameplay {
 
     attackMonster(idMonster){
         let degats = this.player.attack();
-        this.monsters[idMonster].impact(degats, this.player.GETdirection());
+        let precisionPOUR100 = this.player.precision();
+        let esquive = this.monsters[idMonster].esquive(precisionPOUR100);
+        if(esquive){
+            //console.log('esquive !');
+        }else{
+            this.monsters[idMonster].impact(degats, this.player.GETdirection());
+        }
     }
 
     attackPlayer(idMonster){
         let degats = this.monsters[idMonster].attack();
-        this.player.impact(degats, this.monsters[idMonster].GETdirection());
+        let precisionPOUR100 = this.monsters[idMonster].precision();
+        let esquive = this.player.esquive(precisionPOUR100);
+        if(esquive){
+            //console.log('esquive !');
+        }
+        else{
+            this.player.impact(degats, this.monsters[idMonster].GETdirection());
+        }
     }
 
     showMenu(show){

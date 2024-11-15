@@ -22,7 +22,7 @@
     "1":[
         {
             "name":"orc",
-            "PV" : 5,
+            "PV" : 6,
             "PM" : 0,
             "FOR" : 2,
             "ADR" : 1,
@@ -45,10 +45,10 @@
             "name":"orc",
             "PV" : 10,
             "PM" : 0,
-            "FOR" : 3,
-            "ADR" : 1,
+            "FOR" : 4,
+            "ADR" : 2,
             "INT" : 0,
-            "ARMO" : 0,
+            "ARMO" : 1,
             "XP" : 20,
             "IA" : "berzerk",
             "vision" : 5,
@@ -61,7 +61,7 @@
         },
         {
             "name":"blob",
-            "PV" : 6,
+            "PV" : 8,
             "PM" : 0,
             "FOR" : 5,
             "ADR" : 1,

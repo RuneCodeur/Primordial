@@ -11,7 +11,7 @@
         display: none;
         background-color: black;
         position: absolute;
-        z-index: 500;
+        z-index: 55;
         left: -100%;
         transition: all 0.2s;
     }
@@ -65,7 +65,7 @@
         width: 100%;
         height: 100%;
         background-color: rgb(222, 184, 135);
-        z-index: 5;
+        z-index: 50;
         display: none;
         div{
             position: absolute;
@@ -110,7 +110,21 @@
             align-content: space-around;
             button{
                 margin: 8px;
+                span{
+                    position: absolute;
+                    display: flex;
+                    height: 100%;
+                    width: 100%;
+                }
+                span:hover{
+                    background-image:url('./public/assets/cross.png');
+                    background-position: center;
+                    background-size: cover;
+                    image-rendering: crisp-edges;
+                    image-rendering: pixelated;
+                }
             }
+            
         }
         #inventory-content{
             bottom: 10px;
@@ -122,13 +136,87 @@
             flex-wrap:wrap;
             justify-content:space-evenly;
             align-items: center;
-
         }
         #navigation{
             left: 10px;
             top: 10px;
             width: 310px;
             height: 50px;
+        }
+        #itemInventory{
+            bottom: 10px;
+            height: 340px;
+            left: 10px;
+            width: 620px;
+            z-index: 5;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.7);
+            p{
+                color: white;
+                position: absolute;
+            }
+            img{
+                position: absolute;
+                width: 128px;
+                height:128px;
+                top: 75px;
+                right: 25px;
+            }
+            .titre{
+                width: 100%;
+                text-align: center;
+                top: 5px;
+                left: 0;
+                font-size: 1.5rem;
+            }
+            .description{
+                width: 70%;
+                height:128px;
+                top: 75px;
+                left: 10px;
+            }
+            .stats{
+                border: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-end;
+                bottom: 10px;
+                right: 25px;
+                width: 300px;
+                height: 110px;
+                p{
+                    position: initial;
+                    b{
+                        margin-left: 10px;
+                        color: white;
+                    }
+                    .bonus{
+                        color: rgb(120, 235, 120);
+                    }
+                    .malus{
+                        color: rgb(235, 120, 120);
+                    }
+                }
+            }
+            .Buttons{
+                border: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                bottom: 10px;
+                left: 25px;
+                height: 130px;
+                width: 250px;
+                button{
+                    width: 200px;
+                    height: 30px;
+                    background-color: white;
+                    font-size: 1.3rem;
+                    font-weight: bolder;
+                }
+            }
         }
     }
     #units{
@@ -158,8 +246,6 @@
                 animation-iteration-count: 1;
             }
         }
-
-
         img{
             min-height: 64px;
             width: 64px;
@@ -179,6 +265,7 @@
         overflow: hidden;
         justify-content: center;
         align-items: flex-end;
+        z-index: 20;
         #dialog{
             display: flex;
             width: 90%;

@@ -3,11 +3,7 @@
 CONCEPT : faire un jeu de type RPG complet uniquement en JavaScript, sans framework
 
 ajouts prévus :
-faire l'inventaire
-afficher les stats
-faire un prop coffre
-faire un casque, une épée, et une armure
-pouvoir s'equiper
+afficher une icone "ESQUIVE !" lors d'une esquive
 faire plus de monstre
 ajouter la musique
 faire l'experience
@@ -31,7 +27,6 @@ faire un arbre de compétence par classe
 faire un swap color entre les classes
 faire un genderswap entre les classes
 faire un map creator
-faire des potions de soins
 faire des potions de mana
 faire du pognon
 faire un marchand
@@ -42,10 +37,6 @@ faire la compétence invisibilité
 faire la compétence piège à ours *
 faire des alterations d'etats(paralysé -> ne peux attaquer; sommeil -> ne peux ni attaquer, ni bouger, ni se tourner; poison -> degats X*temps restants; brulé -> degats fixes)
 afficher une icone pour chaque alteration d'etat
-quand l'unité change sa position de la hauteur -> change le zindex
-props et monstres dans la meme div
-les props traversables -> fixer le zindex = 0 
-faire les tuiles divers - coffres/equipements
 
 biomes
     defaut :

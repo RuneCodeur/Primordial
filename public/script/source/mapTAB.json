@@ -98,6 +98,12 @@
                         "direction":1,
                         "position": [8, 7]
                     }
+                ],
+                "props":[
+                    {
+                        "type":3,
+                        "position":[3, 7]
+                    }
                 ]
             },
             {
@@ -127,7 +133,7 @@
                         "type":1,
                         "position":[3, 5],
                         "info":{
-                            "dialog": "Voici ta quête: un puissant monstre terrorise la région. Suis la route pavée pour le trouver et elimine-le !",
+                            "dialog": "Voici ta quête: un puissant monstre terrorise la région. Suis la route pavée pour le trouver et elimine-le ! \n\n PS: utilise l'objet contenue dans le coffre pour t'aider dans ta quête.",
                             "buttons" : [
                                 {
                                     "type":0,
@@ -135,6 +141,10 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "type":3,
+                        "position":[3, 6]
                     }
                 ]
             },
@@ -223,6 +233,12 @@
                     "3":1
                 },
                 "monsters" : [
+                ],
+                "props":[
+                    {
+                        "type":3,
+                        "position":[3, 3]
+                    }
                 ]
             },
             {
@@ -276,7 +292,7 @@
                 "props":[
                     {
                         "type":1,
-                        "position":[3, 6],
+                        "position":[2, 6],
                         "info":{
                             "dialog": "Félicitation ! Le monstre est vaincu ! Ceci est la toute 1ère version du jeu 'Primordial', merci d'avoir joué !",
                             "buttons" : [
@@ -286,6 +302,14 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "type":3,
+                        "position":[2, 5]
+                    },
+                    {
+                        "type":3,
+                        "position":[2, 7]
                     }
                 ]
             },

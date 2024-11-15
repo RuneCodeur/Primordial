@@ -7,6 +7,7 @@ class CLASSunit {
         this.directionPrec = 0;
         this.id = '';
         this.name = '';
+        this.isLooted = false;
 
         this.PV = 5;    // nombre de point de vie
         this.PVmax = 5; // nombre de point de vie maximum
@@ -95,6 +96,7 @@ class CLASSunit {
         if(document.getElementById("unit-"+this.id) == null){
             this.unitAffichage();
         }else{
+            document.getElementById('unit-'+this.id).style.zIndex = this.position[0];
             document.getElementById('unit-'+this.id).style.top = this.position[0]*64 + 'px';
             document.getElementById('unit-'+this.id).style.left = this.position[1]*64 + 'px';
         }
@@ -102,7 +104,7 @@ class CLASSunit {
 
     // affiche l'unité
     unitAffichage(){
-        let unit = '<div id="unit-'+this.id+'"  style="top:'+(this.position[0]*64) +'px; left:'+(this.position[1]*64) +'px;" ><img id="unit-'+this.id+'-img" src="./public/assets/'+this.assets[this.direction] +'"></div>';
+        let unit = '<div id="unit-'+this.id+'"  style="z-index:'+this.position[0]+';top:'+(this.position[0]*64) +'px; left:'+(this.position[1]*64) +'px;" ><img id="unit-'+this.id+'-img" src="./public/assets/'+this.assets[this.direction] +'"></div>';
         document.getElementById('units').insertAdjacentHTML('beforeend', unit);
     }
 
@@ -110,6 +112,21 @@ class CLASSunit {
         let afficheUnit = document.getElementById('unit-'+this.id);
         if(afficheUnit){
             afficheUnit.remove();
+        }
+    }
+
+    dropLoot(){
+        if(this.isLooted == false){
+            this.isLooted = true;
+            let drop = Math.round(Math.random()*3);
+            if(drop == 1){
+                return false;
+            }else{
+                return true;
+            }
+        }
+        else{
+            return false;
         }
     }
 
@@ -123,8 +140,8 @@ class CLASSunit {
     }
 
     // l'unité attaque
-    attack(){
-        return this.FOR;
+    attack(FOR = this.FOR){
+        return FOR;
     }
 
     // l'unité meurt
@@ -141,7 +158,7 @@ class CLASSunit {
     }
 
     // subit les degats
-    impact(degats, direction){
+    impact(degats, direction, ARMO = this.ARMO){
 
         // si attaque dans le dos -> degats X2
         if(direction == this.GETdirection()){
@@ -165,12 +182,34 @@ class CLASSunit {
         this.POSTdirection(newDirection);
         this.directionAffichage();
 
-        this.PV -= degats;
+        this.PV -= Math.max((degats - ARMO), 1);
         if(this.PV < 0){
             this.PV = 0;
         }
 
         this.impactAffichage();
+    }
+
+    //esquive
+    esquive(precisionPOUR100, ADR = this.ADR){
+        let esquivePOUR100 = Math.max(Math.min(ADR*5, 50), 5); 
+        
+        esquivePOUR100 = Math.max((esquivePOUR100 - precisionPOUR100), 5);
+
+        let esquiveRANDOM = Math.floor(Math.random()*100);
+        
+        if(esquiveRANDOM <= esquivePOUR100){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    //precision
+    precision(ADR = this.ADR){
+        let precisionPOUR100 = Math.max(Math.min(ADR*5, 50), 5);
+        return precisionPOUR100;
     }
 
     // effet visuel sur l'impact lors des degats

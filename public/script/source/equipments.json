@@ -1,0 +1,164 @@
+{
+    "casques":[
+        {
+            "name":"chapeau de magicien",
+            "img": "hat-1.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":0,
+                "INT":1,
+                "ARMO":0
+            },
+            "description": "Un chapeau qui semble dégager une mystérieuse magie."
+        },{
+            "name":"cape verte",
+            "img": "hat-2.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":1,
+                "INT":0,
+                "ARMO":0
+            },
+            "description": "Un tissu léger de couleur verte qui cache les mouvements aux adversaires."
+        },
+        {
+            "name":"casque de chevalier",
+            "img": "hat-3.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":0,
+                "INT":0,
+                "ARMO":2
+            },
+            "description": "Un casque lourd, solide mais bloque un peu la vue."
+        },
+        {
+            "name":"chapeau de paysan",
+            "img": "hat-4.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":0,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Un chapeau simple, qui protège du soleil."
+        }
+    ],
+    "armures":[
+        {
+            "name":"robe de magicien",
+            "img": "armor-1.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":0,
+                "INT":1,
+                "ARMO":0
+            },
+            "description": "Une tenue utilisé par des lanceurs de sorts. elle semble empli d'une magie que vous ne comprenez pas."
+        },
+        {
+            "name":"veste de rodeur",
+            "img": "armor-2.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":1,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Une veste ayant appartenue à un ancien rodeur. Elle permet de faciliter les esquives."
+        },
+        {
+            "name":"armure de plate",
+            "img": "armor-3.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":0,
+                "INT":0,
+                "ARMO":2
+            },
+            "description": "Une grosse armure. resistante, mais un peu lourde."
+        },
+        {
+            "name":"veste de paysan",
+            "img": "armor-4.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":0,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Une simple veste, utilisé par beaucoup dans la vie de tout les jours."
+        }
+    ],
+    "gants":[
+
+    ],
+    "bottes":[
+
+    ],
+    "armes":[
+        {
+            "name":"bâton de combat",
+            "img": "staff-1.png",
+            "bonus":{
+                "FOR":1,
+                "ADR":0,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Un simple bâton équilibré. Avec, il est facile de bloquer des coups."
+        },
+        {
+            "name":"épée simple",
+            "img": "sword-1.png",
+            "bonus":{
+                "FOR":1,
+                "ADR":0,
+                "INT":0,
+                "ARMO":0
+            },
+            "description": "Une simple épée en fer."
+        },
+        {
+            "name":"sabre lourd",
+            "img": "sword-2.png",
+            "bonus":{
+                "FOR":2,
+                "ADR":0,
+                "INT":0,
+                "ARMO":0
+            },
+            "description": "Une épée avec une lame courbée."
+        },
+        {
+            "name":"fleuret",
+            "img": "sword-3.png",
+            "bonus":{
+                "FOR":1,
+                "ADR":1,
+                "INT":0,
+                "ARMO":0
+            },
+            "description": "Une épée avec une lame fine, plus légère mais plus facile à utiliser."
+        }
+    ],
+    
+    "consomables":[
+        {
+            "name":"petite potion de vie",
+            "img": "potion-L1.png",
+            "bonus":{
+                "PV":2
+            },
+            "description": "Redonne un peu de vie."
+        },
+        {
+            "name":"grande potion de vie",
+            "img": "potion-L2.png",
+            "bonus":{
+                "PV":5
+            },
+            "description": "Redonne beaucoup de vie."
+        }
+    ]
+}
