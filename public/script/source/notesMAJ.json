@@ -1,4 +1,7 @@
 {
+    "0.8.1":[
+        "Ajustement du bouton inventaire pour le format mobile."
+    ],
     "0.8.0":[
         "Ajout de coffres.",
         "Les monstres peuvent lacher des objets.",
