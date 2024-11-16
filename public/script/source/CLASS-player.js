@@ -282,8 +282,7 @@ class CLASSplayer extends CLASSunit {
     }
     
     unequipItemInventory(idItem){
-        if(this.asPlaceInInventory() > 0){
-            console.log(this.equipment[idItem]);
+        if(this.asPlaceInInventory() > 0 && this.equipment[idItem]){
             this.items.push(this.equipment[idItem]);
             this.equipment[idItem] = null;
         }

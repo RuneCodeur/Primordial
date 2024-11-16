@@ -13,7 +13,7 @@ class CLASSgameplay {
         this.menuAffichage = document.getElementById('menu');
         this.player = null;
         this.map = null;
-        this.idMoveMaintenu = null;
+        this.idMoveMaintenu = [];
         this.monsters = {};
         this.monsterPosition = [];
         this.equipments = [];
@@ -335,20 +335,23 @@ class CLASSgameplay {
     // deplacement maintenu du personnage
     async moveMaintenu(direction, isDesactive = false){
         if (isDesactive == false){
+            //clearInterval(this.idMoveMaintenu);
+            this.idMoveMaintenu.forEach(id => {
+                clearInterval(id);
+            });
+            this.idMoveMaintenu = [];
             this.isMoveMaintenu = false;
-            clearInterval(this.idMoveMaintenu);
-            this.idMoveMaintenu = null;
         }
-        else if( this.idMoveMaintenu == null){
+        else if( this.idMoveMaintenu.length == 0){
             this.isMoveMaintenu = true;
             this.move(direction);
             setTimeout(() => {
                 if(this.isMoveMaintenu){
-                    this.idMoveMaintenu = setInterval(() => {
+                    this.idMoveMaintenu.push(setInterval(() => {
                         if(this.isMoveMaintenu){
                             this.move(direction);
                         }
-                    }, 100);
+                    }, 200));
                 }
             }, 300);
         }
@@ -356,7 +359,7 @@ class CLASSgameplay {
 
     // deplacement du personnage
     async move(direction = null){
-        if(this.waiting == false && this.inventoryActivate == false){
+        if(this.waiting == false && this.inventoryActivate == false && this.dialogActivate == false){
             this.waiting = true
 
             if(direction === null){
@@ -413,17 +416,16 @@ class CLASSgameplay {
 
             }
 
-            if(this.dialogActivate == false){
 
-                // fait bouger tout les monstres
-                await this.moveAllMonsters();
+            // fait bouger tout les monstres
+            await this.moveAllMonsters();
 
-                // met à jour les props de la carte
-                this.majProps();
+            // met à jour les props de la carte
+            this.majProps();
 
-                await this.awaitTransition(300);
-                this.waiting = false
-            }
+            await this.awaitTransition(300);
+            this.waiting = false
+
             this.player.updateJauges();
 
             if(this.player.active() == false){

@@ -1,4 +1,9 @@
 {
+    "0.8.2":[
+        "Correctif du mouvement au touché continue qui peux se bloquer.",
+        "Correctif du bug de l'item vide dans l'inventaire.",
+        "Correctif d'un mouvement possible du joueur lors des dialogue"
+    ],
     "0.8.1":[
         "Ajustement du bouton inventaire pour le format mobile."
     ],
