@@ -360,7 +360,7 @@ class CLASSgameplay {
     // deplacement du personnage
     async move(direction = null){
         if(this.waiting == false && this.inventoryActivate == false && this.dialogActivate == false){
-            this.waiting = true
+            this.waiting = true;
 
             if(direction === null){
                 this.player.moveAffichage();
@@ -379,7 +379,7 @@ class CLASSgameplay {
                 //le joueur se déplace vers un autre tableau
                 if(testLimit){
                     this.transitionTableau(direction);
-                    await this.awaitTransition(300);
+                    await this.awaitTransition(500);
                     // fait dépop les monstres
                     this.depopMonster();
                     this.depopProps();
@@ -431,6 +431,8 @@ class CLASSgameplay {
             if(this.player.active() == false){
                 this.menu(5);
             }
+
+            //++ optimisation : mis à jour de la physique du tableau ICI
             this.playerIsOnLoot();
         }
     }
@@ -810,10 +812,25 @@ class CLASSgameplay {
         let degats = this.player.attack();
         let precisionPOUR100 = this.player.precision();
         let esquive = this.monsters[idMonster].esquive(precisionPOUR100);
+        let esquiveDirection = false;
         if(esquive){
-            //console.log('esquive !');
-        }else{
+            esquiveDirection = this.tryEsquive(idMonster);
+        }
+        
+        if(esquiveDirection == false){
             this.monsters[idMonster].impact(degats, this.player.GETdirection());
+        }
+        else{
+            let oldPosition = this.monsters[idMonster].GETposition();
+            let newPosition = this.monsters[idMonster].GETnewPosition(esquiveDirection);
+            this.monsters[idMonster].POSTdeplacement(newPosition);
+            this.monsters[idMonster].moveAffichage();
+
+            this.monsterPosition[oldPosition[0]][oldPosition[1]] = null;
+            if(!this.monsterPosition[newPosition[0]]){
+                this.monsterPosition[newPosition[0]] = [];
+            }
+            this.monsterPosition[newPosition[0]][newPosition[1]] = idMonster;
         }
     }
 
@@ -821,12 +838,93 @@ class CLASSgameplay {
         let degats = this.monsters[idMonster].attack();
         let precisionPOUR100 = this.monsters[idMonster].precision();
         let esquive = this.player.esquive(precisionPOUR100);
+        let esquiveDirection = false;
         if(esquive){
-            //console.log('esquive !');
+            esquiveDirection = this.tryEsquive();
         }
-        else{
+        
+        if(esquiveDirection == false){
             this.player.impact(degats, this.monsters[idMonster].GETdirection());
         }
+        else{
+            let newPosition = this.player.GETnewPosition(esquiveDirection);
+            this.player.POSTdeplacement(newPosition);
+            this.player.moveAffichage();
+        }
+    }
+
+    tryEsquive(idMonster = null){
+        let limit = false;
+        let position = [0, 0];
+        let directionPossible = [];
+        let esquiveDirection = false;
+
+        console.log(idMonster);
+        if(idMonster){
+            position = this.monsters[idMonster].GETposition();
+            limit = true;
+        }
+        else{
+            position = this.player.GETposition();
+        }
+
+        let physicMap = this.map.GETphysics(limit);
+        let unitMap = this.UnitMap();
+
+        //check si le bas est dispo
+        if(physicMap[position[0] +1] && physicMap[position[0] +1][position[1]] === 0){
+            if(unitMap[position[0] +1] && unitMap[position[0] +1][position[1]] === 0 ){
+                directionPossible.push(0);
+            }
+        }
+
+        //check si la gauche est dispo
+        if(physicMap[position[0]] && physicMap[position[0]][position[1] -1] === 0){
+            if(unitMap[position[0]] && unitMap[position[0]][position[1] -1] === 0 ){
+                directionPossible.push(1);
+            }
+        }
+
+        //check si le haut est dispo
+        if(physicMap[position[0] -1] && physicMap[position[0] -1][position[1]] === 0){
+            if(unitMap[position[0] -1] && unitMap[position[0] -1][position[1]] === 0 ){
+                directionPossible.push(2);
+            }
+        }
+
+        //check si la droite est dispo
+        if(physicMap[position[0]] && physicMap[position[0]][position[1] +1] === 0){
+            if(unitMap[position[0]] && unitMap[position[0]][position[1] +1] === 0 ){
+                directionPossible.push(3);
+            }
+           
+        }
+
+        if(directionPossible.length > 0){
+            esquiveDirection = directionPossible[Math.floor(Math.random() * directionPossible.length)];
+        }
+
+        return esquiveDirection;
+    }
+
+    // retourne la position de toutes les unités sur la map (0 = vide, 1 = monstre, 2 = player)
+    UnitMap(){
+        let tilesTAB = [];
+        let PosiPlayer = this.player.GETposition();
+        for (let H = 0; H < window.TABhauteur; H++) {
+            tilesTAB[H] = [];
+            for (let L = 0; L < window.TABlargeur; L++) {
+                tilesTAB[H][L] = 0;
+
+                if(this.monsterPosition[H] && this.monsterPosition[H][L] && this.monsters[this.monsterPosition[H][L]].active()){
+                    tilesTAB[H][L] = 1;
+                }
+                if(PosiPlayer[0] == H && PosiPlayer[1] == L){
+                    tilesTAB[H][L] = 2;
+                }
+            }
+        }
+        return tilesTAB;
     }
 
     showMenu(show){

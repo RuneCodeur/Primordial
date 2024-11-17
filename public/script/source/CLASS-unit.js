@@ -192,7 +192,7 @@ class CLASSunit {
 
     //esquive
     esquive(precisionPOUR100, ADR = this.ADR){
-        let esquivePOUR100 = Math.max(Math.min(ADR*5, 50), 5); 
+        let esquivePOUR100 = Math.max(Math.min(ADR*5, 80), 5); 
         
         esquivePOUR100 = Math.max((esquivePOUR100 - precisionPOUR100), 5);
 
@@ -208,7 +208,7 @@ class CLASSunit {
 
     //precision
     precision(ADR = this.ADR){
-        let precisionPOUR100 = Math.max(Math.min(ADR*5, 50), 5);
+        let precisionPOUR100 = Math.max(Math.min(ADR*5, 80), 5);
         return precisionPOUR100;
     }
 

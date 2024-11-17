@@ -1,4 +1,8 @@
 {
+    "0.9.0":[
+        "Lors-ce qu'un personnage esquive, il se décale d'une case.",
+        "Ajustement du taux d'esquive."
+    ],
     "0.8.2":[
         "Correctif du mouvement au touché continue qui peux se bloquer.",
         "Correctif du bug de l'item vide dans l'inventaire.",
