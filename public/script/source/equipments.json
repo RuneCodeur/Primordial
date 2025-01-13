@@ -1,6 +1,17 @@
 {
     "casques":[
         {
+            "name":"chapeau de paysan",
+            "img": "hat-0.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":0,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Un chapeau simple, qui protège du soleil."
+        },
+        {
             "name":"chapeau de magicien",
             "img": "hat-1.png",
             "bonus":{
@@ -10,12 +21,24 @@
                 "ARMO":0
             },
             "description": "Un chapeau qui semble dégager une mystérieuse magie."
-        },{
-            "name":"cape verte",
+        },
+        {
+            "name":"chapeau de pirate",
             "img": "hat-2.png",
             "bonus":{
-                "FOR":0,
+                "FOR":1,
                 "ADR":1,
+                "INT":0,
+                "ARMO":0
+            },
+            "description": "Le chapeau d'un vieux corsaire, adepte des pillages et des voyages en bateaux."
+        },
+        {
+            "name":"cape verte",
+            "img": "hat-3.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":2,
                 "INT":0,
                 "ARMO":0
             },
@@ -23,7 +46,7 @@
         },
         {
             "name":"casque de chevalier",
-            "img": "hat-3.png",
+            "img": "hat-4.png",
             "bonus":{
                 "FOR":0,
                 "ADR":0,
@@ -33,18 +56,62 @@
             "description": "Un casque lourd, solide mais bloque un peu la vue."
         },
         {
-            "name":"chapeau de paysan",
-            "img": "hat-4.png",
+            "name":"masque du chasseur",
+            "img": "hat-5.png",
+            "bonus":{
+                "FOR":3,
+                "ADR":2,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Un masque fait à partir d'une peau de loup, facilitant la chasse."
+        },
+        {
+            "name":"capuchon des elfes sylvain",
+            "img": "hat-6.png",
+            "bonus":{
+                "FOR":1,
+                "ADR":4,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Une capuche légère, fait dans un tissu que seul les elfes ont le secret."
+        },
+        {
+            "name":"haume de paladin",
+            "img": "hat-7.png",
+            "bonus":{
+                "FOR":1,
+                "ADR":0,
+                "INT":0,
+                "ARMO":5
+            },
+            "description": "Un casque que seul un chevalier au grand coeur peut porter."
+        },
+        {
+            "name":"casque du guerrier antique",
+            "img": "hat-8.png",
+            "bonus":{
+                "FOR":3,
+                "ADR":2,
+                "INT":0,
+                "ARMO":5
+            },
+            "description": "Un casque ayant appartenue à un grand guerrier, oublié de tous. Il est fait d'un étrange métal très resistant."
+        }
+    ],
+    "armures":[
+        {
+            "name":"veste de paysan",
+            "img": "armor-0.png",
             "bonus":{
                 "FOR":0,
                 "ADR":0,
                 "INT":0,
                 "ARMO":1
             },
-            "description": "Un chapeau simple, qui protège du soleil."
-        }
-    ],
-    "armures":[
+            "description": "Une simple veste, utilisé par beaucoup dans la vie de tout les jours."
+        },
         {
             "name":"robe de magicien",
             "img": "armor-1.png",
@@ -57,8 +124,19 @@
             "description": "Une tenue utilisé par des lanceurs de sorts. elle semble empli d'une magie que vous ne comprenez pas."
         },
         {
-            "name":"veste de rodeur",
+            "name":"veste de pirate",
             "img": "armor-2.png",
+            "bonus":{
+                "FOR":1,
+                "ADR":0,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "La veste d'un vieux corsaire, fait d'un tissus resistant et adapté aux tempêtes maritimes."
+        },
+        {
+            "name":"veste de rodeur",
+            "img": "armor-3.png",
             "bonus":{
                 "FOR":0,
                 "ADR":1,
@@ -69,7 +147,7 @@
         },
         {
             "name":"armure de plate",
-            "img": "armor-3.png",
+            "img": "armor-4.png",
             "bonus":{
                 "FOR":0,
                 "ADR":0,
@@ -79,15 +157,48 @@
             "description": "Une grosse armure. resistante, mais un peu lourde."
         },
         {
-            "name":"veste de paysan",
-            "img": "armor-4.png",
+            "name":"peau du chasseur",
+            "img": "armor-5.png",
+            "bonus":{
+                "FOR":3,
+                "ADR":1,
+                "INT":0,
+                "ARMO":2
+            },
+            "description": "Une grosse armure. resistante, mais un peu lourde."
+        },
+        {
+            "name":"armure des elfes sylvain",
+            "img": "armor-6.png",
             "bonus":{
                 "FOR":0,
+                "ADR":4,
+                "INT":0,
+                "ARMO":2
+            },
+            "description": "Une armure à la fois souple et resistante, fait dans un metal que seul les elfes ont le secret."
+        },
+        {
+            "name":"armure de paladin",
+            "img": "armor-7.png",
+            "bonus":{
+                "FOR":2,
                 "ADR":0,
                 "INT":0,
-                "ARMO":1
+                "ARMO":4
             },
-            "description": "Une simple veste, utilisé par beaucoup dans la vie de tout les jours."
+            "description": "Une armure lourde porté par des chevaliers au coeur noble."
+        },
+        {
+            "name":"armure du guerrier antique",
+            "img": "armor-8.png",
+            "bonus":{
+                "FOR":2,
+                "ADR":3,
+                "INT":0,
+                "ARMO":5
+            },
+            "description": "Une armure ayant appartenue à un grand guerrier, oublié par tous. Il est fait d'un étrange métal très resistant."
         }
     ],
     "gants":[
@@ -99,7 +210,7 @@
     "armes":[
         {
             "name":"bâton de combat",
-            "img": "staff-1.png",
+            "img": "staff-0.png",
             "bonus":{
                 "FOR":1,
                 "ADR":0,
@@ -109,8 +220,52 @@
             "description": "Un simple bâton équilibré. Avec, il est facile de bloquer des coups."
         },
         {
+            "name":"bâton de mage",
+            "img": "staff-1.png",
+            "bonus":{
+                "FOR":1,
+                "ADR":0,
+                "INT":2,
+                "ARMO":1
+            },
+            "description": "Un bâton utilisé pour lancer des sortillèges. Vous ne savez pas vraiment comment l'utiliser."
+        },
+        {
+            "name":"bâton de druide",
+            "img": "staff-2.png",
+            "bonus":{
+                "FOR":2,
+                "ADR":0,
+                "INT":4,
+                "ARMO":1
+            },
+            "description": "Un bâton fait dans un bois étrange. il est utilisé par les lanceurs de sort confirmé."
+        },
+        {
+            "name":"griffe du chasseur",
+            "img": "weapon-0.png",
+            "bonus":{
+                "FOR":4,
+                "ADR":2,
+                "INT":0,
+                "ARMO":0
+            },
+            "description": "Une arme de poing, imitant les griffes d'un prédateur féroce."
+        },
+        {
+            "name":"masse d'arme",
+            "img": "weapon-1.png",
+            "bonus":{
+                "FOR":5,
+                "ADR":0,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Une arme lourde, difficile à manier mais pouvant faire beaucoup de dégats."
+        },
+        {
             "name":"épée simple",
-            "img": "sword-1.png",
+            "img": "sword-0.png",
             "bonus":{
                 "FOR":1,
                 "ADR":0,
@@ -120,33 +275,66 @@
             "description": "Une simple épée en fer."
         },
         {
-            "name":"sabre lourd",
-            "img": "sword-2.png",
-            "bonus":{
-                "FOR":2,
-                "ADR":0,
-                "INT":0,
-                "ARMO":0
-            },
-            "description": "Une épée avec une lame courbée."
-        },
-        {
-            "name":"fleuret",
-            "img": "sword-3.png",
+            "name":"sabre de pirate",
+            "img": "sword-1.png",
             "bonus":{
                 "FOR":1,
                 "ADR":1,
                 "INT":0,
                 "ARMO":0
             },
+            "description": "Le sabre d'un vieux corsaire, adapté pour les duels en haute mer."
+        },
+        {
+            "name":"fleuret",
+            "img": "sword-2.png",
+            "bonus":{
+                "FOR":1,
+                "ADR":2,
+                "INT":0,
+                "ARMO":0
+            },
             "description": "Une épée avec une lame fine, plus légère mais plus facile à utiliser."
+        },
+        {
+            "name":"sabre lourd",
+            "img": "sword-3.png",
+            "bonus":{
+                "FOR":1,
+                "ADR":0,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Une épée avec une lame courbée."
+        },
+        {
+            "name":"katana des elfes sylvain",
+            "img": "sword-4.png",
+            "bonus":{
+                "FOR":3,
+                "ADR":3,
+                "INT":0,
+                "ARMO":0
+            },
+            "description": "Une lame à la fois légère et équilibré, forgé par les elfes."
+        },
+        {
+            "name":"lame du guerrier antique",
+            "img": "sword-5.png",
+            "bonus":{
+                "FOR":5,
+                "ADR":2,
+                "INT":0,
+                "ARMO":3
+            },
+            "description": "Une arme uniuque et légendaire, utilisé autrefois pour vaincre des monstres très puissant."
         }
     ],
     
     "consomables":[
         {
             "name":"petite potion de vie",
-            "img": "potion-L1.png",
+            "img": "potion-L0.png",
             "bonus":{
                 "PV":2
             },
@@ -154,7 +342,7 @@
         },
         {
             "name":"grande potion de vie",
-            "img": "potion-L2.png",
+            "img": "potion-L1.png",
             "bonus":{
                 "PV":5
             },

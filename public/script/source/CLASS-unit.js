@@ -214,10 +214,10 @@ class CLASSunit {
 
     // effet visuel sur l'impact lors des degats
     async impactAffichage(){
-        document.getElementById('unit-'+this.id).style.filter = 'grayscale(100%) brightness(0.7) sepia(1) hue-rotate(-50deg) saturate(1000%)';
+        document.getElementById('unit-'+this.id+'-img').style.filter = 'grayscale(100%) brightness(0.7) sepia(1) hue-rotate(-50deg) saturate(1000%)';
         setTimeout(() => {
-            if(document.getElementById('unit-'+this.id)){
-                document.getElementById('unit-'+this.id).style.filter = 'none';
+            if(document.getElementById('unit-'+this.id+'-img')){
+                document.getElementById('unit-'+this.id+'-img').style.filter = 'none';
                 if(this.PV <= 0){
                     this.dead();
                 }

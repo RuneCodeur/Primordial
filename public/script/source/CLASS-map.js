@@ -2,6 +2,7 @@
 class CLASSmap {
     constructor(idTableauInit) {
         this.idTableau = idTableauInit;
+        this.typeMap = 0;
         this.mapAffichage = document.getElementById('map');
         this.allMap = {};
         this.RESSOURCEmapTiles = {};
@@ -18,7 +19,10 @@ class CLASSmap {
 
     // retourne la liste des props du tableau actuel
     GETprops(){
-        return this.allMap[this.idTableau[0]][this.idTableau[1]].tab.props;
+        let MapTab = JSON.parse(JSON.stringify(this.allMap[this.idTableau[0]][this.idTableau[1]].tab.props));
+        this.allMap[this.idTableau[0]][this.idTableau[1]].tab.props = [];
+        
+        return MapTab;
     }
 
     // retourne la physique des cellules du tableau
@@ -39,12 +43,19 @@ class CLASSmap {
         return tilesTypeTAB;
     }
 
-    LETTtableau(idTableau){
+    LETtableau(idTableau){
         this.idTableau = idTableau;
     }
-    
+
     LETTRESSOURCEmapTAB(RESSOURCEmapTAB){
-        this.LETRESSOURCEMapWay(RESSOURCEmapTAB);
+        if(RESSOURCEmapTAB.typeMap){
+            this.typeMap = RESSOURCEmapTAB.typeMap;
+        }
+
+        if(this.typeMap === "random"){
+            this.LETRESSOURCEMapWay(RESSOURCEmapTAB);
+        }
+
         this.RESSOURCEmapTAB = RESSOURCEmapTAB;
     }
     
@@ -82,26 +93,69 @@ class CLASSmap {
     
     // affichage du tableau actuel
     showTableau(showTile = false){
-        let tableau = "";
-        
-        for (let H = 0; H < TABhauteur; H++) {
-            tableau += "<div class='lign'>"
-            for (let L = 0; L < TABlargeur; L++) {
-                let tile ='';
-                if(showTile){
-                    tile = "<img src='./public/assets/" + this.RESSOURCEmapTiles[this.allMap[this.idTableau[0]][this.idTableau[1]].tab.tiles[H][L]].img + "'>";
+        if(this.idTableau != 0){
+            let tableau = "";
+            for (let H = 0; H < TABhauteur; H++) {
+                tableau += "<div class='lign'>"
+                for (let L = 0; L < TABlargeur; L++) {
+                    let tile ='';
+                    if(showTile){
+                        tile = "<img src='./public/assets/" + this.RESSOURCEmapTiles[this.allMap[this.idTableau[0]][this.idTableau[1]].tab.tiles[H][L]].img + "'>";
+                    }
+                    tableau += "<div class='cell'>"+tile+"</div>"
                 }
-                tableau += "<div class='cell'>"+tile+"</div>"
+                tableau += "</div>"
             }
-            tableau += "</div>"
+            this.mapAffichage.innerHTML = tableau;
         }
-        this.mapAffichage.innerHTML = tableau;
     }
 
-    
-
-    // generation de la carte
     async createMap(){
+        if(this.typeMap === "fixe"){
+            return this.createMapFixe();
+        }
+
+        else if (this.typeMap === "random"){
+            return this.createMapRandom();
+        }
+    }
+
+    // generation de la carte (mode fixe)
+    async createMapFixe(){
+        this.allMap = {};
+
+        for (let H = 0; H < MAPhauteur; H++) {
+            for (let L = 0; L < MAPlargeur; L++) {
+                if(!this.allMap[H]){
+                    this.allMap[H] = []
+                }
+                this.allMap[H][L] = {};
+                this.allMap[H][L].name = '';
+                this.allMap[H][L].tab = this.RESSOURCEmapTAB.map[H][L];
+            }
+        }
+        
+        // for (let H = 0; H < MAPhauteur; H++) {
+        //     for (let L = 0; L < MAPlargeur; L++) {
+        //         if(!this.allMap[H]){
+        //             this.allMap[H] = []
+        //         }
+        //         this.allMap[H][L] = {};
+        //         // type de la carte
+        //         let type = 'base';
+        //         this.allMap[H][L].name = this.RESSOURCEmapTAB[type].name;
+
+        //         // carte
+        //         let possibleWay = this.GETwayFromTAB([H,L]);
+        //         let idTab = this.GETrandomTABfromWay(possibleWay, type);
+        //         this.allMap[H][L].tab = this.RESSOURCEmapTAB.base.tab[idTab];
+        //     }
+        // }
+        return ;
+    }
+
+    // generation de la carte (mode random)
+    async createMapRandom(){
         //reorganisation des tableau selon leurs attribut "way"
         for (let H = 0; H < MAPhauteur; H++) {
             for (let L = 0; L < MAPlargeur; L++) {

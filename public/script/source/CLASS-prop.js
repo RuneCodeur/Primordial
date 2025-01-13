@@ -11,6 +11,8 @@ class CLASSprop {
         this.isWall = false;
         this.info = info;
         this.after = false;
+        this.width = 64;
+        this.height = 64;
     }
 
     // retourne la position de la prop
@@ -48,12 +50,18 @@ class CLASSprop {
     SETinfo(info){
         this.info = info;
     }
+    
+    SETinactive(){
+        this.propActive = false;
+    }
 
     POSTRESSOURCEprops(RESSOURCEprop){
         this.name = RESSOURCEprop.name
         this.type = RESSOURCEprop.type
         this.assets = RESSOURCEprop.img
         this.isWall = RESSOURCEprop.isWall
+        this.width = RESSOURCEprop.width
+        this.height = RESSOURCEprop.height
 
         if(RESSOURCEprop.after){
             this.after = RESSOURCEprop.after;
@@ -66,15 +74,16 @@ class CLASSprop {
     // affichage des props
     propsAffichage(){
         this.propDepop();
-        let position = this.GETposition();
-        let Zindex = 0;
-        if(this.GETisWall() == true){
-            Zindex = position[0];
+        if(this.propActive == true){
+            let position = this.GETposition();
+            let Zindex = 0;
+            if(this.GETisWall() == true){
+                Zindex = position[0];
+            }
+            let props = '<div id="prop-'+this.id+'" style="z-index:'+Zindex+'; top:'+(position[0]*64) +'px; left:'+(position[1]*64) +'px;"><img id="prop-'+this.id+'-img" src="./public/assets/'+this.assets +'" style="width:'+this.width+'px; height:'+this.height+'px;"></div>';
+            document.getElementById('units').insertAdjacentHTML('beforeend', props);
         }
-        let props = '<div id="prop-'+this.id+'" style="z-index:'+Zindex+'; top:'+(position[0]*64) +'px; left:'+(position[1]*64) +'px;"><img id="prop-'+this.id+'-img" src="./public/assets/'+this.assets +'" ></div>';
-        document.getElementById('units').insertAdjacentHTML('beforeend', props);
     }
-
 
     propDepop(){
         let afficheProp = document.getElementById('prop-'+this.id);
@@ -101,7 +110,7 @@ class CLASSprop {
 
             // type loot
             case 3:
-                if(this.content.name !== undefined){
+                if(this.content && this.content.name !== undefined){
                     return {
                         dialog: "Contenu : "+ this.content.name,
                         buttons : [

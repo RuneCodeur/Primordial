@@ -4,8 +4,8 @@ import CLASSgameplay from './source/CLASS-gameplay.js';
 
 window.TABlargeur = 10;
 window.TABhauteur = 10;
-window.MAPlargeur = 3;
-window.MAPhauteur = 3;
+window.MAPlargeur = 10;
+window.MAPhauteur = 10;
 
 
 const URLscore = 'https://neo-tetris.alwaysdata.net/';

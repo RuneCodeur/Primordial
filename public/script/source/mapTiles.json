@@ -4,11 +4,715 @@
         "img":"base-sol.png"
     },
     "1":{
-        "type": 0,
-        "img":"wall.png"
+        "type": 1,
+        "img":"ocean.png"
     },
     "2":{
         "type": 1,
-        "img":"rock-1.png"
+        "img":"sky.png"
+    },
+    "3":{
+        "type": 1,
+        "img":"granit-wall.png"
+    },
+    "4":{
+        "type": 1,
+        "img":"granit-wall-0.png"
+    },
+    "5":{
+        "type": 1,
+        "img":"granit-wall-1.png"
+    },
+    "6":{
+        "type": 1,
+        "img":"granit-wall-2.png"
+    },
+    "7":{
+        "type": 1,
+        "img":"granit-wall-3.png"
+    },
+    "8":{
+        "type": 1,
+        "img":"granit-wall-A12.png"
+    },
+    "9":{
+        "type": 1,
+        "img":"granit-wall-A23.png"
+    },
+    "10":{
+        "type": 1,
+        "img":"granit-wall-A30.png"
+    },
+    "11":{
+        "type": 1,
+        "img":"granit-wall-A01.png"
+    },
+    "12":{
+        "type": 1,
+        "img":"granit-wall-B1.png"
+    },
+    "13":{
+        "type": 1,
+        "img":"granit-wall-B3.png"
+    },
+    "14":{
+        "type": 0,
+        "img":"granit-ground.png"
+    },
+    "15":{
+        "type": 0,
+        "img":"granit-stair-02.png"
+    },
+    "16":{
+        "type": 0,
+        "img":"marais1.png"
+    },
+    "17":{
+        "type": 0,
+        "img":"marais2.png"
+    },
+    "18":{
+        "type": 0,
+        "img":"marais-B1.png"
+    },
+    "19":{
+        "type": 0,
+        "img":"marais-B0.png"
+    },
+    "20":{
+        "type": 1,
+        "img":"marais-wall1.png"
+    },
+    "21":{
+        "type": 1,
+        "img":"marais-wall2.png"
+    },
+    "22":{
+        "type": 0,
+        "img":"marais-flaq-dot.png"
+    },
+    "23":{
+        "type": 0,
+        "img":"marais-flaq-L0.png"
+    },
+    "24":{
+        "type": 0,
+        "img":"marais-flaq-L1.png"
+    },
+    "25":{
+        "type": 0,
+        "img":"marais-flaq-L2.png"
+    },
+    "26":{
+        "type": 0,
+        "img":"marais-flaq-L3.png"
+    },
+    "27":{
+        "type": 0,
+        "img":"marais-flaq-S01.png"
+    },
+    "28":{
+        "type": 0,
+        "img":"marais-flaq-S12.png"
+    },
+    "29":{
+        "type": 0,
+        "img":"marais-flaq-S23.png"
+    },
+    "30":{
+        "type": 0,
+        "img":"marais-flaq-S30.png"
+    },
+    "31":{
+        "type": 0,
+        "img":"marais-B01.png"
+    },
+    "32":{
+        "type": 1,
+        "img":"rock-wall-1-1.png"
+    },
+    "33":{
+        "type": 1,
+        "img":"rock-wall-D1-12.png"
+    },
+    "34":{
+        "type": 1,
+        "img":"rock-wall-2-1.png"
+    },
+    "35":{
+        "type": 0,
+        "img":"beach-1.png"
+    },
+    "36":{
+        "type": 0,
+        "img":"beach-2.png"
+    },
+    "37":{
+        "type": 0,
+        "img":"beach-3.png"
+    },
+    "38":{
+        "type": 0,
+        "img":"beach-BO-1.png"
+    },
+    "39":{
+        "type": 1,
+        "img":"beach-BO-01.png"
+    },
+    "40":{
+        "type": 1,
+        "img":"rock-wall-D2-01.png"
+    },
+    "41":{
+        "type": 1,
+        "img":"rock-wall-2-0.png"
+    },
+    "42":{
+        "type": 1,
+        "img":"rock-wall-S0.png"
+    },
+    "43":{
+        "type": 0,
+        "img":"beach-BO-0.png"
+    },
+    "44":{
+        "type": 0,
+        "img":"beach-BO-2.png"
+    },
+    "45":{
+        "type": 0,
+        "img":"beach-BO-3.png"
+    },
+    "46":{
+        "type": 1,
+        "img":"beach-BO-12.png"
+    },
+    "47":{
+        "type": 1,
+        "img":"beach-BO-23.png"
+    },
+    "48":{
+        "type": 1,
+        "img":"beach-BO-30.png"
+    },
+    "49":{
+        "type": 1,
+        "img":"rock-wall-01.png"
+    },
+    "50":{
+        "type": 1,
+        "img":"rock-wall-D3-01.png"
+    },
+    "51":{
+        "type": 1,
+        "img":"rock-wall-end-0.png"
+    },
+    "52":{
+        "type": 1,
+        "img":"rock-wall-end-1.png"
+    },
+    "53":{
+        "type": 1,
+        "img":"rock-wall-end-2.png"
+    },
+    "54":{
+        "type": 1,
+        "img":"rock-wall-end-3.png"
+    },
+    "55":{
+        "type": 0,
+        "img":"grass-1.png"
+    },
+    "56":{
+        "type": 0,
+        "img":"grass-2.png"
+    },
+    "57":{
+        "type": 0,
+        "img":"grass-3.png"
+    },
+    "58":{
+        "type": 1,
+        "img":"grass-stump.png"
+    },
+    "59":{
+        "type": 0,
+        "img":"grass-road-0.png"
+    },
+    "60":{
+        "type": 0,
+        "img":"grass-road-1.png"
+    },
+    "61":{
+        "type": 0,
+        "img":"grass-road-2.png"
+    },
+    "62":{
+        "type": 0,
+        "img":"grass-road-3.png"
+    },
+    "63":{
+        "type": 0,
+        "img":"grass-road-01.png"
+    },
+    "64":{
+        "type": 0,
+        "img":"grass-road-12.png"
+    },
+    "65":{
+        "type": 0,
+        "img":"grass-road-23.png"
+    },
+    "66":{
+        "type": 0,
+        "img":"grass-road-30.png"
+    },
+    "67":{
+        "type": 0,
+        "img":"grass-road-02.png"
+    },
+    "68":{
+        "type": 0,
+        "img":"grass-road-13.png"
+    },
+    "69":{
+        "type": 1,
+        "img":"rock-wall-end-01.png"
+    },
+    "70":{
+        "type": 1,
+        "img":"stone-wall.png"
+    },
+    "71":{
+        "type": 1,
+        "img":"stone-wall-0.png"
+    },
+    "72":{
+        "type": 1,
+        "img":"stone-wall-1.png"
+    },
+    "73":{
+        "type": 1,
+        "img":"stone-wall-2.png"
+    },
+    "74":{
+        "type": 1,
+        "img":"stone-wall-3.png"
+    },
+    "75":{
+        "type": 1,
+        "img":"stone-wall-A01.png"
+    },
+    "76":{
+        "type": 1,
+        "img":"stone-wall-A12.png"
+    },
+    "77":{
+        "type": 1,
+        "img":"stone-wall-A23.png"
+    },
+    "78":{
+        "type": 1,
+        "img":"stone-wall-A30.png"
+    },
+    "79":{
+        "type": 0,
+        "img":"grass-limit-0.png"
+    },
+    "80":{
+        "type": 0,
+        "img":"grass-limit-1.png"
+    },
+    "81":{
+        "type": 0,
+        "img":"grass-limit-2.png"
+    },
+    "82":{
+        "type": 0,
+        "img":"grass-limit-3.png"
+    },
+    "83":{
+        "type": 0,
+        "img":"grass-limit-01.png"
+    },
+    "84":{
+        "type": 0,
+        "img":"grass-limit-12.png"
+    },
+    "85":{
+        "type": 0,
+        "img":"grass-limit-23.png"
+    },
+    "86":{
+        "type": 0,
+        "img":"grass-limit-03.png"
+    },
+    "87":{
+        "type": 0,
+        "img":"grass-road-012.png"
+    },
+    "88":{
+        "type": 0,
+        "img":"grass-road-013.png"
+    },
+    "89":{
+        "type": 0,
+        "img":"grass-road-023.png"
+    },
+    "90":{
+        "type": 0,
+        "img":"grass-road-123.png"
+    },
+    "91":{
+        "type": 0,
+        "img":"grass-road-0123.png"
+    },
+    "92":{
+        "type": 0,
+        "img":"wood-wall.png"
+    },
+    "93":{
+        "type": 1,
+        "img":"rock-wall-3-0.png"
+    },
+    "94":{
+        "type": 1,
+        "img":"rock-wall-D3-01.png"
+    },
+    "95":{
+        "type": 1,
+        "img":"rock-wall-D3-03.png"
+    },
+    "96":{
+        "type": 1,
+        "img":"rock-wall-D3l-03.png"
+    },
+    "97":{
+        "type": 1,
+        "img":"rock-wall-D3l-01.png"
+    },
+    "98":{
+        "type": 1,
+        "img":"rock-wall-D3l-01.png"
+    },
+    "99":{
+        "type": 0,
+        "img":"stone-road-01.png"
+    },
+    "100":{
+        "type": 0,
+        "img":"stone-road-12.png"
+    },
+    "101":{
+        "type": 0,
+        "img":"stone-road-23.png"
+    },
+    "102":{
+        "type": 0,
+        "img":"stone-road-30.png"
+    },
+    "103":{
+        "type": 0,
+        "img":"stone-road-012.png"
+    },
+    "104":{
+        "type": 0,
+        "img":"stone-road-123.png"
+    },
+    "105":{
+        "type": 0,
+        "img":"stone-road-023.png"
+    },
+    "106":{
+        "type": 0,
+        "img":"stone-road-013.png"
+    },
+    "107":{
+        "type": 0,
+        "img":"stone-road-0123.png"
+    },
+    "108":{
+        "type": 0,
+        "img":"stone-road-02.png"
+    },
+    "109":{
+        "type": 0,
+        "img":"stone-road-13.png"
+    },
+    "110":{
+        "type": 0,
+        "img":"stone-ground.png"
+    },
+    "111":{
+        "type": 0,
+        "img":"house-door.png"
+    },
+    "112":{
+        "type": 1,
+        "img":"house-window.png"
+    },
+    "113":{
+        "type": 1,
+        "img":"house-roof-red.png"
+    },
+    "114":{
+        "type": 1,
+        "img":"house-roof-red-0.png"
+    },
+    "115":{
+        "type": 1,
+        "img":"house-roof-red-1.png"
+    },
+    "116":{
+        "type": 1,
+        "img":"house-roof-red-2.png"
+    },
+    "117":{
+        "type": 1,
+        "img":"house-roof-red-3.png"
+    },
+    "118":{
+        "type": 1,
+        "img":"house-roof-red-01.png"
+    },
+    "119":{
+        "type": 1,
+        "img":"house-roof-red-12.png"
+    },
+    "120":{
+        "type": 1,
+        "img":"house-roof-red-23.png"
+    },
+    "121":{
+        "type": 1,
+        "img":"house-roof-red-03.png"
+    },
+    "122":{
+        "type": 1,
+        "img":"rock-wall-4-0.png"
+    },
+    "123":{
+        "type": 1,
+        "img":"rock-wall-4-1.png"
+    },
+    "124":{
+        "type": 1,
+        "img":"rock-wall-4-3.png"
+    },
+    "125":{
+        "type": 1,
+        "img":"rock-wall-D4-03.png"
+    },
+    "126":{
+        "type": 1,
+        "img":"rock-wall-D4-01.png"
+    },
+    "127":{
+        "type": 1,
+        "img":"rock-wall-03.png"
+    },
+    "128":{
+        "type": 1,
+        "img":"rock-wall-end-03.png"
+    },
+    "129":{
+        "type": 1,
+        "img":"stone-and-rock-wall-12.png"
+    },
+    "130":{
+        "type": 1,
+        "img":"stone-wall-1-end-2.png"
+    },
+    "131":{
+        "type": 1,
+        "img":"stone-wall-1-end-0.png"
+    },
+    "132":{
+        "type": 1,
+        "img":"stone-wall-3-end-2.png"
+    },
+    "133":{
+        "type": 1,
+        "img":"stone-wall-3-end-0.png"
+    },
+    "134":{
+        "type": 0,
+        "img":"forest-1.png"
+    },
+    "135":{
+        "type": 0,
+        "img":"forest-2.png"
+    },
+    "136":{
+        "type": 0,
+        "img":"forest-3.png"
+    },
+    "137":{
+        "type": 1,
+        "img":"forest-stump.png"
+    },
+    "138":{
+        "type": 0,
+        "img":"mountain-1.png"
+    },
+    "139":{
+        "type": 0,
+        "img":"mountain-2.png"
+    },
+    "140":{
+        "type": 0,
+        "img":"mountain-3.png"
+    },
+    "141":{
+        "type": 1,
+        "img":"rock-wall-5-0.png"
+    },
+    "142":{
+        "type": 1,
+        "img":"rock-wall-5-1.png"
+    },
+    "143":{
+        "type": 1,
+        "img":"rock-wall-5-3.png"
+    },
+    "144":{
+        "type": 0,
+        "img":"mountain-end-1.png"
+    },
+    "145":{
+        "type": 0,
+        "img":"mountain-end-2.png"
+    },
+    "146":{
+        "type": 0,
+        "img":"mountain-end-3.png"
+    },
+    "147":{
+        "type": 0,
+        "img":"mountain-end-12.png"
+    },
+    "148":{
+        "type": 0,
+        "img":"mountain-end-23.png"
+    },
+    "149":{
+        "type": 1,
+        "img":"rock-wall-D5-01.png"
+    },
+    "150":{
+        "type": 1,
+        "img":"rock-wall-D5-12.png"
+    },
+    "151":{
+        "type": 1,
+        "img":"rock-wall-D5-23.png"
+    },
+    "152":{
+        "type": 1,
+        "img":"rock-wall-D5-03.png"
+    },
+    "153":{
+        "type": 1,
+        "img":"rock-wall-5-2.png"
+    },
+    "154":{
+        "type": 1,
+        "img":"rock-wall-12.png"
+    },
+    "155":{
+        "type": 1,
+        "img":"rock-wall-23.png"
+    },
+    "156":{
+        "type": 1,
+        "img":"rock-wall-S1.png"
+    },
+    "157":{
+        "type": 0,
+        "img":"granit-stair-13.png"
+    },
+    "158":{
+        "type": 0,
+        "img":"mountain-ocean-1.png"
+    },
+    "159":{
+        "type": 0,
+        "img":"mountain-ocean-3.png"
+    },
+    "160":{
+        "type": 1,
+        "img":"waterfall.png"
+    },
+    "161":{
+        "type": 1,
+        "img":"rock-wall-D4-23.png"
+    },
+    "162":{
+        "type": 1,
+        "img":"rock-wall-S3.png"
+    },
+    "163":{
+        "type": 0,
+        "img":"ruin-ground-1.png"
+    },
+    "164":{
+        "type": 0,
+        "img":"ruin-ground-2.png"
+    },
+    "165":{
+        "type": 0,
+        "img":"ruin-ground-3.png"
+    },
+    "166":{
+        "type": 1,
+        "img":"ruin-wall-0.png"
+    },
+    "167":{
+        "type": 1,
+        "img":"ruin-wall-13.png"
+    },
+    "168":{
+        "type": 1,
+        "img":"ruin-wall-23.png"
+    },
+    "169":{
+        "type": 1,
+        "img":"ruin-wall-12.png"
+    },
+    "170":{
+        "type": 1,
+        "img":"ruin-wallhat-0.png"
+    },
+    "171":{
+        "type": 1,
+        "img":"ruin-wallhat-01.png"
+    },
+    "172":{
+        "type": 1,
+        "img":"ruin-wallhat-02.png"
+    },
+    "173":{
+        "type": 1,
+        "img":"ruin-wallhat-03.png"
+    },
+    "174":{
+        "type": 1,
+        "img":"ruin-wallhat-12.png"
+    },
+    "175":{
+        "type": 1,
+        "img":"ruin-wallhat-13.png"
+    },
+    "176":{
+        "type": 1,
+        "img":"ruin-wallhat-23.png"
+    },
+    "177":{
+        "type": 0,
+        "img":"ruin-ground-4.png"
+    },
+    "178":{
+        "type": 0,
+        "img":"ruin-ground-5.png"
     }
 }

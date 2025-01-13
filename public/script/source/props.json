@@ -3,25 +3,225 @@
         "name":"sign",
         "type":1,
         "img": "sign-wood.png",
-        "isWall":true
+        "isWall":true,
+        "width":64,
+        "height":64
     },
     "2":{
         "name":"loot",
         "type":3,
         "img": "loot.png",
-        "isWall":false
+        "isWall":false,
+        "width":64,
+        "height":64
     },
     "3":{
         "name":"chest",
         "type":4,
         "img": "chest-wood.png",
         "after": 4,
-        "isWall":true
+        "isWall":true,
+        "width":64,
+        "height":64
     },
     "4":{
         "name":"empty chest",
         "type":2,
         "img": "chest-wood-empty.png",
-        "isWall":true
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "5":{
+        "name":"dead tree",
+        "type":2,
+        "img": "deadtree.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "6":{
+        "name":"tree",
+        "type":2,
+        "img": "tree.png",
+        "isWall":true,
+        "width":96,
+        "height":128
+    },
+    "7":{
+        "name":"palm",
+        "type":2,
+        "img": "palm-1.png",
+        "isWall":true,
+        "width":96,
+        "height":128
+    },
+    "8":{
+        "name":"boat",
+        "type":2,
+        "img": "boat-1.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "9":{
+        "name":"boat",
+        "type":2,
+        "img": "boat-2.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "10":{
+        "name":"wood barrier",
+        "type":2,
+        "img": "wood-barrier.png",
+        "isWall":true,
+        "width":64,
+        "height":96
+    },
+    "11":{
+        "name":"wood barrier",
+        "type":2,
+        "img": "wood-barrier-1.png",
+        "isWall":true,
+        "width":64,
+        "height":96
+    },
+    "12":{
+        "name":"wood barrier",
+        "type":2,
+        "img": "wood-barrier-3.png",
+        "isWall":true,
+        "width":64,
+        "height":96
+    },
+    "13":{
+        "name":"wood barrier",
+        "type":2,
+        "img": "wood-barrier-13.png",
+        "isWall":true,
+        "width":64,
+        "height":96
+    },
+    "14":{
+        "name":"wood barrier",
+        "type":2,
+        "img": "wood-barrier-0.png",
+        "isWall":true,
+        "width":64,
+        "height":96
+    },
+    "15":{
+        "name":"wood barrel",
+        "type":2,
+        "img": "wood-barrel-1.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "16":{
+        "name":"door",
+        "type":2,
+        "img": "door.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "17":{
+        "name":"dark tree",
+        "type":2,
+        "img": "dark-tree.png",
+        "isWall":true,
+        "width":96,
+        "height":128
+    },
+    "18":{
+        "name":"log",
+        "type":2,
+        "img": "log-end-0.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "19":{
+        "name":"log",
+        "type":2,
+        "img": "log-end-1.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "20":{
+        "name":"log",
+        "type":2,
+        "img": "log-end-2.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "21":{
+        "name":"log",
+        "type":2,
+        "img": "log-end-3.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "22":{
+        "name":"log",
+        "type":2,
+        "img": "log-02.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "23":{
+        "name":"log",
+        "type":2,
+        "img": "log-13.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "24":{
+        "name":"rock",
+        "type":2,
+        "img": "mountain-rock.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "25":{
+        "name":"ruin rock",
+        "type":2,
+        "img": "ruin-rock.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "26":{
+        "name":"pylon",
+        "type":2,
+        "img": "pylon-down.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "27":{
+        "name":"pylon",
+        "type":2,
+        "img": "pylon-1.png",
+        "isWall":true,
+        "width":64,
+        "height":96
+    },
+    "28":{
+        "name":"pylon",
+        "type":2,
+        "img": "pylon-2.png",
+        "isWall":true,
+        "width":64,
+        "height":128
     }
 }

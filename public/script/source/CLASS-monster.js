@@ -56,7 +56,7 @@ class CLASSmonster extends CLASSunit{
             
             // si il voit le joueur, attaque. si les PV sont inferieur aux PVmax, fuit
             case 'voleur': 
-                if(this.PV < this.PVmax){
+                if(this.PV < this.PVmax && (this.detection(positionPlayer, tableau) || this.comportementEtat == 2)){
                     if(this.comportementEtat != 2){
                         this.fearEffect();
                     }
@@ -75,7 +75,7 @@ class CLASSmonster extends CLASSunit{
                 
             // si il voit le joueur, attaque. si les PV sont inferieur à la moitié des PVmax, fuit
             case 'guerrier':
-                if(this.PV < Math.ceil(this.PVmax/2)){
+                if(this.PV < Math.ceil(this.PVmax/2) && (this.detection(positionPlayer, tableau) || this.comportementEtat == 2)){
                     if(this.comportementEtat != 2){
                         this.fearEffect();
                     }
@@ -273,7 +273,9 @@ class CLASSmonster extends CLASSunit{
     async aggroEffect(){
         document.getElementById('unit-'+this.id).innerHTML += '<img class ="etat-bulle" id="unit-'+this.id+'-aggro" src="./public/assets/excla-R.png">'
         setTimeout(() => {
-            document.getElementById('unit-'+this.id+'-aggro').remove();
+            if(document.getElementById('unit-'+this.id)){
+                document.getElementById('unit-'+this.id+'-aggro').remove();
+            }
         }, 1000); 
     }
 
@@ -281,7 +283,9 @@ class CLASSmonster extends CLASSunit{
     async fearEffect(){
         document.getElementById('unit-'+this.id).innerHTML += '<img class ="etat-bulle" id="unit-'+this.id+'-aggro" src="./public/assets/excla-B.png">'
         setTimeout(() => {
-            document.getElementById('unit-'+this.id+'-aggro').remove();
+            if(document.getElementById('unit-'+this.id)){
+                document.getElementById('unit-'+this.id+'-aggro').remove();
+            }
         }, 1000); 
     }
     
@@ -289,7 +293,9 @@ class CLASSmonster extends CLASSunit{
     async interoEffect(){
         document.getElementById('unit-'+this.id).innerHTML += '<img class ="etat-bulle" id="unit-'+this.id+'-aggro" src="./public/assets/intero-W.png">'
         setTimeout(() => {
-            document.getElementById('unit-'+this.id+'-aggro').remove();
+            if(document.getElementById('unit-'+this.id)){
+                document.getElementById('unit-'+this.id+'-aggro').remove();
+            }
         }, 1000); 
     }
 

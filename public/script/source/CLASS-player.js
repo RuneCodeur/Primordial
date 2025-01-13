@@ -2,8 +2,8 @@ import CLASSunit from './CLASS-unit.js';
 
 // gestion du personnage joueur
 class CLASSplayer extends CLASSunit {
-    constructor() {
-        super([5, 5]);
+    constructor(PosiPlayerInit) {
+        super(PosiPlayerInit);
         this.PV = 10;
         this.PVmax = 10;
         this.PM = 10;

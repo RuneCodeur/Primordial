@@ -1,4 +1,13 @@
 {
+    "1.0.0":[
+        "création de la quête principale.",
+        "Correctif de l'esquive.",
+        "Ajout du set du pirate.",
+        "Ajout du set du chasseur.",
+        "Ajout du set du elfes sylvain.",
+        "Ajout du set du paladin.",
+        "Ajout du set du guerrier antique."
+    ],
     "0.9.0":[
         "Lors-ce qu'un personnage esquive, il se décale d'une case.",
         "Ajustement du taux d'esquive."

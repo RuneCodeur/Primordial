@@ -1,7 +1,61 @@
 {
     "0":[
         {
-            "name":"blob",
+            "name":"crabe rouge",
+            "PV" : 5,
+            "PM" : 0,
+            "FOR" : 1,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 1,
+            "XP" : 15,
+            "IA" : "berzerk",
+            "vision" : 0,
+            "img":{
+                "0" : "crab-0-face.png",
+                "1" : "crab-0-gauche.png",
+                "2" : "crab-0-dos.png",
+                "3" : "crab-0-droite.png"
+            }
+        },
+        {
+            "name":"crabe orange",
+            "PV" : 5,
+            "PM" : 0,
+            "FOR" : 2,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 10,
+            "IA" : "guerrier",
+            "vision" : 0,
+            "img":{
+                "0" : "crab-1-face.png",
+                "1" : "crab-1-gauche.png",
+                "2" : "crab-1-dos.png",
+                "3" : "crab-1-droite.png"
+            }
+        },
+        {
+            "name":"crabe jaune",
+            "PV" : 5,
+            "PM" : 0,
+            "FOR" : 1,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 5,
+            "IA" : "débile",
+            "vision" : 0,
+            "img":{
+                "0" : "crab-2-face.png",
+                "1" : "crab-2-gauche.png",
+                "2" : "crab-2-dos.png",
+                "3" : "crab-2-droite.png"
+            }
+        },
+        {
+            "name":"crabe pourpre",
             "PV" : 5,
             "PM" : 0,
             "FOR" : 1,
@@ -9,13 +63,13 @@
             "INT" : 0,
             "ARMO" : 0,
             "XP" : 10,
-            "IA" : "débile",
+            "IA" : "voleur",
             "vision" : 0,
             "img":{
-                "0" : "blob-0-face.png",
-                "1" : "blob-0-gauche.png",
-                "2" : "blob-0-dos.png",
-                "3" : "blob-0-droite.png"
+                "0" : "crab-3-face.png",
+                "1" : "crab-3-gauche.png",
+                "2" : "crab-3-dos.png",
+                "3" : "crab-3-droite.png"
             }
         }
     ],
@@ -28,14 +82,32 @@
             "ADR" : 1,
             "INT" : 0,
             "ARMO" : 0,
-            "XP" : 20,
+            "XP" : 25,
             "IA" : "berzerk",
             "vision" : 5,
             "img":{
-                "0" : "orc-1-face.png",
-                "1" : "orc-1-gauche.png",
-                "2" : "orc-1-dos.png",
-                "3" : "orc-1-droite.png"
+                "0" : "orc-0-face.png",
+                "1" : "orc-0-gauche.png",
+                "2" : "orc-0-dos.png",
+                "3" : "orc-0-droite.png"
+            }
+        },
+        {
+            "name":"goblin",
+            "PV" : 4,
+            "PM" : 0,
+            "FOR" : 3,
+            "ADR" : 2,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 20,
+            "IA" : "voleur",
+            "vision" : 5,
+            "img":{
+                "0" : "goblin-0-face.png",
+                "1" : "goblin-0-gauche.png",
+                "2" : "goblin-0-dos.png",
+                "3" : "goblin-0-droite.png"
             }
         }
     ],
@@ -48,33 +120,174 @@
             "FOR" : 4,
             "ADR" : 2,
             "INT" : 0,
-            "ARMO" : 1,
-            "XP" : 20,
+            "ARMO" : 2,
+            "XP" : 35,
             "IA" : "berzerk",
             "vision" : 5,
             "img":{
-                "0" : "orc-2-face.png",
-                "1" : "orc-2-gauche.png",
-                "2" : "orc-2-dos.png",
-                "3" : "orc-2-droite.png"
+                "0" : "orc-1-face.png",
+                "1" : "orc-1-gauche.png",
+                "2" : "orc-1-dos.png",
+                "3" : "orc-1-droite.png"
+            }
+        },
+        {
+            "name":"gobelin",
+            "PV" : 10,
+            "PM" : 0,
+            "FOR" : 3,
+            "ADR" : 4,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 30,
+            "IA" : "voleur",
+            "vision" : 5,
+            "img":{
+                "0" : "goblin-1-face.png",
+                "1" : "goblin-1-gauche.png",
+                "2" : "goblin-1-dos.png",
+                "3" : "goblin-1-droite.png"
+            }
+        }
+    ],
+
+    "3":[
+        {
+            "name":"pixie",
+            "PV" : 4,
+            "PM" : 0,
+            "FOR" : 6,
+            "ADR" : 6,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 40,
+            "IA" : "guerrier",
+            "vision" : 5,
+            "img":{
+                "0" : "pixie-0-face.png",
+                "1" : "pixie-0-gauche.png",
+                "2" : "pixie-0-dos.png",
+                "3" : "pixie-0-droite.png"
+            }
+        },
+        {
+            "name":"squelette",
+            "PV" : 8,
+            "PM" : 0,
+            "FOR" : 4,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 35,
+            "IA" : "berzerk",
+            "vision" : 5,
+            "img":{
+                "0" : "skull-0-face.png",
+                "1" : "skull-0-gauche.png",
+                "2" : "skull-0-dos.png",
+                "3" : "skull-0-droite.png"
+            }
+        }
+    ],
+
+    "4":[
+        {
+            "name":"blob",
+            "PV" : 10,
+            "PM" : 0,
+            "FOR" : 2,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 20,
+            "IA" : "débile",
+            "vision" : 0,
+            "img":{
+                "0" : "blob-0-face.png",
+                "1" : "blob-0-gauche.png",
+                "2" : "blob-0-dos.png",
+                "3" : "blob-0-droite.png"
             }
         },
         {
             "name":"blob",
-            "PV" : 8,
+            "PV" : 12,
             "PM" : 0,
             "FOR" : 5,
             "ADR" : 1,
             "INT" : 0,
             "ARMO" : 0,
-            "XP" : 20,
+            "XP" : 30,
             "IA" : "berzerk",
             "vision" : 5,
             "img":{
-                "0" : "blob-2-face.png",
-                "1" : "blob-2-gauche.png",
-                "2" : "blob-2-dos.png",
-                "3" : "blob-2-droite.png"
+                "0" : "blob-1-face.png",
+                "1" : "blob-1-gauche.png",
+                "2" : "blob-1-dos.png",
+                "3" : "blob-1-droite.png"
+            }
+        }
+    ],
+
+    "5":[
+        {
+            "name":"gnoll",
+            "PV" : 15,
+            "PM" : 0,
+            "FOR" : 6,
+            "ADR" : 8,
+            "INT" : 0,
+            "ARMO" : 2,
+            "XP" : 40,
+            "IA" : "berzerk",
+            "vision" : 5,
+            "img":{
+                "0" : "gnoll-0-face.png",
+                "1" : "gnoll-0-gauche.png",
+                "2" : "gnoll-0-dos.png",
+                "3" : "gnoll-0-droite.png"
+            }
+        }
+    ],
+
+    "6":[
+        {
+            "name":"golem",
+            "PV" : 16,
+            "PM" : 0,
+            "FOR" : 8,
+            "ADR" : 0,
+            "INT" : 0,
+            "ARMO" : 4,
+            "XP" : 50,
+            "IA" : "berzerk",
+            "vision" : 5,
+            "img":{
+                "0" : "golem-0-face.png",
+                "1" : "golem-0-gauche.png",
+                "2" : "golem-0-dos.png",
+                "3" : "golem-0-droite.png"
+            }
+        }
+    ],
+
+    "7":[
+        {
+            "name":"Damodar",
+            "PV" : 20,
+            "PM" : 0,
+            "FOR" : 10,
+            "ADR" : 10,
+            "INT" : 0,
+            "ARMO" : 5,
+            "XP" : 150,
+            "IA" : "boss",
+            "vision" : 5,
+            "img":{
+                "0" : "damodar-face.png",
+                "1" : "damodar-gauche.png",
+                "2" : "damodar-dos.png",
+                "3" : "damodar-droite.png"
             }
         }
     ]

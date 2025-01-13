@@ -27,7 +27,8 @@ class CLASSgameplay {
         this.RESSOURCEnotesMAJ = {};
         this.RESSOURCEequipments = {};
         this.RESSOURCEextra = [];
-        this.idTableauInit = [2, 1];
+        this.idTableauInit = [8, 2];
+        this.PosiPlayerInit = [3, 4];
         this.idTableau = 0;
         this.waiting = false;
         this.dialogActivate = false;
@@ -42,7 +43,7 @@ class CLASSgameplay {
         this.menu(1);
         await this.loader();
         this.map = new CLASSmap(this.idTableau);
-        this.player = new CLASSplayer();
+        this.player = new CLASSplayer(this.PosiPlayerInit);
 
         this.map.LETTRESSOURCEmapTAB(this.RESSOURCEmapTAB);
         this.map.LETTRESSOURCEmapTiles(this.RESSOURCEmapTiles);
@@ -81,6 +82,12 @@ class CLASSgameplay {
         this.AfficheMAJ();
 
         urls = [...urls, ...this.RESSOURCEextra];
+        
+        Object.keys(this.RESSOURCEequipments).forEach(id => {
+            this.RESSOURCEequipments[id].forEach(equipement => {
+                urls.push(equipement.img)
+            });
+        });
 
         Object.keys(this.RESSOURCEmapTiles).forEach(id => {
             urls.push(this.RESSOURCEmapTiles[id].img);
@@ -130,10 +137,15 @@ class CLASSgameplay {
         this.propPosition = [];
         this.idTableau = this.idTableauInit;
         this.player = null;
-        this.player = new CLASSplayer();
+        this.map = null;
+        this.player = new CLASSplayer(this.PosiPlayerInit);
         this.initEquipments();
+        this.map = new CLASSmap(this.idTableau);
+        this.map.LETTRESSOURCEmapTAB(JSON.parse(JSON.stringify(this.RESSOURCEmapTAB)));
+        this.map.LETTRESSOURCEmapTiles(JSON.parse(JSON.stringify(this.RESSOURCEmapTiles)));
+        this.map.LETTRESSOURCEprops(JSON.parse(JSON.stringify(this.RESSOURCEprops)));
         this.map.createMap();
-        this.map.LETTtableau(this.idTableau);
+        this.map.LETtableau(this.idTableau);
         this.map.showTableau(true);
         this.initMonstersTab();
         this.initPropsTab();
@@ -149,9 +161,9 @@ class CLASSgameplay {
         .catch(error => console.error('Erreur :', error));
     }
 
-    // telecharge la liste complète des tuiles de la carte
+    // telecharge la carte
     async DLmapTAB(){
-        return fetch('./public/script/source/mapTAB.json')
+        return fetch('./public/script/source/quest-1.json')
         .then(response => response.json())
         .then(data => this.RESSOURCEmapTAB = data)
         .catch(error => console.error('Erreur :', error));
@@ -269,8 +281,8 @@ class CLASSgameplay {
                     this.props[idProps] = new CLASSprop( idProps, GETProps[i].position, GETProps[i].info );
                     this.props[idProps].POSTRESSOURCEprops(this.RESSOURCEprops[GETProps[i].type]);
 
-                    // si type coffre -> lui assigne un objet
-                    if(this.props[idProps].GETtype() == 4){
+                    // si type coffre ou loot -> lui assigne un objet
+                    if(this.props[idProps].GETtype() == 4 || this.props[idProps].GETtype() == 3){
                         this.props[idProps].SETobject(this.dropObject());
                     }
                 }
@@ -405,6 +417,7 @@ class CLASSgameplay {
                     let touchUnite = this.touchUnite(newPosition);
                     if(touchUnite != false){
                         this.attackMonster(touchUnite);
+                        this.dropLoot(touchUnite);
                     }
 
                     // deplacement du joueur, si il n'est pas dans la limite ni si il touche un mur
@@ -413,9 +426,7 @@ class CLASSgameplay {
                         this.player.moveAffichage();
                     }
                 }
-
             }
-
 
             // fait bouger tout les monstres
             await this.moveAllMonsters();
@@ -434,6 +445,16 @@ class CLASSgameplay {
 
             //++ optimisation : mis à jour de la physique du tableau ICI
             this.playerIsOnLoot();
+        }
+    }
+
+    dropLoot(idMonster){
+        if(this.monsters[idMonster] && this.monsters[idMonster].active() === false){
+            if(this.monsters[idMonster].dropLoot()){
+                let item = this.dropObject();
+                let position = this.monsters[idMonster].GETposition();
+                this.dropItem(item, position);
+            }
         }
     }
 
@@ -469,7 +490,6 @@ class CLASSgameplay {
             // vers le bas
             case 0:
                 
-                transitionAffichage.style.display="none";
                 transitionAffichage.style.left="0";
                 transitionAffichage.style.top="100%";
                 transitionAffichage.style.display="flex";
@@ -496,7 +516,6 @@ class CLASSgameplay {
 
             // vers le haut
             case 2:
-                transitionAffichage.style.display="none";
                 transitionAffichage.style.left="0";
                 transitionAffichage.style.top="-200%";
                 transitionAffichage.style.display="flex";
@@ -580,14 +599,9 @@ class CLASSgameplay {
                     }
                     this.monsterPosition[monsterPosition[0]][monsterPosition[1]] = monster.id;
                 }
-                else if(monster.dropLoot()){
-                    let item = this.dropObject();
-                    let position = monster.GETposition();
-                    this.dropItem(item, position);
-                }
             }
-          });
-          return;
+        });
+        return;
     }
 
     majProps(){
@@ -606,14 +620,14 @@ class CLASSgameplay {
                 }
             }
         })
-        return
+        return;
     }
 
     // renvoie TRUE si la nouvelle position touche un mur
     touchWall(newPosition){
         let physicMap = this.map.GETphysics();
-
         let physic = physicMap[newPosition[0]][newPosition[1]];
+
         switch (physic) {
 
             // sol simple
@@ -648,6 +662,11 @@ class CLASSgameplay {
                                 else if (this.props[this.propPosition[H][L]].GETtype() == 4 && info){
                                     this.showText(info);
                                 }
+                            }
+
+                            // les mobs ne doivent pas se positionner sur un loot (sinon les loots peuvent s'ecraser)
+                            if ( id != 'player' && this.props[this.propPosition[H][L]].GETtype() == 3){
+                                return true;
                             }
 
                             if(this.props[this.propPosition[H][L]].GETisWall()){
@@ -745,6 +764,7 @@ class CLASSgameplay {
                 this.props[idProp].POSTRESSOURCEprops(nextProp);
                 this.props[idProp].propsAffichage();
             }
+
             if(this.props[idProp].GETtype() == 3){
                 let posiProp = this.props[idProp].GETposition();
                 this.props[idProp].propDepop();
@@ -843,7 +863,7 @@ class CLASSgameplay {
             esquiveDirection = this.tryEsquive();
         }
         
-        if(esquiveDirection == false){
+        if(esquiveDirection === false){
             this.player.impact(degats, this.monsters[idMonster].GETdirection());
         }
         else{
@@ -859,7 +879,6 @@ class CLASSgameplay {
         let directionPossible = [];
         let esquiveDirection = false;
 
-        console.log(idMonster);
         if(idMonster){
             position = this.monsters[idMonster].GETposition();
             limit = true;
@@ -868,36 +887,22 @@ class CLASSgameplay {
             position = this.player.GETposition();
         }
 
-        let physicMap = this.map.GETphysics(limit);
-        let unitMap = this.UnitMap();
+        let NewPosi0 = [position[0]+1, position[1]];
+        let NewPosi1 = [position[0], position[1]-1];
+        let NewPosi2 = [position[0]-1, position[1]];
+        let NewPosi3 = [position[0], position[1]+1];
 
-        //check si le bas est dispo
-        if(physicMap[position[0] +1] && physicMap[position[0] +1][position[1]] === 0){
-            if(unitMap[position[0] +1] && unitMap[position[0] +1][position[1]] === 0 ){
-                directionPossible.push(0);
-            }
+        if(this.touchProp(NewPosi0, idMonster) == false && this.touchWall(NewPosi0) == false && this.touchUnite(NewPosi0) == false){
+            directionPossible.push(0);
         }
-
-        //check si la gauche est dispo
-        if(physicMap[position[0]] && physicMap[position[0]][position[1] -1] === 0){
-            if(unitMap[position[0]] && unitMap[position[0]][position[1] -1] === 0 ){
-                directionPossible.push(1);
-            }
+        if(this.touchProp(NewPosi1, idMonster) == false && this.touchWall(NewPosi1) == false && this.touchUnite(NewPosi1) == false){
+            directionPossible.push(1);
         }
-
-        //check si le haut est dispo
-        if(physicMap[position[0] -1] && physicMap[position[0] -1][position[1]] === 0){
-            if(unitMap[position[0] -1] && unitMap[position[0] -1][position[1]] === 0 ){
-                directionPossible.push(2);
-            }
+        if(this.touchProp(NewPosi2, idMonster) == false && this.touchWall(NewPosi2) == false && this.touchUnite(NewPosi2) == false){
+            directionPossible.push(2);
         }
-
-        //check si la droite est dispo
-        if(physicMap[position[0]] && physicMap[position[0]][position[1] +1] === 0){
-            if(unitMap[position[0]] && unitMap[position[0]][position[1] +1] === 0 ){
-                directionPossible.push(3);
-            }
-           
+        if(this.touchProp(NewPosi3, idMonster) == false && this.touchWall(NewPosi3) == false && this.touchUnite(NewPosi3) == false){
+            directionPossible.push(3);
         }
 
         if(directionPossible.length > 0){
@@ -907,26 +912,6 @@ class CLASSgameplay {
         return esquiveDirection;
     }
 
-    // retourne la position de toutes les unités sur la map (0 = vide, 1 = monstre, 2 = player)
-    UnitMap(){
-        let tilesTAB = [];
-        let PosiPlayer = this.player.GETposition();
-        for (let H = 0; H < window.TABhauteur; H++) {
-            tilesTAB[H] = [];
-            for (let L = 0; L < window.TABlargeur; L++) {
-                tilesTAB[H][L] = 0;
-
-                if(this.monsterPosition[H] && this.monsterPosition[H][L] && this.monsters[this.monsterPosition[H][L]].active()){
-                    tilesTAB[H][L] = 1;
-                }
-                if(PosiPlayer[0] == H && PosiPlayer[1] == L){
-                    tilesTAB[H][L] = 2;
-                }
-            }
-        }
-        return tilesTAB;
-    }
-
     showMenu(show){
 
         if (show == true){
@@ -934,8 +919,9 @@ class CLASSgameplay {
             setTimeout(() => { 
                 this.ensembleMenuAffichage.style.opacity='1';
             }, 200);
+        }
 
-        }else if(show == false){
+        else if(show == false){
             this.ensembleMenuAffichage.style.opacity='0';
             setTimeout(() => { 
                 this.ensembleMenuAffichage.style.display='none';
