@@ -1,4 +1,7 @@
 {
+    "1.0.1":[
+        "Correctif du replacement du joueur lors des changements de tableaux."
+    ],
     "1.0.0":[
         "création de la quête principale.",
         "Correctif de l'esquive.",

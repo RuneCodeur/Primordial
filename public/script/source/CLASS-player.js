@@ -92,6 +92,7 @@ class CLASSplayer extends CLASSunit {
     deplaceTAB(){
         let position  = this.GETposition();
         let direction  = this.GETdirection();
+        this.unitDepop();
 
         switch (direction) {
             // vers le bas
