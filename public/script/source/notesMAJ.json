@@ -1,4 +1,7 @@
 {
+    "1.1.0":[
+        "ajout de l'equipement de type bottes aux sets d'armures."
+    ],
     "1.0.1":[
         "Correctif du replacement du joueur lors des changements de tableaux."
     ],
@@ -18,7 +21,7 @@
     "0.8.2":[
         "Correctif du mouvement au touché continue qui peux se bloquer.",
         "Correctif du bug de l'item vide dans l'inventaire.",
-        "Correctif d'un mouvement possible du joueur lors des dialogue"
+        "Correctif d'un mouvement possible du joueur lors des dialogue."
     ],
     "0.8.1":[
         "Ajustement du bouton inventaire pour le format mobile."

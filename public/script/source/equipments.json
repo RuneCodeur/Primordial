@@ -165,7 +165,7 @@
                 "INT":0,
                 "ARMO":2
             },
-            "description": "Une grosse armure. resistante, mais un peu lourde."
+            "description": "La peau épaisse d'un grand ours qui sert de grande cape. Elle est très pratique pour la survie en forêt."
         },
         {
             "name":"armure des elfes sylvain",
@@ -205,7 +205,105 @@
 
     ],
     "bottes":[
-
+        {
+            "name":"sabots de paysan",
+            "img": "feet-0.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":0,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Des sabots en bois, pratique pour travailler dans les champs."
+        },
+        {
+            "name":"chausses de magicien",
+            "img": "feet-1.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":0,
+                "INT":1,
+                "ARMO":0
+            },
+            "description": "une paire de chaussures confortables, adapté pour une vie citadine."
+        },
+        {
+            "name":"bottes de pirate",
+            "img": "feet-2.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":0,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Une paire de bottes en cuir. on peux y cacher un petit couteau à l'interieur"
+        },
+        {
+            "name":"bottes de rodeur",
+            "img": "feet-3.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":1,
+                "INT":0,
+                "ARMO":0
+            },
+            "description": "Des bottes en cuir souple, pratique pour faire des esquives."
+        },
+        {
+            "name":"grèves de plate",
+            "img": "feet-4.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":0,
+                "INT":0,
+                "ARMO":2
+            },
+            "description": "Des bottes en cuir protégées par une plaque en métal, augmentant sa résistance."
+        },
+        {
+            "name":"chausses du chasseur",
+            "img": "feet-5.png",
+            "bonus":{
+                "FOR":1,
+                "ADR":0,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Une paire de chausses à la fois légère et resistante, adapté pour les grandes randonnées."
+        },
+        {
+            "name":"bottes des elfes sylvain",
+            "img": "feet-6.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":1,
+                "INT":0,
+                "ARMO":1
+            },
+            "description": "Une paire de bottes étonnamment légères, faites dans une matière que seuls les elfes ont le secret."
+        },
+        {
+            "name":"Solerets de paladin",
+            "img": "feet-7.png",
+            "bonus":{
+                "FOR":0,
+                "ADR":0,
+                "INT":0,
+                "ARMO":2
+            },
+            "description": "Des bottes en metal, adapté à la fois aux combats et aux longues marches."
+        },
+        {
+            "name":"sandales du guerrier antique",
+            "img": "feet-8.png",
+            "bonus":{
+                "FOR":1,
+                "ADR":1,
+                "INT":0,
+                "ARMO":2
+            },
+            "description": "des sandales ayant appartenue à un grand guerrier, oublié par tous. Il est fait d'un étrange métal très resistant."
+        }
     ],
     "armes":[
         {
