@@ -29,6 +29,7 @@ class CLASSgameplay {
         this.RESSOURCEextra = [];
         this.idTableauInit = [8, 2];
         this.PosiPlayerInit = [3, 4];
+        this.timeShowText = 40;
         this.idTableau = 0;
         this.waiting = false;
         this.dialogActivate = false;
@@ -258,6 +259,12 @@ class CLASSgameplay {
                     this.monsters[idMonster] = new CLASSmonster(GETmonsters[i].position, GETmonsters[i].direction, idMonster);
                     let InfoMonster = this.GETmonster(GETmonsters[i]);
                     this.monsters[idMonster].POSTRESSOURCEmonster(InfoMonster);
+                    if(GETmonsters[i].info){
+                        this.monsters[idMonster].POSTinfo(GETmonsters[i].info);
+                    }
+                    if(GETmonsters[i].move){
+                        this.monsters[idMonster].POSTmove(GETmonsters[i].move);
+                    }
                 }
             }
         }
@@ -416,8 +423,13 @@ class CLASSgameplay {
                     // esce que la position du joueur cogne une autre unité ?
                     let touchUnite = this.touchUnite(newPosition);
                     if(touchUnite != false){
-                        this.attackMonster(touchUnite);
-                        this.dropLoot(touchUnite);
+                        if(this.monsters[touchUnite].isAgressif == true){
+                            this.attackMonster(touchUnite);
+                            this.dropLoot(touchUnite);
+                        }
+                        else{
+                            this.speakMonster(touchUnite, direction);
+                        }
                     }
 
                     // deplacement du joueur, si il n'est pas dans la limite ni si il touche un mur
@@ -446,6 +458,12 @@ class CLASSgameplay {
             //++ optimisation : mis à jour de la physique du tableau ICI
             this.playerIsOnLoot();
         }
+    }
+
+    // fait parler le monstre
+    speakMonster(idMonster, direction){
+        this.monsters[idMonster].speaking(direction);
+        this.showText(this.monsters[idMonster].GETSpeak());
     }
 
     dropLoot(idMonster){
@@ -577,7 +595,7 @@ class CLASSgameplay {
                             // esce que la position du monstre cogne une autre unité ?
                             let touchUnite = this.touchUnite(newPosition);
                             if(touchUnite != false){
-                                if(touchUnite == 'player'){
+                                if(touchUnite == 'player' && monster.isAgressif == true){
                                     this.attackPlayer(monster.id);
                                 }
                             }
@@ -801,7 +819,7 @@ class CLASSgameplay {
                     }
                     clearInterval(interval);
                 }
-            }, 25);
+            }, this.timeShowText);
         }
     }
 

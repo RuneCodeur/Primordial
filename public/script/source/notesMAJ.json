@@ -1,12 +1,18 @@
 {
+    "1.2.0":[
+        "Ajout des habitants dans le village.",
+        "Correctif de l'orthographe du texte descriptif des équipements.",
+        "Correctif de la limite de déplacement des monstres.",
+        "Modification de la vitesse de la boîte de dialogue."
+    ],
     "1.1.0":[
-        "ajout de l'equipement de type bottes aux sets d'armures."
+        "Ajout de l'equipement de type bottes aux sets d'armures."
     ],
     "1.0.1":[
         "Correctif du replacement du joueur lors des changements de tableaux."
     ],
     "1.0.0":[
-        "création de la quête principale.",
+        "Création de la quête principale.",
         "Correctif de l'esquive.",
         "Ajout du set du pirate.",
         "Ajout du set du chasseur.",

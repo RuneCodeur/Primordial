@@ -225,7 +225,7 @@
                 "INT":1,
                 "ARMO":0
             },
-            "description": "une paire de chaussures confortables, adapté pour une vie citadine."
+            "description": "Une paire de chaussures confortables, adapté pour une vie citadine."
         },
         {
             "name":"bottes de pirate",
@@ -236,7 +236,7 @@
                 "INT":0,
                 "ARMO":1
             },
-            "description": "Une paire de bottes en cuir. on peux y cacher un petit couteau à l'interieur"
+            "description": "Une paire de bottes en cuir. on peux y cacher un petit couteau à l'interieur."
         },
         {
             "name":"bottes de rodeur",
@@ -302,7 +302,7 @@
                 "INT":0,
                 "ARMO":2
             },
-            "description": "des sandales ayant appartenue à un grand guerrier, oublié par tous. Il est fait d'un étrange métal très resistant."
+            "description": "Des sandales ayant appartenue à un grand guerrier, oublié par tous. Il est fait d'un étrange métal très resistant."
         }
     ],
     "armes":[

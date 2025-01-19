@@ -7,9 +7,14 @@ class CLASSmonster extends CLASSunit{
         this.id = id;
         this.direction = direction;
         this.directionPrec = direction;
+        this.isAgressif = true;
         this.comportementEtat = 0;
         this.IA = null;
         this.debileAnim = false;
+        this.dialog = '';
+        this.dialogButtons = [];
+        this.move = false;
+        this.isSpeaking = false;
     }
 
     POSTRESSOURCEmonster(RESSOURCEmonster){
@@ -26,6 +31,9 @@ class CLASSmonster extends CLASSunit{
         this.ARMO = RESSOURCEmonster.ARMO;
         this.XP = RESSOURCEmonster.XP;
         this.IA = RESSOURCEmonster.IA;
+        if(RESSOURCEmonster.IA == 'PNJ'){
+            this.isAgressif = false;
+        }
         this.vision = RESSOURCEmonster.vision;
         this.assets = {
             0 : RESSOURCEmonster.img[0],
@@ -33,6 +41,51 @@ class CLASSmonster extends CLASSunit{
             2 : RESSOURCEmonster.img[2],
             3 : RESSOURCEmonster.img[3]
         }
+    }
+    
+    POSTinfo(info){
+        this.dialog = info.dialog;
+        this.dialogButtons = info.buttons;
+    }
+
+    POSTmove(move){
+        this.move = move;
+    }
+
+    speaking(direction){
+        let newDirection = 0;
+        switch (direction) {
+            case 1:
+                newDirection = 3;
+                break;
+
+            case 2:
+                newDirection = 0;
+                break;
+
+            case 3:
+                newDirection = 1;
+                break;
+
+            case 0:
+                newDirection = 2;
+                break;
+
+            default:
+                newDirection = 0;
+                break;
+        }
+        this.POSTdirection(newDirection);
+        this. directionAffichage();
+        this.isSpeaking = true;
+    }
+
+    GETSpeak(){
+        let info = {
+            "dialog":this.dialog, 
+            "buttons" :this.dialogButtons
+        }
+        return info;
     }
 
     unitDepop(){
@@ -109,6 +162,18 @@ class CLASSmonster extends CLASSunit{
             case 'boss': 
                 this.comportementEtat = 1;
                 break;
+            
+            // personnage passif qui n'attaque jamais
+            case 'PNJ': 
+                this.isAgressif = false;
+                if(this.isSpeaking){
+                    this.isSpeaking = false;
+                    this.comportementEtat = 3;
+                }
+                else{
+                    this.comportementEtat = 0;
+                }
+                break;
 
             // gros débile 
             case 'débile':
@@ -119,7 +184,7 @@ class CLASSmonster extends CLASSunit{
     }
 
     testLimit(newPosi){
-        if(newPosi[0] >= window.TABhauteur-1 || newPosi[0] < 0 || newPosi[1] >= window.TABlargeur-1 || newPosi[1] < 0){
+        if(newPosi[0] >= window.TABhauteur-1 || newPosi[0] <= 0 || newPosi[1] >= window.TABlargeur-1 || newPosi[1] <= 0){
             return true;
         }else{
             return false;
@@ -143,21 +208,28 @@ class CLASSmonster extends CLASSunit{
                 return this.escapePlayer(positionPlayer, tableau);
                 break;
 
+            // ne pas bouger
+            case 3:
+                return deplacement;
+                break;
+
             // repos
             default:
-                let IsMove = Math.floor(Math.random()*3);
-                if(IsMove == 0){
-                    deplacement = Math.floor(Math.random()*4)
-                }
-
-                // si l'IA est un gros débile, lui donne le QI d'une moule de temps en temps
-                else if(this.IA == 'débile'){
-                    let IsIntero = Math.floor(Math.random()*4);
-                    if( IsIntero == 0 && this.debileAnim == false){
-                        this.interoEffect();
-                        this.debileAnim = true;
-                    }else{
-                        this.debileAnim = false;
+                if(this.move == true){
+                    let IsMove = Math.floor(Math.random()*3);
+                    if(IsMove == 0){
+                        deplacement = Math.floor(Math.random()*4)
+                    }
+    
+                    // si l'IA est un gros débile, lui donne le QI d'une moule de temps en temps
+                    else if(this.IA == 'débile'){
+                        let IsIntero = Math.floor(Math.random()*4);
+                        if( IsIntero == 0 && this.debileAnim == false){
+                            this.interoEffect();
+                            this.debileAnim = true;
+                        }else{
+                            this.debileAnim = false;
+                        }
                     }
                 }
                 break;

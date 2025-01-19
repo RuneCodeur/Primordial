@@ -290,5 +290,125 @@
                 "3" : "damodar-droite.png"
             }
         }
+    ],
+    "8":[
+        {
+            "name":"vincent",
+            "PV" : 5,
+            "PM" : 0,
+            "FOR" : 1,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 10,
+            "IA" : "PNJ",
+            "vision" : 5,
+            "img":{
+                "0" : "pnj-0-face.png",
+                "1" : "pnj-0-gauche.png",
+                "2" : "pnj-0-dos.png",
+                "3" : "pnj-0-droite.png"
+            }
+        }
+    ],
+    "9":[
+        {
+            "name":"Bremor le marin",
+            "PV" : 5,
+            "PM" : 0,
+            "FOR" : 1,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 10,
+            "IA" : "PNJ",
+            "vision" : 5,
+            "img":{
+                "0" : "pnj-1-face.png",
+                "1" : "pnj-1-gauche.png",
+                "2" : "pnj-1-dos.png",
+                "3" : "pnj-1-droite.png"
+            }
+        }
+    ],
+    "10":[
+        {
+            "name":"Pierrick le marchand",
+            "PV" : 5,
+            "PM" : 0,
+            "FOR" : 1,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 10,
+            "IA" : "PNJ",
+            "vision" : 5,
+            "img":{
+                "0" : "pnj-2-face.png",
+                "1" : "pnj-2-gauche.png",
+                "2" : "pnj-2-dos.png",
+                "3" : "pnj-2-droite.png"
+            }
+        }
+    ],
+    "11":[
+        {
+            "name":"Maire William",
+            "PV" : 5,
+            "PM" : 0,
+            "FOR" : 1,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 10,
+            "IA" : "PNJ",
+            "vision" : 5,
+            "img":{
+                "0" : "pnj-3-face.png",
+                "1" : "pnj-3-gauche.png",
+                "2" : "pnj-3-dos.png",
+                "3" : "pnj-3-droite.png"
+            }
+        }
+    ],
+    "12":[
+        {
+            "name":"Butcher Pilip",
+            "PV" : 5,
+            "PM" : 0,
+            "FOR" : 1,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 10,
+            "IA" : "PNJ",
+            "vision" : 5,
+            "img":{
+                "0" : "pnj-4-face.png",
+                "1" : "pnj-4-gauche.png",
+                "2" : "pnj-4-dos.png",
+                "3" : "pnj-4-droite.png"
+            }
+        }
+    ],
+    "13":[
+        {
+            "name":"acolyte des Alfars",
+            "PV" : 5,
+            "PM" : 0,
+            "FOR" : 1,
+            "ADR" : 1,
+            "INT" : 0,
+            "ARMO" : 0,
+            "XP" : 10,
+            "IA" : "PNJ",
+            "vision" : 5,
+            "img":{
+                "0" : "pnj-5-face.png",
+                "1" : "pnj-5-gauche.png",
+                "2" : "pnj-5-dos.png",
+                "3" : "pnj-5-droite.png"
+            }
+        }
     ]
 }

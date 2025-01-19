@@ -5678,9 +5678,19 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[2],
-                        "direction":1,
-                        "position": [6, 8]
+                        "lvl":[10],
+                        "direction": 1,
+                        "position": [6, 8],
+                        "move" : true,
+                        "info":{
+                            "dialog": "Les larbins de Damodar ont détruit mon magasin ! Il va me falloir du temps avant de rouvrir mon commerce.",
+                            "buttons" : [
+                                {
+                                    "type":0,
+                                    "name":"C'est triste"
+                                }
+                            ]
+                        }
                     }
                 ],
                 "props":[
@@ -5726,9 +5736,19 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[2],
-                        "direction":0,
-                        "position": [5, 7]
+                        "lvl":[11],
+                        "direction": 0,
+                        "position": [5, 6],
+                        "move" : false,
+                        "info":{
+                            "dialog": "Vous ! Là ! Vous êtes aventurier, non ?  Vous devez nous aider à détruire Damodar! C'est un puissant chef de guerre, et il se cache dans les ruines des montagnes. Qu'en pensez-vous ?",
+                            "buttons" : [
+                                {
+                                    "type":0,
+                                    "name":"Je suis partant !"
+                                }
+                            ]
+                        }
                     }
                 ],
                 "props":[
@@ -5774,14 +5794,19 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[2],
-                        "direction":3,
-                        "position": [2, 3]
-                    },
-                    {
-                        "lvl":[2],
-                        "direction":2,
-                        "position": [3, 4]
+                        "lvl":[12],
+                        "direction": 3,
+                        "position": [2, 3],
+                        "move" : true,
+                        "info":{
+                            "dialog": "Quel bazar ! Et tout ça continuera jusqu'à ce que quelqu'un nous débarrasse de ce maudit Damodar ! D'ailleurs, vous avez parlé au maire ?",
+                            "buttons" : [
+                                {
+                                    "type":0,
+                                    "name":"Je vais voir"
+                                }
+                            ]
+                        }
                     }
                 ],
                 "props":[
@@ -6074,18 +6099,7 @@
                     [110, 110, 110, 110, 110, 108, 110, 110, 110, 110],
                     [110, 110, 110, 110, 110, 108, 110, 110, 110, 110]
                 ],
-                "monsters" : [
-                    {
-                        "lvl":[2],
-                        "direction":3,
-                        "position": [3, 3]
-                    },
-                    {
-                        "lvl":[2],
-                        "direction":1,
-                        "position": [5, 6]
-                    }
-                ],
+                "monsters" : [],
                 "props":[
                     {
                         "type":6,
@@ -6137,9 +6151,19 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[2],
-                        "direction":2,
-                        "position": [6, 4]
+                        "lvl":[8],
+                        "direction": 2,
+                        "position":[6, 4],
+                        "move" : true,
+                        "info":{
+                            "dialog": "Je suis venu sur cette île pour trouver l'inspiration, mais je ne trouve que des problèmes. Tout ça, c'est la faute de Damodar...",
+                            "buttons" : [
+                                {
+                                    "type":0,
+                                    "name":"Bon courage !"
+                                }
+                            ]
+                        }
                     }
                 ],
                 "props":[
@@ -6399,13 +6423,7 @@
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
                 ],
-                "monsters" : [
-                    {
-                        "lvl":[2],
-                        "direction":2,
-                        "position": [5, 5]
-                    }
-                ],
+                "monsters" : [],
                 "props":[
                     {
                         "type":3,
@@ -6465,14 +6483,19 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[2],
-                        "direction":1,
-                        "position": [3, 2]
-                    },
-                    {
-                        "lvl":[2],
-                        "direction":0,
-                        "position": [4, 6]
+                        "lvl":[9],
+                        "direction": 0,
+                        "position":[4, 6],
+                        "move" : false,
+                        "info":{
+                            "dialog": "L'océan est calme, mais à chaque fois qu'un bateau quitte le port, il ne revient jamais. Nous sommes coincés sur cette île.",
+                            "buttons" : [
+                                {
+                                    "type":0,
+                                    "name":"Ok"
+                                }
+                            ]
+                        }
                     }
                 ],
                 "props":[
@@ -6500,13 +6523,7 @@
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
                 ],
-                "monsters" : [
-                    {
-                        "lvl":[2],
-                        "direction":1,
-                        "position": [2, 3]
-                    }
-                ],
+                "monsters" : [],
                 "props":[
                     {
                         "type":6,
