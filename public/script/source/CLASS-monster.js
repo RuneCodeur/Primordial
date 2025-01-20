@@ -13,7 +13,7 @@ class CLASSmonster extends CLASSunit{
         this.debileAnim = false;
         this.dialog = '';
         this.dialogButtons = [];
-        this.move = false;
+        this.move = true;
         this.isSpeaking = false;
     }
 

@@ -16,8 +16,7 @@ class CLASSgameplay {
         this.idMoveMaintenu = [];
         this.monsters = {};
         this.monsterPosition = [];
-        this.equipments = [];
-        this.consomables = [];
+        this.tableLoot = [];
         this.props = {};
         this.propPosition = [];
         this.RESSOURCEmapTAB = {};
@@ -85,11 +84,8 @@ class CLASSgameplay {
         urls = [...urls, ...this.RESSOURCEextra];
         
         Object.keys(this.RESSOURCEequipments).forEach(id => {
-            this.RESSOURCEequipments[id].forEach(equipement => {
-                urls.push(equipement.img)
-            });
+            urls.push(this.RESSOURCEequipments[id].img)
         });
-
         Object.keys(this.RESSOURCEmapTiles).forEach(id => {
             urls.push(this.RESSOURCEmapTiles[id].img);
         });
@@ -140,7 +136,7 @@ class CLASSgameplay {
         this.player = null;
         this.map = null;
         this.player = new CLASSplayer(this.PosiPlayerInit);
-        this.initEquipments();
+        this.initLoot();
         this.map = new CLASSmap(this.idTableau);
         this.map.LETTRESSOURCEmapTAB(JSON.parse(JSON.stringify(this.RESSOURCEmapTAB)));
         this.map.LETTRESSOURCEmapTiles(JSON.parse(JSON.stringify(this.RESSOURCEmapTiles)));
@@ -215,37 +211,42 @@ class CLASSgameplay {
         document.getElementById('footer').innerHTML = "Version " + lastMAJ;
     }
 
-    initEquipments(){
-        this.equipments = [];
+    // initialise la table des loots
+    initLoot(){
+        this.tableLoot = [];
 
-        this.RESSOURCEequipments.casques.forEach(equipment => {
-            equipment.type="casque";
-            this.equipments.push(equipment);
+        Object.keys(this.RESSOURCEequipments).forEach(id => {
+            let equipment = JSON.parse(JSON.stringify(this.RESSOURCEequipments[id]));
+            equipment.id = id;
+            if(equipment.type !== undefined){
+                switch (equipment.type) {
+                    case 0:
+                        equipment.type = "consomable";
+                        break;
+                    case 1:
+                        equipment.type = "casque";
+                        break;
+                    case 2:
+                        equipment.type = "armure";
+                        break;
+                    case 3:
+                        equipment.type = "gant";
+                        break;
+                    case 4:
+                        equipment.type = "botte";
+                        break;
+                    case 5:
+                        equipment.type = "arme";
+                        break;
+                    default:
+                        equipment.type = "broken";
+                        break;
+                }
+                if(equipment.type != "broken"){
+                    this.tableLoot.push(equipment);
+                }
+            }
         });
-        this.RESSOURCEequipments.armures.forEach(equipment => {
-            equipment.type="armure";
-            this.equipments.push(equipment);
-        });
-        this.RESSOURCEequipments.gants.forEach(equipment => {
-            equipment.type="gant";
-            this.equipments.push(equipment);
-        });
-        this.RESSOURCEequipments.bottes.forEach(equipment => {
-            equipment.type="botte";
-            this.equipments.push(equipment);
-        });
-        this.RESSOURCEequipments.armes.forEach(equipment => {
-            equipment.type="arme";
-            this.equipments.push(equipment);
-        });
-
-        this.consomables = [];
-        this.RESSOURCEequipments.consomables.forEach(equipment => {
-            equipment.type="consomable";
-            this.consomables.push(equipment);
-        });
-
-        this.equipments = this.equipments.sort((a, b) => 0.5 - Math.random());
     }
 
     // fait placer tout les monstres dans le tableau
@@ -297,21 +298,51 @@ class CLASSgameplay {
         }
     }
 
-    dropObject(){
-        let randomTypeObject = Math.floor(Math.random()*3);
+    // drop un loot
+    dropObject(id = null){
+        let objectLoot = {};
 
-        //type consomable
-        if(randomTypeObject == 1){
-            let randomConso = Math.floor(Math.random()*this.consomables.length);
-            return this.consomables[randomConso];
+        // loot unique
+        if(id != null){
+            this.tableLoot.forEach(object => {
+                if(object.id == id ){
+                    objectLoot = object;
+                }
+            });
+            if (objectLoot.id == undefined){
+                objectLoot = this.dropObject();
+            }
         }
-        
-        //type equipement
+
+        //loot aléatoire
         else{
-            let equipement = this.equipments[0];
-            this.equipments.shift();
-            return equipement;
+            let tableLoot = [];
+
+            this.tableLoot.forEach(object => {
+                if(object.loot > 0){
+                    tableLoot.push(object);
+                }
+            });
+
+            let totalWeight = tableLoot.reduce((sum, object) => sum + object.loot, 0);
+            let randomLoot = Math.random() * totalWeight;
+          
+            let cumulativeWeight = 0;
+            for (let object of tableLoot) {
+              cumulativeWeight += object.loot;
+              if (randomLoot <= cumulativeWeight) {
+                objectLoot = object;
+                break;
+              }
+            }
         }
+
+        // si le loot est un objet unique -> le vire de la table de loot
+        if(objectLoot && objectLoot.isUnique === true){
+            this.tableLoot = this.tableLoot.filter(object => object.id !== objectLoot.id);
+        }
+
+        return objectLoot;
     }
 
     // fait depop tout les props présent dans le tableau
@@ -494,6 +525,7 @@ class CLASSgameplay {
     showInventory(force = false){
         if(this.inventoryActivate == true || force){
             this.inventoryActivate = false;
+            this.player.unshowItemInventory();
         }
         else{
             this.inventoryActivate = true;

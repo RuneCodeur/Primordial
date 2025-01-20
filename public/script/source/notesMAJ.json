@@ -1,4 +1,9 @@
 {
+    "1.2.1":[
+       "Modification du système de loot, par rareté.",
+       "Correction du comportement par defaut des monstres",
+       "La boîte de dialogue dans l'inventaire se ferme correctement après la fermeture de l'inventaire."
+    ],
     "1.2.0":[
         "Ajout des habitants dans le village.",
         "Correctif de l'orthographe du texte descriptif des équipements.",
