@@ -15,6 +15,7 @@ class CLASSmonster extends CLASSunit{
         this.dialogButtons = [];
         this.move = true;
         this.isSpeaking = false;
+        this.itemsVendor = [];
     }
 
     POSTRESSOURCEmonster(RESSOURCEmonster){
@@ -44,8 +45,21 @@ class CLASSmonster extends CLASSunit{
     }
     
     POSTinfo(info){
-        this.dialog = info.dialog;
-        this.dialogButtons = info.buttons;
+        if(info.dialog){
+            this.dialog = info.dialog;
+        }
+
+        if(info.itemsVendor){
+            this.itemsVendor = info.itemsVendor;
+        }
+
+        if(info.buttons){
+            this.dialogButtons = info.buttons;
+            for (let i = 0; i < this.dialogButtons.length; i++) {
+                this.dialogButtons[i].id = this.id;
+            }
+        }
+
     }
 
     POSTmove(move){
@@ -86,6 +100,13 @@ class CLASSmonster extends CLASSunit{
             "buttons" :this.dialogButtons
         }
         return info;
+    }
+    GETvendor(){
+        let vendor = {
+            "name": this.name,
+            "items": this.itemsVendor
+        }
+        return vendor;
     }
 
     unitDepop(){

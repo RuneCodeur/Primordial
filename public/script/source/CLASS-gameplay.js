@@ -26,8 +26,8 @@ class CLASSgameplay {
         this.RESSOURCEnotesMAJ = {};
         this.RESSOURCEequipments = {};
         this.RESSOURCEextra = [];
-        this.idTableauInit = [8, 2];
-        this.PosiPlayerInit = [3, 4];
+        this.idTableauInit = [7, 5]; //[8, 2];
+        this.PosiPlayerInit = [7, 8]; //[3, 4];
         this.timeShowText = 40;
         this.idTableau = 0;
         this.waiting = false;
@@ -533,13 +533,22 @@ class CLASSgameplay {
         this.player.showInventory(force);
     }
 
+    showVendor(force = false){
+        if(this.inventoryActivate == true || force){
+            this.inventoryActivate = false;
+        }
+        else{
+            this.inventoryActivate = true;
+        }
+        this.player.showVendor(force);
+    }
+
     async transitionTableau(direction){
         let transitionAffichage = document.getElementById('transition');
         switch (direction) {
             
             // vers le bas
             case 0:
-                
                 transitionAffichage.style.left="0";
                 transitionAffichage.style.top="100%";
                 transitionAffichage.style.display="flex";
@@ -579,7 +588,6 @@ class CLASSgameplay {
 
             // vers la droite
             case 3:
-                
                 transitionAffichage.style.left="200%";
                 transitionAffichage.style.top="0";
                 transitionAffichage.style.display="flex";
@@ -785,20 +793,38 @@ class CLASSgameplay {
     }
 
     // choix à faire dans une boite de dialogue
-    dialogChoice(type, idProp){
+    dialogChoice(type, id){
         switch (type) {
 
             // prendre l'objet du prop
             case 1:
                 if(this.player.asPlaceInInventory() > 0){
-                    let object = this.props[idProp].GETcontent();
+                    let object = this.props[id].GETcontent();
                     this.player.insertItemInInventory(object);
-                    this.PropChangeEtat(idProp);
+                    this.PropChangeEtat(id);
                 }
 
                 this.unshowText();
                 break;
-        
+            
+            // affiche le vendeur
+            case 2:
+                let infoVendor = this.monsters[id].GETvendor();
+                if(infoVendor.items){
+                    for (let i = 0; i < infoVendor.items.length; i++) {
+                        for (let il = 0; il < this.tableLoot.length; il++) {
+                            if(this.tableLoot[il].id == infoVendor.items[i]){
+                                infoVendor.items[i] = this.tableLoot[il];
+                                break;
+                            }
+                        }
+                    }
+                }
+                this.player.showInfoVendor(infoVendor);
+                this.showVendor();
+                this.unshowText();
+                break;
+
             // ferme la boite de dialogue
             default:
                 this.unshowText();
@@ -843,11 +869,11 @@ class CLASSgameplay {
                 // bouton de choix, lors de la fin d'un dialogue
                 if (letterPosition >= text.dialog.length) {
                     for (let i = 0; i < text.buttons.length; i++) {
-                        let idProp = 0;
-                        if(text.buttons[i].idProp){
-                            idProp = text.buttons[i].idProp;
+                        let id = 0;
+                        if(text.buttons[i].id){
+                            id = text.buttons[i].id;
                         }
-                        dialogChoices.innerHTML += '<button onclick="dialogChoice('+text.buttons[i].type+',\''+idProp+'\')">'+text.buttons[i].name+'</button>'
+                        dialogChoices.innerHTML += '<button onclick="dialogChoice('+text.buttons[i].type+',\''+id+'\')">'+text.buttons[i].name+'</button>'
                     }
                     clearInterval(interval);
                 }

@@ -350,6 +350,22 @@ class CLASSplayer extends CLASSunit {
         }
     }
 
+    showInfoVendor(info = null){
+        console.log('affiche les infos du vendeur');
+        if(info != null){
+            console.log(info);
+            document.getElementById('vendorName').innerText = info.name;
+        }
+    }
+    
+    showVendor(force = false){
+        if(document.getElementById('vendor').style.display == 'none' || force){
+            document.getElementById('vendor').style.display = 'flex';
+        }else{
+            document.getElementById('vendor').style.display = 'none';
+        }
+    }
+
     MAJinventory(){
         this.updateStats();
         this.updateEquipment();

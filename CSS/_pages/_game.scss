@@ -219,6 +219,55 @@
             }
         }
     }
+    #vendor{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(222, 184, 135);
+        z-index: 50;
+        display: none;
+        button{
+            position: absolute;
+            top: 1.5%;
+            right: 1.5%;
+            width: 10%;
+            height: 10%;
+            margin: 0;
+            padding: 0;
+            background-color:initial;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+        #vendorName{
+            position: absolute;
+            border-bottom: 3px black solid;
+            top: 2.5%;
+            left: 2.5%;
+            width: 85%;
+            height: 7.5%;
+            font-size: 1.4rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+        }
+        #itemsVendor{
+            left: 2.5%;
+        }
+        #itemsPlayer{
+            right: 2.5%;
+        }
+        .items{
+            top: 12.5%;
+            border: 3px black solid;
+            height: 85%;
+            position: absolute;
+            width: 40%;
+            //////////////////////////////////////////
+        }
+    }
     #units{
         position: absolute;
         width: 100%;

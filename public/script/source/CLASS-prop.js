@@ -117,7 +117,7 @@ class CLASSprop {
                             {
                                 name:"prendre",
                                 type:1,
-                                idProp: this.id
+                                id: this.id
                             },
                             {
                                 name:"Laisser",
@@ -139,7 +139,7 @@ class CLASSprop {
                             {
                                 name:"prendre",
                                 type:1,
-                                idProp: this.id
+                                id: this.id
                             },
                             {
                                 name:"Laisser",
