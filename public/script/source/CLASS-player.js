@@ -13,6 +13,7 @@ class CLASSplayer extends CLASSunit {
         this.INT = 1;
         this.ARMO = 0;
         this.XP = 0;
+        this.OR = 0;
         this.LVL = 1;
         this.id = 'player';
         this.equipment = {
@@ -55,6 +56,14 @@ class CLASSplayer extends CLASSunit {
         })
 
         return stats;
+    }
+
+    GETmoney(){
+        return this.OR;
+    }
+    
+    payMoney(cost){
+        this.OR = Math.max(this.OR - cost, 0)
     }
 
     attack(){
@@ -350,12 +359,26 @@ class CLASSplayer extends CLASSunit {
         }
     }
 
-    showInfoVendor(info = null){
-        console.log('affiche les infos du vendeur');
+    showInfoVendor(idVendor, info = null){
         if(info != null){
-            console.log(info);
             document.getElementById('vendorName').innerText = info.name;
+            let showItems = "";
+            Object.keys(info.items).forEach( idItem => {
+                let item = info.items[idItem];
+                showItems += this.showItemVendor(idVendor, idItem, item);
+            });
+            document.getElementById('itemsVendor').innerHTML = showItems
         }
+
+        console.log('liste des trucs a vendre pour le joueur') //+++
+    }
+
+    showItemVendor(idVendor, idItem, item){
+        let colorPrice = "black"
+        if(this.OR < item.or){
+            colorPrice = "red"
+        }
+        return  "<button onclick='actionItemVendor("+idVendor+", "+idItem+", 0)' class='item'> <div class='name'>" + item.name + "</div><div class='price " + colorPrice + "'> " + item.or + " </div> </button>"
     }
     
     showVendor(force = false){

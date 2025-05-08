@@ -536,6 +536,7 @@ class CLASSgameplay {
     showVendor(force = false){
         if(this.inventoryActivate == true || force){
             this.inventoryActivate = false;
+            this.unshowItemVendor();
         }
         else{
             this.inventoryActivate = true;
@@ -774,6 +775,124 @@ class CLASSgameplay {
             this.menu(5);
         }
     }
+
+    actionItemVendor(idVendor, idItem, action = null){
+        let infoVendor = null;
+        let item = null;
+
+        switch (action) {
+            case 0:
+                item = this.monsters[idVendor].GETitemVendor(idItem);
+                this.showItemVendor(idVendor, idItem, item);
+                break;
+        
+            case 1:
+                console.log('affiche litem '+idItem+' du joueur' +idVendor)
+                item = this.player.getItemInventory(idItem);
+                break;
+                
+            case 2:
+                this.unshowItemVendor();
+                break;
+            
+            case 3:
+                console.log('achete litem '+idItem+' du vendeur' +idVendor);
+
+                item = this.monsters[idVendor].GETitemVendor(idItem);
+                if(this.player.asPlaceInInventory() && item.or <= this.player.GETmoney()){
+                    
+                    this.monsters[idVendor].DELETEitemVendor(idItem);
+                    this.player.payMoney(item.or);
+                    this.player.insertItemInInventory(item);
+
+                    //+++ fonction vendre l'objet iditem du vendeur idvendor au joueur
+                    infoVendor = this.monsters[idVendor].GETvendor();
+                    this.player.showInfoVendor(idVendor, infoVendor);
+                    this.unshowItemVendor();
+                
+                }
+                
+                break;
+                
+            case 4:
+                console.log('vend litem '+idItem+' du joueur' +idVendor);
+
+                //+++ fonction vendre l'objet iditem du joueur                
+                infoVendor = this.monsters[idVendor].GETvendor();
+                this.player.showInfoVendor(idVendor, infoVendor);
+                this.unshowItemVendor();
+                
+                break;
+        }
+
+        if(this.player.active() == false){
+            this.menu(5);
+        }
+    }
+
+    showItemVendor(idVendor,idItem, item){
+
+        console.log(item); //+++
+
+        let itemAffichage = '';
+        itemAffichage += '<p class="titre">'+item.name+'</p>';
+        itemAffichage += '<p class="description">'+item.description+'</p>';
+        itemAffichage += '<img src="./public/assets/'+item.img+'">';
+        
+        itemAffichage += '<div class="stats">';
+        Object.keys(item.bonus).forEach(id => {
+            if(item.bonus[id] != 0){
+                let nameStat = '';
+                switch (id) {
+                    case 'FOR':
+                        nameStat = 'FORCE';
+                        break;
+                    case 'ADR':
+                        nameStat = 'ADRESSE';
+                        break;
+                    case 'INT':
+                        nameStat = 'INTELLIGENCE';
+                        break;
+                    case 'ARMO':
+                        nameStat = 'ARMURE';
+                        break;
+                    default:
+                        nameStat = id;
+                        break;
+                }
+                let valueStat = '<b>0</b>';
+                if(item.bonus[id] > 0){
+                    valueStat = '<b class="bonus">+'+item.bonus[id]+'</b>';
+                }
+                else if(item.bonus[id] < 0){
+                    valueStat = '<b class="malus">'+item.bonus[id]+'</b>';
+                }
+                itemAffichage+= '<p>'+nameStat+' : '+ valueStat +'</p>';
+            }
+        })
+
+        itemAffichage += '</div>';
+        
+        itemAffichage += '<div class="Buttons">';
+        if(idVendor == "player"){
+            itemAffichage += '<button onclick="actionItemVendor('+idVendor+', '+idItem+', 4)"> VENDRE</button>';//++
+        }else{
+            
+        //++++ griser le bouton d'achat si pas assez d'argent
+            itemAffichage += '<div class="price"> Valeur : <b>'+ item.or +'</b></div>';//++
+            itemAffichage += '<button onclick="actionItemVendor('+idVendor+', '+idItem+', 3)"> ACHETER</button>';//++
+        }
+        itemAffichage += '<button onclick="actionItemVendor('+idVendor+', '+idItem+', 2)">FERMER</button>';
+        itemAffichage += '</div>';
+
+        document.getElementById("itemVendor").innerHTML = itemAffichage;
+        document.getElementById("itemVendor").style.display = 'flex';
+    }
+
+    unshowItemVendor(){
+        document.getElementById("itemVendor").style.display = 'none';
+        document.getElementById("itemVendor").innerHTML = '';
+    }
     
     dropItem(item, position, idItem = false){
         if( !this.propPosition[position[0]] || !(this.propPosition[position[0]] && this.propPosition[position[0]][position[1]])){
@@ -820,7 +939,7 @@ class CLASSgameplay {
                         }
                     }
                 }
-                this.player.showInfoVendor(infoVendor);
+                this.player.showInfoVendor(id, infoVendor);
                 this.showVendor();
                 this.unshowText();
                 break;

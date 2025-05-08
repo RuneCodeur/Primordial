@@ -101,12 +101,23 @@ class CLASSmonster extends CLASSunit{
         }
         return info;
     }
+
     GETvendor(){
         let vendor = {
             "name": this.name,
             "items": this.itemsVendor
         }
         return vendor;
+    }
+
+    GETitemVendor(idItem){
+        return this.itemsVendor[idItem];
+    }
+
+    DELETEitemVendor(idItem){
+        if(this.itemsVendor[idItem].isUnique == true){
+            this.itemsVendor.splice(idItem, 1);
+        }
     }
 
     unitDepop(){
