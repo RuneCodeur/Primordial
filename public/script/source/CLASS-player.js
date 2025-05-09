@@ -67,7 +67,16 @@ class CLASSplayer extends CLASSunit {
     }
 
     earnMoney(or){
-        this.OR += or;
+        if(or > 0){
+            document.getElementById('unit-'+this.id).innerHTML += '<p class="etat-bulle etat-money" id="unit-'+this.id+'-money">+' + or + ' OR</p>'
+            setTimeout(() => {
+                if(document.getElementById('unit-'+this.id)){
+                    document.getElementById('unit-'+this.id+'-money').remove();
+                    return;
+                }
+            }, 2000);
+            this.OR += or;
+        }
     }
 
     attack(){

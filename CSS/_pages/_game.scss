@@ -427,6 +427,12 @@
                 animation-duration: 100ms; 
                 animation-iteration-count: 1;
             }
+            .etat-money{
+                width: fit-content;
+                white-space: nowrap;
+                padding: 5px;
+                background-color: white;
+            }
         }
         img{
             min-height: 64px;

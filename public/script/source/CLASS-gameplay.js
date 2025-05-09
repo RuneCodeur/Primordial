@@ -26,10 +26,11 @@ class CLASSgameplay {
         this.RESSOURCEnotesMAJ = {};
         this.RESSOURCEequipments = {};
         this.RESSOURCEextra = [];
-        this.idTableauInit = [7, 5]; //[8, 2];
-        this.PosiPlayerInit = [7, 8]; //[3, 4];
+        this.idTableauInit = [8, 2];
+        this.PosiPlayerInit = [3, 4];
         this.timeShowText = 40;
         this.idTableau = 0;
+        this.totalEarnMoney = 0;
         this.waiting = false;
         this.dialogActivate = false;
         this.inventoryActivate = false;
@@ -479,6 +480,9 @@ class CLASSgameplay {
 
             await this.awaitTransition(300);
             this.waiting = false
+
+            this.player.earnMoney(this.totalEarnMoney);
+            this.totalEarnMoney = 0;
 
             this.player.updateJauges();
 
@@ -1036,6 +1040,10 @@ class CLASSgameplay {
         
         if(esquiveDirection == false){
             this.monsters[idMonster].impact(degats, this.player.GETdirection());
+            if(this.monsters[idMonster].isDead()){
+                this.player.earnMoney()
+                this.totalEarnMoney += this.monsters[idMonster].dropMoney();
+            }
         }
         else{
             let oldPosition = this.monsters[idMonster].GETposition();
