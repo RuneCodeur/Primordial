@@ -1,7 +1,7 @@
 {
     "1.3.0":[
-        "Ajout d'un vendeur. - en cours",
-        "Les monstres peuvent laisser tomber des pièces d'or. - pas encore fait"
+        "Les monstres peuvent laisser tomber des pièces d'or",
+        "Ajout d'un vendeur qui peux vendre et acheter des objets"
      ],
     "1.2.1":[
        "Modification du système de loot, par rareté.",
