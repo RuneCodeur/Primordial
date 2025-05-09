@@ -109,7 +109,6 @@ class CLASSplayer extends CLASSunit {
             let item = JSON.parse(JSON.stringify(object));
             item.or = Math.floor(item.or * 0.8);
             this.items.push(item);
-            console.log(item);
         }
         this.MAJinventory();
     }

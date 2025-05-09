@@ -802,8 +802,6 @@ class CLASSgameplay {
                 break;
             
             case 3:
-                console.log('achete litem '+idItem+' du vendeur' +idVendor);
-
                 item = this.monsters[idVendor].GETitemVendor(idItem);
                 if(this.player.asPlaceInInventory() && item.or <= this.player.GETmoney()){
                     
@@ -819,7 +817,6 @@ class CLASSgameplay {
                 break;
                 
             case 4:
-                console.log('vend litem '+idItem+' du joueur' +idVendor);
 
                 item = this.player.getItemInventory(idItem);
                 this.player.earnMoney(item.or);
