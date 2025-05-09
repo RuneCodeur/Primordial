@@ -116,9 +116,9 @@ class CLASSunit {
     }
 
     dropMoney(){
-        let random = Math.floor(Math.random()*0);//++0
-        if(random == 0){
-            return Math.floor((Math.floor(Math.random() * 15) + 5) * Math.max(this.LVL, 1));
+        let drop = Math.floor(Math.random()*2);
+        if(drop == 0){
+            return Math.floor((Math.floor(Math.random() * 10) + 5) * Math.max(this.LVL, 1));
         }
         else{
             return 0;
@@ -128,7 +128,7 @@ class CLASSunit {
     dropLoot(){
         if(this.isLooted == false){
             this.isLooted = true;
-            let drop = Math.floor(Math.random()*3);
+            let drop = Math.floor(Math.random()*5);
             if(drop == 1){
                 return false;
             }else{

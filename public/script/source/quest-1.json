@@ -18,7 +18,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[6],
+                        "lvl":[7],
                         "direction":0,
                         "position": [3, 5]
                     }
@@ -46,12 +46,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":0,
                         "position": [4, 3]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":3,
                         "position": [5, 5]
                     }
@@ -115,7 +115,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":0,
                         "position": [4, 2]
                     }
@@ -163,12 +163,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [5, 7]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [8, 8]
                     }
@@ -224,7 +224,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":0,
                         "position": [4, 6]
                     }
@@ -280,12 +280,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [7, 7]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":2,
                         "position": [8, 2]
                     }
@@ -329,12 +329,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [3, 2]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":0,
                         "position": [3, 7]
                     }
@@ -406,7 +406,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[6],
+                        "lvl":[7],
                         "direction":0,
                         "position": [4, 7]
                     }
@@ -446,7 +446,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[6],
+                        "lvl":[7],
                         "direction":1,
                         "position": [3, 7]
                     }
@@ -486,7 +486,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[6],
+                        "lvl":[7],
                         "direction":3,
                         "position": [7, 4]
                     }
@@ -571,7 +571,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":0,
                         "position": [5, 5]
                     }
@@ -611,17 +611,17 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":3,
                         "position": [2, 7]
                     },
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":1,
                         "position": [4, 2]
                     },
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":0,
                         "position": [7, 7]
                     }
@@ -661,7 +661,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":2,
                         "position": [2, 3]
                     }
@@ -705,12 +705,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":2,
                         "position": [3, 2]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":0,
                         "position": [7, 6]
                     }
@@ -766,17 +766,17 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":0,
                         "position": [2, 8]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [4, 3]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":0,
                         "position": [6, 6]
                     }
@@ -824,7 +824,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [5, 5]
                     }
@@ -880,7 +880,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[6],
+                        "lvl":[7],
                         "direction":1,
                         "position": [4, 7]
                     }
@@ -940,7 +940,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[7],
+                        "lvl":[8],
                         "direction":0,
                         "position": [3, 4]
                     }
@@ -984,7 +984,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[6],
+                        "lvl":[7],
                         "direction":3,
                         "position": [4, 2]
                     }
@@ -1022,7 +1022,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0, 4],
+                        "lvl":[1, 5],
                         "direction":2,
                         "position": [2, 7]
                     }
@@ -1058,12 +1058,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":3,
                         "position": [4, 6]
                     },
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":1,
                         "position": [6, 3]
                     }
@@ -1103,12 +1103,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":0,
                         "position": [2, 2]
                     },
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":2,
                         "position": [7, 6]
                     }
@@ -1152,12 +1152,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":3,
                         "position": [2, 6]
                     },
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":0,
                         "position": [5, 2]
                     }
@@ -1193,12 +1193,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":0,
                         "position": [3, 2]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[7],
                         "direction":3,
                         "position": [3, 7]
                     }
@@ -1242,12 +1242,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [3, 7]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":2,
                         "position": [7, 1]
                     }
@@ -1307,12 +1307,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [2, 7]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":2,
                         "position": [5, 3]
                     }
@@ -1356,7 +1356,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[6],
+                        "lvl":[7],
                         "direction":3,
                         "position": [5, 3]
                     }
@@ -1400,12 +1400,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[6],
+                        "lvl":[7],
                         "direction":0,
                         "position": [5, 3]
                     },
                     {
-                        "lvl":[6],
+                        "lvl":[7],
                         "direction":0,
                         "position": [5, 6]
                     }
@@ -1465,7 +1465,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[6],
+                        "lvl":[7],
                         "direction":0,
                         "position": [3, 2]
                     }
@@ -1507,7 +1507,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0, 4],
+                        "lvl":[1, 5],
                         "direction":1,
                         "position": [3, 4]
                     }
@@ -1547,7 +1547,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":0,
                         "position": [3, 6]
                     }
@@ -1587,12 +1587,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":3,
                         "position": [2, 7]
                     },
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":2,
                         "position": [6, 2]
                     }
@@ -1640,17 +1640,17 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":0,
                         "position": [3, 3]
                     },
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":2,
                         "position": [3, 7]
                     },
                     {
-                        "lvl":[4],
+                        "lvl":[5],
                         "direction":1,
                         "position": [6, 4]
                     }
@@ -1702,7 +1702,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [6, 6]
                     }
@@ -1900,17 +1900,17 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":3,
                         "position": [3, 3]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [7, 2]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":2,
                         "position": [8, 7]
                     }
@@ -1958,17 +1958,17 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":0,
                         "position": [3, 2]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [4, 6]
                     },
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [7, 4]
                     }
@@ -2012,7 +2012,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":3,
                         "position": [3, 2]
                     }
@@ -2048,7 +2048,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[5],
+                        "lvl":[6],
                         "direction":1,
                         "position": [3, 3]
                     }
@@ -2098,7 +2098,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0, 4],
+                        "lvl":[1, 5],
                         "direction":3,
                         "position": [4, 3]
                     }
@@ -2138,7 +2138,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":2,
                         "position": [5, 6]
                     }
@@ -2306,12 +2306,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":1,
                         "position": [3, 8]
                     },
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":3,
                         "position": [8, 3]
                     }
@@ -2491,12 +2491,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":3,
                         "position": [1, 5]
                     },
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":0,
                         "position": [4, 2]
                     }
@@ -2704,7 +2704,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":0,
                         "position": [5, 3]
                     }
@@ -2872,17 +2872,17 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":0,
                         "position": [3, 2]
                     },
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":3,
                         "position": [4, 3]
                     },
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":1,
                         "position": [5, 6]
                     }
@@ -3054,17 +3054,17 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[2],
+                        "lvl":[3],
                         "direction":0,
                         "position": [3, 4]
                     },
                     {
-                        "lvl":[2],
+                        "lvl":[3],
                         "direction":3,
                         "position": [5, 2]
                     },
                     {
-                        "lvl":[2],
+                        "lvl":[3],
                         "direction":1,
                         "position": [6, 7]
                     }
@@ -3224,12 +3224,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":1,
                         "position": [2, 7]
                     },
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":3,
                         "position": [7, 4]
                     }
@@ -3273,7 +3273,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":0,
                         "position": [3, 6]
                     }
@@ -3309,7 +3309,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":3,
                         "position": [6, 3]
                     }
@@ -3343,17 +3343,17 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":2,
                         "position": [3, 3]
                     },
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":0,
                         "position": [6, 4]
                     },
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":1,
                         "position": [6, 7]
                     }
@@ -3393,12 +3393,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":0,
                         "position": [2, 4]
                     },
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":3,
                         "position": [5, 5]
                     }
@@ -3610,12 +3610,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":0,
                         "position": [4, 3]
                     },
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":2,
                         "position": [5, 6]
                     }
@@ -3751,7 +3751,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":2,
                         "position": [1, 5]
                     }
@@ -3923,12 +3923,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":2,
                         "position": [4, 6]
                     },
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":0,
                         "position": [7, 4]
                     }
@@ -4114,7 +4114,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":1,
                         "position": [5, 4]
                     }
@@ -4294,12 +4294,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":3,
                         "position": [4, 3]
                     },
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":0,
                         "position": [5, 6]
                     }
@@ -4371,7 +4371,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":0,
                         "position": [2, 2]
                     }
@@ -4407,7 +4407,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":1,
                         "position": [4, 7]
                     }
@@ -4515,12 +4515,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":3,
                         "position": [2, 7]
                     },
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":1,
                         "position": [6, 5]
                     }
@@ -4556,12 +4556,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":3,
                         "position": [3, 6]
                     },
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":0,
                         "position": [4, 3]
                     }
@@ -4730,7 +4730,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":3,
                         "position": [5, 7]
                     }
@@ -4878,12 +4878,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":3,
                         "position": [2, 7]
                     },
                     {
-                        "lvl":[3],
+                        "lvl":[4],
                         "direction":1,
                         "position": [5, 2]
                     }
@@ -5079,12 +5079,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":1,
                         "position": [3, 5]
                     },
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":0,
                         "position": [4, 3]
                     }
@@ -5204,7 +5204,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":0,
                         "position": [6, 7]
                     }
@@ -5276,12 +5276,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":0,
                         "position": [2, 2]
                     },
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":2,
                         "position": [5, 7]
                     }
@@ -5343,7 +5343,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":3,
                         "position": [2, 4]
                     }
@@ -5399,17 +5399,17 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":3,
                         "position": [2, 3]
                     },
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":1,
                         "position": [4, 5]
                     },
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":2,
                         "position": [7, 4]
                     }
@@ -5441,12 +5441,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":3,
                         "position": [2, 6]
                     },
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":0,
                         "position": [5, 2]
                     }
@@ -5572,7 +5572,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":2,
                         "position": [3, 5]
                     }
@@ -5678,7 +5678,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[10],
+                        "lvl":[11],
                         "direction": 1,
                         "position": [6, 8],
                         "move" : false,
@@ -5741,7 +5741,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[11],
+                        "lvl":[12],
                         "direction": 0,
                         "position": [5, 6],
                         "move" : false,
@@ -5799,7 +5799,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[12],
+                        "lvl":[13],
                         "direction": 3,
                         "position": [2, 3],
                         "move" : true,
@@ -5883,7 +5883,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":1,
                         "position": [3, 4]
                     }
@@ -5921,12 +5921,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":1,
                         "position": [2, 4]
                     },
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":0,
                         "position": [7, 5]
                     }
@@ -5954,7 +5954,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":0,
                         "position": [5, 2]
                     }
@@ -6020,7 +6020,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":1,
                         "position": [5, 7]
                     }
@@ -6048,7 +6048,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":0,
                         "position": [4, 3]
                     }
@@ -6156,7 +6156,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[8],
+                        "lvl":[9],
                         "direction": 2,
                         "position":[6, 4],
                         "move" : true,
@@ -6202,7 +6202,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":2,
                         "position": [7, 3]
                     }
@@ -6234,12 +6234,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":2,
                         "position": [3, 5]
                     },
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":1,
                         "position": [6, 4]
                     }
@@ -6273,7 +6273,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":1,
                         "position": [2, 4]
                     }
@@ -6301,12 +6301,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":2,
                         "position": [2, 2]
                     },
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":0,
                         "position": [5, 4]
                     }
@@ -6356,12 +6356,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":1,
                         "position": [2, 4]
                     },
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":0,
                         "position": [5, 7]
                     }
@@ -6384,17 +6384,17 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":2,
                         "position": [1, 3]
                     },
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":1,
                         "position": [2, 6]
                     },
                     {
-                        "lvl":[0],
+                        "lvl":[1],
                         "direction":3,
                         "position": [6, 7]
                     }
@@ -6488,12 +6488,12 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[9],
+                        "lvl":[10],
                         "direction": 0,
                         "position":[4, 6],
                         "move" : false,
                         "info":{
-                            "dialog": "L'océan est calme, mais à chaque fois qu'un bateau quitte le port, il ne revient jamais. Nous sommes coincés sur cette île.",
+                            "dialog": "L'océan est calme, mais à chaque fois qu'un bateau quitte le port, il revient à chaque fois. Comme si une force étrange l'empêchait de partir. Nous sommes tous coincés sur cette île.",
                             "buttons" : [
                                 {
                                     "type":0,
@@ -6552,7 +6552,7 @@
                 ],
                 "monsters" : [
                     {
-                        "lvl":[1],
+                        "lvl":[2],
                         "direction":0,
                         "position": [1, 3]
                     }
