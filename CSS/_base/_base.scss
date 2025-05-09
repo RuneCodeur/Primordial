@@ -58,6 +58,20 @@ footer{
     color: white;
 }
 
+*::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+*::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+*::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius:10px;
+}
+*::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.50);
+}
+
 // format paysage
 @media screen and (min-height: 760px), screen and (min-width: 980px){
 	main, #menu{

@@ -23,6 +23,14 @@
         <div id="ensemble-gameplay">
             <div id="game">
                 <div id="transition"></div>
+                <div id="vendor" style="display: none;">
+                    <div id="vendorName"></div>
+                    <button class="" onclick="showVendor()"><img src="./public/assets/cross.png" alt=""></button>
+                    <div id="title"><p>Acheter</p> <p>Vendre</p></div>
+                    <div id="itemVendor"></div>
+                    <div class="items" id="itemsVendor"></div>
+                    <div class="items" id="itemsPlayer"></div>
+                </div>
                 <div id="inventory">
                     <div id="itemInventory"></div>
                     <div id="inventory-stats"></div>
@@ -47,6 +55,12 @@
                         <img src="./public/assets/life.png">
                         <p id="stat-PVtex">5/5</p>
                         <progress  id="stat-PVbar" max="5" value="5"> 5/5</progress>
+                    </div>
+
+                    <div class="stat" id="stat-OR" style="display: none;">
+                        <!-- <img src="./public/assets/life.png"> -->
+                        <p id="stat-ORtex">0</p>
+                        
                     </div>
 
                     <!-- <div class="stat"  id="stat-PM" style="display: none;">

@@ -219,6 +219,187 @@
             }
         }
     }
+    #vendor{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(222, 184, 135);
+        z-index: 50;
+        display: none;
+        button{
+            position: absolute;  
+            top: 1.5%;
+            right: 1.5%;
+            width: 10%;
+            height: 10%;
+            margin: 0;
+            padding: 0;
+            background-color:initial;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+        #vendorName{
+            position: absolute;
+            border-bottom: 3px black solid;
+            top: 2.5%;
+            left: 2.5%;
+            width: 85%;
+            height: 7.5%;
+            font-size: 1.4rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+        }
+        #itemsVendor{
+            left: 2.5%;
+        }
+        #itemsPlayer{
+            right: 2.5%;
+        }
+        #title{
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            width: 95%;
+            left: 2.5%;
+            height: 7.5%;
+            top: 10%;
+            p{
+                font-size: 1.5rem;
+                width: 40%;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+            }
+        }
+        #itemVendor{
+            position: absolute;
+            top: 17.5%;
+            height: 80%;
+            left: 2.5%;
+            width: 95%;
+            z-index: 5;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.7);
+            p{
+                color: white;
+                position: absolute;
+            }
+            img{
+                position: absolute;
+                width: 128px;
+                height:128px;
+                top: 75px;
+                right: 25px;
+            }
+            .titre{
+                width: 100%;
+                text-align: center;
+                top: 5px;
+                left: 0;
+                font-size: 1.5rem;
+            }
+            .description{
+                width: 70%;
+                height:130px;
+                top: 75px;
+                left: 10px;
+                
+            }
+            .stats{
+                position: absolute;
+                border: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-end;
+                top: 215px;
+                right: 25px;
+                width: 300px;
+                height: 110px;
+                p{
+                    position: initial;
+                    b{
+                        margin-left: 10px;
+                        color: white;
+                    }
+                    .bonus{
+                        color: rgb(120, 235, 120);
+                    }
+                    .malus{
+                        color: rgb(235, 120, 120);
+                    }
+                }
+            }
+            .Buttons{
+                position: absolute;
+                border: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                bottom: 10px;
+                left: 25px;
+                height: 150px;
+                width: 250px;
+                .price{
+                    color: white;
+                    b{
+                        color: white;
+                        font-size: 1.1rem;
+                    }
+                }
+                button{
+                    position: relative;
+                    width: 200px;
+                    height: 30px;
+                    margin: 10px;
+                    background-color: white;
+                    font-size: 1.3rem;
+                    font-weight: bolder;
+                }
+            }
+        }
+        .items{
+            top: 17.5%;
+            border: 3px black solid;
+            height: 80%;
+            position: absolute;
+            width: 40%;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-bottom: 10px;
+            .item{
+                position: relative;
+                background-color: rgba(0, 0, 0, 0.25);
+                width: calc(100% - 20px);
+                min-height: min-content;
+                display: flex;
+                flex-direction: column;
+                margin: 5px 5px 5px 12px;
+                .name{
+                    text-align: left;
+                }
+                .price{
+                    text-align: right;
+                    margin-right: 10px;
+                }
+                .black{
+                    color: black;
+                }
+                .red{
+                    color: red;
+                }
+            }
+        }
+    }
     #units{
         position: absolute;
         width: 100%;
@@ -245,6 +426,12 @@
                 animation-name: etat-Bulle-show;
                 animation-duration: 100ms; 
                 animation-iteration-count: 1;
+            }
+            .etat-money{
+                width: fit-content;
+                white-space: nowrap;
+                padding: 5px;
+                background-color: white;
             }
         }
         img{

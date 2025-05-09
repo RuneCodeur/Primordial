@@ -13,6 +13,7 @@ class CLASSplayer extends CLASSunit {
         this.INT = 1;
         this.ARMO = 0;
         this.XP = 0;
+        this.OR = 0;
         this.LVL = 1;
         this.id = 'player';
         this.equipment = {
@@ -49,12 +50,33 @@ class CLASSplayer extends CLASSunit {
         Object.values(this.equipment).forEach(item => {
             if(item && item.bonus){
                 Object.keys(item.bonus).forEach(name => {
-                    stats[name] = Math.max(stats[name] + item.bonus[name], 1);
+                    stats[name] = Math.max(stats[name] + item.bonus[name], 0);
                 });
             }
         })
 
         return stats;
+    }
+
+    GETmoney(){
+        return this.OR;
+    }
+    
+    payMoney(cost){
+        this.OR = Math.max(this.OR - cost, 0);
+    }
+
+    earnMoney(or){
+        if(or > 0){
+            document.getElementById('unit-'+this.id).innerHTML += '<p class="etat-bulle etat-money" id="unit-'+this.id+'-money">+' + or + ' OR</p>'
+            setTimeout(() => {
+                if(document.getElementById('unit-'+this.id)){
+                    document.getElementById('unit-'+this.id+'-money').remove();
+                    return;
+                }
+            }, 2000);
+            this.OR += or;
+        }
     }
 
     attack(){
@@ -73,7 +95,6 @@ class CLASSplayer extends CLASSunit {
         return super.precision(stats.ADR);
     }
 
-    
     esquive(precisionPOUR100){
         let stats = this.GETstats();
         return super.esquive(precisionPOUR100, stats.ADR);
@@ -85,8 +106,12 @@ class CLASSplayer extends CLASSunit {
 
     insertItemInInventory(object){
         if(this.asPlaceInInventory() > 0 ){
-            this.items.push(object);
+            let item = JSON.parse(JSON.stringify(object));
+            item.or = Math.floor(item.or * 0.8);
+            this.items.push(item);
+            console.log(item);
         }
+        this.MAJinventory();
     }
     
     deplaceTAB(){
@@ -125,6 +150,9 @@ class CLASSplayer extends CLASSunit {
         }
         if(document.getElementById('stat-PM')){
             this.updatePM();
+        }
+        if(document.getElementById('stat-OR')){
+            this.updateOR();
         }
     }
     
@@ -311,7 +339,8 @@ class CLASSplayer extends CLASSunit {
     }
 
     getItemInventory(idItem){
-        return this.items[idItem];
+        let item = this.items[idItem];
+        return item;
     }
 
     unshowStats(){
@@ -340,6 +369,13 @@ class CLASSplayer extends CLASSunit {
         document.getElementById('stat-PMbar').attributes.max.value = this.PMmax
         document.getElementById('stat-PMbar').value = this.PM
     }
+    
+    updateOR(){
+        if(document.getElementById('stat-OR').style.display == 'none'){
+            document.getElementById('stat-OR').style.display = 'flex'
+        }
+        document.getElementById('stat-ORtex').innerText= "OR : " + this.OR
+    }
 
     showInventory(force = false){
         if(document.getElementById('inventory').style.display == 'flex' || force){
@@ -347,6 +383,47 @@ class CLASSplayer extends CLASSunit {
         }else{
             document.getElementById('inventory').style.display = 'flex';
             this.MAJinventory();
+        }
+    }
+
+    showInfoVendor(idVendor, info = null){
+        if(info != null){
+            document.getElementById('vendorName').innerText = info.name;
+            let showItems = "";
+            Object.keys(info.items).forEach( idItem => {
+                let item = info.items[idItem];
+                showItems += this.showItemVendor(idVendor, idItem, item);
+            });
+            document.getElementById('itemsVendor').innerHTML = showItems
+            
+            let showItemsPlayer = "";
+            Object.keys(this.items).forEach( idItem => {
+                let item = this.items[idItem];
+                showItemsPlayer += this.showItemVendor(idVendor, idItem, item, 1);
+            });
+            document.getElementById('itemsPlayer').innerHTML = showItemsPlayer;
+        }
+
+    }
+
+    showItemVendor(idVendor, idItem, item, isPlayer = 0){
+        let colorPrice = "black"
+        if(this.OR < item.or){
+            colorPrice = "red"
+        }
+        if(isPlayer) {
+            return  "<button onclick='actionItemVendor("+idVendor+", "+idItem+", 1)' class='item'> <div class='name'>" + item.name + "</div><div class='price'> " + item.or + " </div> </button>"
+        }
+        else{
+            return  "<button onclick='actionItemVendor("+idVendor+", "+idItem+", 0)' class='item'> <div class='name'>" + item.name + "</div><div class='price " + colorPrice + "'> " + item.or + " </div> </button>"
+        }
+    }
+    
+    showVendor(force = false){
+        if(document.getElementById('vendor').style.display == 'none' || force){
+            document.getElementById('vendor').style.display = 'flex';
+        }else{
+            document.getElementById('vendor').style.display = 'none';
         }
     }
 

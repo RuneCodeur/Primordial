@@ -30,6 +30,7 @@ class CLASSgameplay {
         this.PosiPlayerInit = [3, 4];
         this.timeShowText = 40;
         this.idTableau = 0;
+        this.totalEarnMoney = 0;
         this.waiting = false;
         this.dialogActivate = false;
         this.inventoryActivate = false;
@@ -480,6 +481,9 @@ class CLASSgameplay {
             await this.awaitTransition(300);
             this.waiting = false
 
+            this.player.earnMoney(this.totalEarnMoney);
+            this.totalEarnMoney = 0;
+
             this.player.updateJauges();
 
             if(this.player.active() == false){
@@ -533,13 +537,23 @@ class CLASSgameplay {
         this.player.showInventory(force);
     }
 
+    showVendor(force = false){
+        if(this.inventoryActivate == true || force){
+            this.inventoryActivate = false;
+            this.unshowItemVendor();
+        }
+        else{
+            this.inventoryActivate = true;
+        }
+        this.player.showVendor(force);
+    }
+
     async transitionTableau(direction){
         let transitionAffichage = document.getElementById('transition');
         switch (direction) {
             
             // vers le bas
             case 0:
-                
                 transitionAffichage.style.left="0";
                 transitionAffichage.style.top="100%";
                 transitionAffichage.style.display="flex";
@@ -579,7 +593,6 @@ class CLASSgameplay {
 
             // vers la droite
             case 3:
-                
                 transitionAffichage.style.left="200%";
                 transitionAffichage.style.top="0";
                 transitionAffichage.style.display="flex";
@@ -766,6 +779,126 @@ class CLASSgameplay {
             this.menu(5);
         }
     }
+
+    actionItemVendor(idVendor, idItem, action = null){
+        let infoVendor = null;
+        let item = null;
+
+        switch (action) {
+            case 0:
+                
+                item = this.monsters[idVendor].GETitemVendor(idItem);
+                this.showItemVendor(idVendor, idItem, item, 0);
+                break;
+        
+            case 1: 
+                item = this.player.getItemInventory(idItem);
+                this.showItemVendor(idVendor, idItem, item, 1);
+                
+                break;
+                
+            case 2:
+                this.unshowItemVendor();
+                break;
+            
+            case 3:
+                console.log('achete litem '+idItem+' du vendeur' +idVendor);
+
+                item = this.monsters[idVendor].GETitemVendor(idItem);
+                if(this.player.asPlaceInInventory() && item.or <= this.player.GETmoney()){
+                    
+                    this.monsters[idVendor].DELETEitemVendor(idItem);
+                    this.player.payMoney(item.or);
+                    this.player.insertItemInInventory(item);
+
+                    infoVendor = this.monsters[idVendor].GETvendor();
+                    this.player.showInfoVendor(idVendor, infoVendor);
+                    this.unshowItemVendor();
+                }
+                
+                break;
+                
+            case 4:
+                console.log('vend litem '+idItem+' du joueur' +idVendor);
+
+                item = this.player.getItemInventory(idItem);
+                this.player.earnMoney(item.or);
+                this.player.dropItemInventory(idItem);
+
+                infoVendor = this.monsters[idVendor].GETvendor();
+                this.player.showInfoVendor(idVendor, infoVendor);
+                this.unshowItemVendor();
+                
+                break;
+        }
+
+        if(this.player.active() == false){
+            this.menu(5);
+        }
+    }
+
+    showItemVendor(idVendor,idItem, item, isPlayer = 0){
+
+        let itemAffichage = '';
+        
+        itemAffichage += '<p class="titre">'+item.name+'</p>';
+        itemAffichage += '<p class="description">'+item.description+'</p>';
+        itemAffichage += '<img src="./public/assets/'+item.img+'">';
+        
+        itemAffichage += '<div class="stats">';
+        Object.keys(item.bonus).forEach(id => {
+            if(item.bonus[id] != 0){
+                let nameStat = '';
+                switch (id) {
+                    case 'FOR':
+                        nameStat = 'FORCE';
+                        break;
+                    case 'ADR':
+                        nameStat = 'ADRESSE';
+                        break;
+                    case 'INT':
+                        nameStat = 'INTELLIGENCE';
+                        break;
+                    case 'ARMO':
+                        nameStat = 'ARMURE';
+                        break;
+                    default:
+                        nameStat = id;
+                        break;
+                }
+                let valueStat = '<b>0</b>';
+                if(item.bonus[id] > 0){
+                    valueStat = '<b class="bonus">+'+item.bonus[id]+'</b>';
+                }
+                else if(item.bonus[id] < 0){
+                    valueStat = '<b class="malus">'+item.bonus[id]+'</b>';
+                }
+                itemAffichage+= '<p>'+nameStat+' : '+ valueStat +'</p>';
+            }
+        })
+
+        itemAffichage += '</div>';
+        
+        itemAffichage += '<div class="Buttons">';
+        itemAffichage += '<div class="price"> Valeur : <b>'+ item.or +'</b></div>';
+        if(isPlayer){
+            itemAffichage += '<button onclick="actionItemVendor(\''+idVendor+'\', '+idItem+', 4)"> VENDRE</button>';
+        }else{
+            
+            //++++ griser le bouton d'achat si pas assez d'argent
+            itemAffichage += '<button onclick="actionItemVendor('+idVendor+', '+idItem+', 3)"> ACHETER</button>';
+        }
+        itemAffichage += '<button onclick="actionItemVendor(\''+idVendor+'\', '+idItem+', 2)">FERMER</button>';
+        itemAffichage += '</div>';
+
+        document.getElementById("itemVendor").innerHTML = itemAffichage;
+        document.getElementById("itemVendor").style.display = 'flex';
+    }
+
+    unshowItemVendor(){
+        document.getElementById("itemVendor").style.display = 'none';
+        document.getElementById("itemVendor").innerHTML = '';
+    }
     
     dropItem(item, position, idItem = false){
         if( !this.propPosition[position[0]] || !(this.propPosition[position[0]] && this.propPosition[position[0]][position[1]])){
@@ -785,20 +918,38 @@ class CLASSgameplay {
     }
 
     // choix à faire dans une boite de dialogue
-    dialogChoice(type, idProp){
+    dialogChoice(type, id){
         switch (type) {
 
             // prendre l'objet du prop
             case 1:
                 if(this.player.asPlaceInInventory() > 0){
-                    let object = this.props[idProp].GETcontent();
+                    let object = this.props[id].GETcontent();
                     this.player.insertItemInInventory(object);
-                    this.PropChangeEtat(idProp);
+                    this.PropChangeEtat(id);
                 }
 
                 this.unshowText();
                 break;
-        
+            
+            // affiche le vendeur
+            case 2:
+                let infoVendor = this.monsters[id].GETvendor();
+                if(infoVendor.items){
+                    for (let i = 0; i < infoVendor.items.length; i++) {
+                        for (let il = 0; il < this.tableLoot.length; il++) {
+                            if(this.tableLoot[il].id == infoVendor.items[i]){
+                                infoVendor.items[i] = this.tableLoot[il];
+                                break;
+                            }
+                        }
+                    }
+                }
+                this.player.showInfoVendor(id, infoVendor);
+                this.showVendor();
+                this.unshowText();
+                break;
+
             // ferme la boite de dialogue
             default:
                 this.unshowText();
@@ -843,11 +994,11 @@ class CLASSgameplay {
                 // bouton de choix, lors de la fin d'un dialogue
                 if (letterPosition >= text.dialog.length) {
                     for (let i = 0; i < text.buttons.length; i++) {
-                        let idProp = 0;
-                        if(text.buttons[i].idProp){
-                            idProp = text.buttons[i].idProp;
+                        let id = 0;
+                        if(text.buttons[i].id){
+                            id = text.buttons[i].id;
                         }
-                        dialogChoices.innerHTML += '<button onclick="dialogChoice('+text.buttons[i].type+',\''+idProp+'\')">'+text.buttons[i].name+'</button>'
+                        dialogChoices.innerHTML += '<button onclick="dialogChoice('+text.buttons[i].type+',\''+id+'\')">'+text.buttons[i].name+'</button>'
                     }
                     clearInterval(interval);
                 }
@@ -889,6 +1040,10 @@ class CLASSgameplay {
         
         if(esquiveDirection == false){
             this.monsters[idMonster].impact(degats, this.player.GETdirection());
+            if(this.monsters[idMonster].isDead()){
+                this.player.earnMoney()
+                this.totalEarnMoney += this.monsters[idMonster].dropMoney();
+            }
         }
         else{
             let oldPosition = this.monsters[idMonster].GETposition();
