@@ -782,13 +782,16 @@ class CLASSgameplay {
 
         switch (action) {
             case 0:
-                item = this.monsters[idVendor].GETitemVendor(idItem);
+                if(idVendor == 'player'){
+                    item = this.player.getItemInventory(idItem);
+                }else{
+                    item = this.monsters[idVendor].GETitemVendor(idItem);
+                }
                 this.showItemVendor(idVendor, idItem, item);
                 break;
         
             case 1:
-                console.log('affiche litem '+idItem+' du joueur' +idVendor)
-                item = this.player.getItemInventory(idItem);
+                
                 break;
                 
             case 2:
@@ -817,9 +820,7 @@ class CLASSgameplay {
             case 4:
                 console.log('vend litem '+idItem+' du joueur' +idVendor);
 
-                //+++ fonction vendre l'objet iditem du joueur                
-                infoVendor = this.monsters[idVendor].GETvendor();
-                this.player.showInfoVendor(idVendor, infoVendor);
+                //+++ fonction vendre l'objet iditem du joueur
                 this.unshowItemVendor();
                 
                 break;
@@ -874,15 +875,15 @@ class CLASSgameplay {
         itemAffichage += '</div>';
         
         itemAffichage += '<div class="Buttons">';
+        itemAffichage += '<div class="price"> Valeur : <b>'+ item.or +'</b></div>';
         if(idVendor == "player"){
-            itemAffichage += '<button onclick="actionItemVendor('+idVendor+', '+idItem+', 4)"> VENDRE</button>';//++
+            itemAffichage += '<button onclick="actionItemVendor(\''+idVendor+'\', '+idItem+', 4)"> VENDRE</button>';
         }else{
             
-        //++++ griser le bouton d'achat si pas assez d'argent
-            itemAffichage += '<div class="price"> Valeur : <b>'+ item.or +'</b></div>';//++
-            itemAffichage += '<button onclick="actionItemVendor('+idVendor+', '+idItem+', 3)"> ACHETER</button>';//++
+            //++++ griser le bouton d'achat si pas assez d'argent
+            itemAffichage += '<button onclick="actionItemVendor('+idVendor+', '+idItem+', 3)"> ACHETER</button>';
         }
-        itemAffichage += '<button onclick="actionItemVendor('+idVendor+', '+idItem+', 2)">FERMER</button>';
+        itemAffichage += '<button onclick="actionItemVendor(\''+idVendor+'\', '+idItem+', 2)">FERMER</button>';
         itemAffichage += '</div>';
 
         document.getElementById("itemVendor").innerHTML = itemAffichage;

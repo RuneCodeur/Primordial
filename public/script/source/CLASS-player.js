@@ -94,7 +94,9 @@ class CLASSplayer extends CLASSunit {
 
     insertItemInInventory(object){
         if(this.asPlaceInInventory() > 0 ){
-            this.items.push(object);
+            let item = JSON.parse(JSON.stringify(object));
+            item.or = Math.floor(item.or * 0.8);
+            this.items.push(item);
         }
     }
     
@@ -320,7 +322,8 @@ class CLASSplayer extends CLASSunit {
     }
 
     getItemInventory(idItem){
-        return this.items[idItem];
+        let item = this.items[idItem];
+        return item;
     }
 
     unshowStats(){
@@ -368,9 +371,18 @@ class CLASSplayer extends CLASSunit {
                 showItems += this.showItemVendor(idVendor, idItem, item);
             });
             document.getElementById('itemsVendor').innerHTML = showItems
+            
+            console.log(this.items);
+            let showItemsPlayer = "";
+            Object.keys(this.items).forEach( idItem => {
+                let item = this.items[idItem];
+                showItemsPlayer += this.showItemVendor('player', idItem, item);
+            });
+            document.getElementById('itemsPlayer').innerHTML = showItemsPlayer
+
+            console.log('liste des trucs a vendre pour le joueur') //+++
         }
 
-        console.log('liste des trucs a vendre pour le joueur') //+++
     }
 
     showItemVendor(idVendor, idItem, item){
@@ -378,7 +390,7 @@ class CLASSplayer extends CLASSunit {
         if(this.OR < item.or){
             colorPrice = "red"
         }
-        return  "<button onclick='actionItemVendor("+idVendor+", "+idItem+", 0)' class='item'> <div class='name'>" + item.name + "</div><div class='price " + colorPrice + "'> " + item.or + " </div> </button>"
+        return  "<button onclick='actionItemVendor(\""+idVendor+"\", "+idItem+", 0)' class='item'> <div class='name'>" + item.name + "</div><div class='price " + colorPrice + "'> " + item.or + " </div> </button>"
     }
     
     showVendor(force = false){
