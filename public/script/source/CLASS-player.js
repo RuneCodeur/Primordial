@@ -50,7 +50,7 @@ class CLASSplayer extends CLASSunit {
         Object.values(this.equipment).forEach(item => {
             if(item && item.bonus){
                 Object.keys(item.bonus).forEach(name => {
-                    stats[name] = Math.max(stats[name] + item.bonus[name], 1);
+                    stats[name] = Math.max(stats[name] + item.bonus[name], 0);
                 });
             }
         })
@@ -63,7 +63,11 @@ class CLASSplayer extends CLASSunit {
     }
     
     payMoney(cost){
-        this.OR = Math.max(this.OR - cost, 0)
+        this.OR = Math.max(this.OR - cost, 0);
+    }
+
+    earnMoney(or){
+        this.OR += or;
     }
 
     attack(){
@@ -82,7 +86,6 @@ class CLASSplayer extends CLASSunit {
         return super.precision(stats.ADR);
     }
 
-    
     esquive(precisionPOUR100){
         let stats = this.GETstats();
         return super.esquive(precisionPOUR100, stats.ADR);
@@ -97,7 +100,9 @@ class CLASSplayer extends CLASSunit {
             let item = JSON.parse(JSON.stringify(object));
             item.or = Math.floor(item.or * 0.8);
             this.items.push(item);
+            console.log(item);
         }
+        this.MAJinventory();
     }
     
     deplaceTAB(){
@@ -136,6 +141,9 @@ class CLASSplayer extends CLASSunit {
         }
         if(document.getElementById('stat-PM')){
             this.updatePM();
+        }
+        if(document.getElementById('stat-OR')){
+            this.updateOR();
         }
     }
     
@@ -352,6 +360,13 @@ class CLASSplayer extends CLASSunit {
         document.getElementById('stat-PMbar').attributes.max.value = this.PMmax
         document.getElementById('stat-PMbar').value = this.PM
     }
+    
+    updateOR(){
+        if(document.getElementById('stat-OR').style.display == 'none'){
+            document.getElementById('stat-OR').style.display = 'flex'
+        }
+        document.getElementById('stat-ORtex').innerText= "OR : " + this.OR
+    }
 
     showInventory(force = false){
         if(document.getElementById('inventory').style.display == 'flex' || force){
@@ -372,25 +387,27 @@ class CLASSplayer extends CLASSunit {
             });
             document.getElementById('itemsVendor').innerHTML = showItems
             
-            console.log(this.items);
             let showItemsPlayer = "";
             Object.keys(this.items).forEach( idItem => {
                 let item = this.items[idItem];
-                showItemsPlayer += this.showItemVendor('player', idItem, item);
+                showItemsPlayer += this.showItemVendor(idVendor, idItem, item, 1);
             });
-            document.getElementById('itemsPlayer').innerHTML = showItemsPlayer
-
-            console.log('liste des trucs a vendre pour le joueur') //+++
+            document.getElementById('itemsPlayer').innerHTML = showItemsPlayer;
         }
 
     }
 
-    showItemVendor(idVendor, idItem, item){
+    showItemVendor(idVendor, idItem, item, isPlayer = 0){
         let colorPrice = "black"
         if(this.OR < item.or){
             colorPrice = "red"
         }
-        return  "<button onclick='actionItemVendor(\""+idVendor+"\", "+idItem+", 0)' class='item'> <div class='name'>" + item.name + "</div><div class='price " + colorPrice + "'> " + item.or + " </div> </button>"
+        if(isPlayer) {
+            return  "<button onclick='actionItemVendor("+idVendor+", "+idItem+", 1)' class='item'> <div class='name'>" + item.name + "</div><div class='price'> " + item.or + " </div> </button>"
+        }
+        else{
+            return  "<button onclick='actionItemVendor("+idVendor+", "+idItem+", 0)' class='item'> <div class='name'>" + item.name + "</div><div class='price " + colorPrice + "'> " + item.or + " </div> </button>"
+        }
     }
     
     showVendor(force = false){

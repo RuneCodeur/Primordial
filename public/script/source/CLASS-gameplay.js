@@ -782,15 +782,14 @@ class CLASSgameplay {
 
         switch (action) {
             case 0:
-                if(idVendor == 'player'){
-                    item = this.player.getItemInventory(idItem);
-                }else{
-                    item = this.monsters[idVendor].GETitemVendor(idItem);
-                }
-                this.showItemVendor(idVendor, idItem, item);
+                
+                item = this.monsters[idVendor].GETitemVendor(idItem);
+                this.showItemVendor(idVendor, idItem, item, 0);
                 break;
         
-            case 1:
+            case 1: 
+                item = this.player.getItemInventory(idItem);
+                this.showItemVendor(idVendor, idItem, item, 1);
                 
                 break;
                 
@@ -808,11 +807,9 @@ class CLASSgameplay {
                     this.player.payMoney(item.or);
                     this.player.insertItemInInventory(item);
 
-                    //+++ fonction vendre l'objet iditem du vendeur idvendor au joueur
                     infoVendor = this.monsters[idVendor].GETvendor();
                     this.player.showInfoVendor(idVendor, infoVendor);
                     this.unshowItemVendor();
-                
                 }
                 
                 break;
@@ -820,7 +817,12 @@ class CLASSgameplay {
             case 4:
                 console.log('vend litem '+idItem+' du joueur' +idVendor);
 
-                //+++ fonction vendre l'objet iditem du joueur
+                item = this.player.getItemInventory(idItem);
+                this.player.earnMoney(item.or);
+                this.player.dropItemInventory(idItem);
+
+                infoVendor = this.monsters[idVendor].GETvendor();
+                this.player.showInfoVendor(idVendor, infoVendor);
                 this.unshowItemVendor();
                 
                 break;
@@ -831,11 +833,10 @@ class CLASSgameplay {
         }
     }
 
-    showItemVendor(idVendor,idItem, item){
-
-        console.log(item); //+++
+    showItemVendor(idVendor,idItem, item, isPlayer = 0){
 
         let itemAffichage = '';
+        
         itemAffichage += '<p class="titre">'+item.name+'</p>';
         itemAffichage += '<p class="description">'+item.description+'</p>';
         itemAffichage += '<img src="./public/assets/'+item.img+'">';
@@ -876,7 +877,7 @@ class CLASSgameplay {
         
         itemAffichage += '<div class="Buttons">';
         itemAffichage += '<div class="price"> Valeur : <b>'+ item.or +'</b></div>';
-        if(idVendor == "player"){
+        if(isPlayer){
             itemAffichage += '<button onclick="actionItemVendor(\''+idVendor+'\', '+idItem+', 4)"> VENDRE</button>';
         }else{
             
