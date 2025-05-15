@@ -714,5 +714,61 @@
     "178":{
         "type": 0,
         "img":"ruin-ground-5.png"
+    },
+    "179":{
+        "type": 1,
+        "img":"in-wall-wood-0.png"
+    },
+    "180":{
+        "type": 1,
+        "img":"in-wall-wood-1.png"
+    },
+    "181":{
+        "type": 1,
+        "img":"in-wall-wood-2.png"
+    },
+    "182":{
+        "type": 1,
+        "img":"in-wall-wood-3.png"
+    },
+    "183":{
+        "type": 1,
+        "img":"in-wall-wood-01.png"
+    },
+    "184":{
+        "type": 1,
+        "img":"in-wall-wood-12.png"
+    },
+    "185":{
+        "type": 1,
+        "img":"in-wall-wood-23.png"
+    },
+    "186":{
+        "type": 1,
+        "img":"in-wall-wood-30.png"
+    },
+    "187":{
+        "type": 0,
+        "img":"in-door-wood-2.png"
+    },
+    "188":{
+        "type": 1,
+        "img":"in-fullwall.png"
+    },
+    "189":{
+        "type": 1,
+        "img":"in-wall-wood-R01.png"
+    },
+    "190":{
+        "type": 1,
+        "img":"in-wall-wood-R12.png"
+    },
+    "191":{
+        "type": 1,
+        "img":"in-wall-wood-R23.png"
+    },
+    "192":{
+        "type": 1,
+        "img":"in-wall-wood-R30.png"
     }
 }

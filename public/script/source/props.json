@@ -118,7 +118,7 @@
         "img": "wood-barrel-1.png",
         "isWall":true,
         "width":64,
-        "height":64
+        "height":80
     },
     "16":{
         "name":"door",
@@ -223,5 +223,197 @@
         "isWall":true,
         "width":64,
         "height":128
+    },
+    "29":{
+        "name":"teleport",
+        "type":5,
+        "img": "null.png",
+        "isWall":false,
+        "width":64,
+        "height":64
+    },
+    "30":{
+        "name":"table",
+        "type":2,
+        "img": "table-small.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "31":{
+        "name":"table",
+        "type":2,
+        "img": "table-large-2.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "32":{
+        "name":"table",
+        "type":2,
+        "img": "table-large-0.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "33":{
+        "name":"table",
+        "type":2,
+        "img": "table-large-1.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "34":{
+        "name":"table",
+        "type":2,
+        "img": "table-large-3.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "35":{
+        "name":"meuble vide",
+        "type":2,
+        "img": "furniture-empty.png",
+        "isWall":true,
+        "width":64,
+        "height":128
+    },
+    "36":{
+        "name":"meuble",
+        "type":2,
+        "img": "furniture-1.png",
+        "isWall":true,
+        "width":64,
+        "height":128
+    },
+    "37":{
+        "name":"meuble",
+        "type":2,
+        "img": "furniture-2.png",
+        "isWall":true,
+        "width":64,
+        "height":128
+    },
+    "38":{
+        "name":"meuble",
+        "type":2,
+        "img": "furniture-3.png",
+        "isWall":true,
+        "width":64,
+        "height":128
+    },
+    "39":{
+        "name":"meuble",
+        "type":2,
+        "img": "furniture-4.png",
+        "isWall":true,
+        "width":64,
+        "height":128
+    },
+    "40":{
+        "name":"four",
+        "type":2,
+        "img": "furnace-01.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "41":{
+        "name":"four",
+        "type":2,
+        "img": "furnace-12.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "42":{
+        "name":"four",
+        "type":2,
+        "img": "furnace-23.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "43":{
+        "name":"four",
+        "type":2,
+        "img": "furnace-30.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "44":{
+        "name":"sceau d'eau",
+        "type":2,
+        "img": "bucket-water.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "45":{
+        "name":"enclume",
+        "type":2,
+        "img": "anvil.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "46":{
+        "name":"tapis",
+        "type":2,
+        "img": "carpet-01.png",
+        "isWall":false,
+        "width":64,
+        "height":64
+    },
+    "47":{
+        "name":"tapis",
+        "type":2,
+        "img": "carpet-12.png",
+        "isWall":false,
+        "width":64,
+        "height":64
+    },
+    "48":{
+        "name":"tapis",
+        "type":2,
+        "img": "carpet-23.png",
+        "isWall":false,
+        "width":64,
+        "height":64
+    },
+    "49":{
+        "name":"tapis",
+        "type":2,
+        "img": "carpet-30.png",
+        "isWall":false,
+        "width":64,
+        "height":64
+    },
+    "50":{
+        "name":"plante en pot",
+        "type":2,
+        "img": "tree-pot.png",
+        "isWall":true,
+        "width":96,
+        "height":128
+    },
+    "51":{
+        "name":"lit",
+        "type":2,
+        "img": "bed-1.png",
+        "isWall":true,
+        "width":64,
+        "height":64
+    },
+    "52":{
+        "name":"lit",
+        "type":2,
+        "img": "bed-2.png",
+        "isWall":true,
+        "width":64,
+        "height":64
     }
 }

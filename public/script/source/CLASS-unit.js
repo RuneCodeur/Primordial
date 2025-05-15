@@ -82,6 +82,14 @@ class CLASSunit {
         this.position = newPosi;
     }
 
+    // teleportation de l'unité
+    teleport(newPosi, direction){
+        this.position = newPosi;
+        this.direction = direction;
+        this.directionAffichage();
+        this.moveAffichage();
+    }
+
     // modifie la direction de l'unité
     directionAffichage(){
         if(!document.getElementById('unit-'+this.id)){

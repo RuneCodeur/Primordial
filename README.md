@@ -11,7 +11,6 @@ si le personnage meurt ou se fait soigner par le PNJ shaman, les monstres (sauf 
 les monstres peuvent lacher des composants de craft
 rajouter des composants de craft
 rajouter des objets d'augmentations de stats, difficile à trouver
-faire un multi-carte
 faire un maptile teleporteur (map, Xmap, Ymap, Xtab, Ytab, direction)
 faire un prop teleporteur (map, Xmap, Ymap, Xtab, Ytab, direction)
 ajouter la musique

@@ -259,6 +259,9 @@ class CLASSgameplay {
     
                 if(!this.monsters[idMonster]){
                     this.monsters[idMonster] = new CLASSmonster(GETmonsters[i].position, GETmonsters[i].direction, idMonster);
+                    if(GETmonsters[i].move === false || GETmonsters[i].move === true){
+                        this.monsters[idMonster].POSTmove(GETmonsters[i].move);
+                    }
                     let InfoMonster = this.GETmonster(GETmonsters[i]);
                     this.monsters[idMonster].POSTRESSOURCEmonster(InfoMonster);
                     if(GETmonsters[i].info){
@@ -603,7 +606,21 @@ class CLASSgameplay {
                 await this.awaitTransition(100);
                 transitionAffichage.style.display="none";
                 break;
-           
+
+            // teleportation
+            case 4:
+                transitionAffichage.style.left="0";
+                transitionAffichage.style.top="0";
+                transitionAffichage.style.opacity="0";
+                transitionAffichage.style.display="flex";
+                await this.awaitTransition(100);
+                transitionAffichage.style.opacity="1";
+                await this.awaitTransition(500);
+                transitionAffichage.style.opacity="0";
+                await this.awaitTransition(100);
+                transitionAffichage.style.display="none";
+                transitionAffichage.style.opacity="1";
+                break;
         }
     }
 
@@ -625,7 +642,7 @@ class CLASSgameplay {
                     }
 
                     // si le monstre est déja présent, le fait bouger
-                    if(this.monsterPosition[monsterPosition[0]][monsterPosition[1]]){
+                    if(this.monsterPosition[monsterPosition[0]][monsterPosition[1]] && !this.dialogActivate){
                         direction = monster.comportement(this.player.GETposition(),this.monsterPosition, this.map.GETphysics(true));
 
                         // rotation du monstre
@@ -724,6 +741,11 @@ class CLASSgameplay {
                                 // prop de type coffre
                                 else if (this.props[this.propPosition[H][L]].GETtype() == 4 && info){
                                     this.showText(info);
+                                }
+                                
+                                // prop de type teleportation
+                                else if(this.props[this.propPosition[H][L]].GETtype() == 5){
+                                    this.teleportPlayer(info.direction[0], info.direction[1], info.direction[2], info.direction[3], info.direction[4], info.direction[5]);
                                 }
                             }
 
@@ -1013,6 +1035,26 @@ class CLASSgameplay {
         document.getElementById('ensemble-dialog').style.display = 'none';
     }
 
+    // teleportation du joueur vers un autre tableau
+    async teleportPlayer(idMap, Xmap, Ymap, Xplayer, Yplayer, direction){
+
+        this.dialogActivate = true;
+        this.transitionTableau(4);
+        await this.awaitTransition(400);
+        
+        this.depopMonster();
+        this.depopProps();
+        this.idTableau = [Xmap, Ymap]
+        this.player.teleport([Xplayer, Yplayer], direction);
+        this.map.teleport(idMap, this.idTableau)
+        this.initMonstersTab();
+        this.initPropsTab();
+        this.majProps();
+        this.moveAllMonsters();
+        
+        await this.awaitTransition(400);
+        this.dialogActivate = false;
+    }
 
     // renvoie TRUE si la nouvelle position touche une unité
     touchUnite(newPosition){
@@ -1076,14 +1118,12 @@ class CLASSgameplay {
     }
 
     tryEsquive(idMonster = null){
-        let limit = false;
         let position = [0, 0];
         let directionPossible = [];
         let esquiveDirection = false;
 
         if(idMonster){
             position = this.monsters[idMonster].GETposition();
-            limit = true;
         }
         else{
             position = this.player.GETposition();

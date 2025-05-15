@@ -151,6 +151,12 @@ class CLASSprop {
                     return;
                 }
                 break;
+
+            //type teleportation
+            case 5:
+                return this.info;
+                break;
+                
             default:
                 return;
                 break;
