@@ -937,7 +937,9 @@ class CLASSgameplay {
     }
 
     // choix à faire dans une boite de dialogue
-    dialogChoice(type, id){
+    dialogChoice(type, id, idDialog=''){
+        let info = null;
+
         switch (type) {
 
             // prendre l'objet du prop
@@ -969,11 +971,40 @@ class CLASSgameplay {
                 this.unshowText();
                 break;
 
-            // ferme la boite de dialogue
+            // soigne le joueur
+            case 3:
+                this.HealPlayer();
+
+                this.unshowText();
+                
+                info = this.monsters[id].GETSpeak(idDialog);
+                if(info){
+                    this.showText(info, idDialog)
+                }
+                break;
+
+            // continue le dialogue ou ferme la boite de dialogue
             default:
                 this.unshowText();
+
+                info = this.monsters[id].GETSpeak(idDialog);
+                if(info){
+                    this.showText(info, idDialog)
+                }
                 break;
         }
+    }
+
+    HealPlayer(){
+        this.player.payMoney(this.getHealCost());
+        this.player.maxHeal();
+        this.player.updateJauges();
+    }
+
+    getHealCost(){
+        let base = 25;
+
+        return Math.min(base, this.player.GETmoney());
     }
 
     PropChangeEtat(idProp){
@@ -998,26 +1029,30 @@ class CLASSgameplay {
     }
 
     // affiche le texte dans la boite de dialogue
-    showText(text){
+    showText(infoDialog, idDialog= ''){
 
-        if(text){
+        if(infoDialog){
             this.dialogActivate = true;
             let letterPosition = 0;
             let dialogText = document.getElementById('dialog-text');
             let dialogChoices = document.getElementById('dialog-choices');
+            let id = 0;
+            if(infoDialog.id){
+                id = infoDialog.id;
+            }
             document.getElementById('ensemble-dialog').style.display = 'flex';
             
             const interval = setInterval(() => {
-                dialogText.innerHTML += text.dialog[letterPosition ++].replace(/\n/g, "<br>");
+                dialogText.innerHTML += infoDialog.dialog[letterPosition ++].replace(/\n/g, "<br>");
     
                 // bouton de choix, lors de la fin d'un dialogue
-                if (letterPosition >= text.dialog.length) {
-                    for (let i = 0; i < text.buttons.length; i++) {
-                        let id = 0;
-                        if(text.buttons[i].id){
-                            id = text.buttons[i].id;
+                if (letterPosition >= infoDialog.dialog.length) {
+                    for (let i = 0; i < infoDialog.buttons.length; i++) {
+                        let extra = '';
+                        if(infoDialog.buttons[i].type && infoDialog.buttons[i].type == 3){
+                            extra = '(' + this.getHealCost() + ' OR)';
                         }
-                        dialogChoices.innerHTML += '<button onclick="dialogChoice('+text.buttons[i].type+',\''+id+'\')">'+text.buttons[i].name+'</button>'
+                        dialogChoices.innerHTML += '<button onclick="dialogChoice('+infoDialog.buttons[i].type+',\''+id+'\',\''+idDialog+'-'+i+'\')">'+infoDialog.buttons[i].name+ extra + '</button>'
                     }
                     clearInterval(interval);
                 }

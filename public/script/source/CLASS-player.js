@@ -79,6 +79,10 @@ class CLASSplayer extends CLASSunit {
         }
     }
 
+    maxHeal(){
+        this.PV = this.PVmax;
+    }
+
     attack(){
         let stats = this.GETstats();
         return super.attack(stats.FOR);

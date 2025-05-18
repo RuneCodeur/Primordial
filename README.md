@@ -3,7 +3,6 @@
 CONCEPT : faire un jeu de type RPG complet uniquement en JavaScript, sans framework
 
 ajouts prévus :
-ajouter un PNJ shaman (propose de soigner 100% des PV pour 25 EP * nb de bosses vaincu)
 ajouter un PNJ forgeron (combine plusieurs objets + EP pour donner un nouvel objet)
 pour chaque zone, ajouter un monstre boss qui bloque le passage
 si le personnage meurt, il est ramené soigné au PNJ medecin qui lui fait perdre toute son EP.

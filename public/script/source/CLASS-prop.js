@@ -113,6 +113,7 @@ class CLASSprop {
                 if(this.content && this.content.name !== undefined){
                     return {
                         dialog: "Contenu : "+ this.content.name,
+                        id: this.id,
                         buttons : [
                             {
                                 name:"prendre",
@@ -135,11 +136,11 @@ class CLASSprop {
                 if(playerDirection == 2 && this.content.name !== undefined){
                     return {
                         dialog: "Contenu : "+ this.content.name,
+                        id: this.id,
                         buttons : [
                             {
                                 name:"prendre",
-                                type:1,
-                                id: this.id
+                                type:1
                             },
                             {
                                 name:"Laisser",

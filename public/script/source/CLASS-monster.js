@@ -55,9 +55,6 @@ class CLASSmonster extends CLASSunit{
 
         if(info.buttons){
             this.dialogButtons = info.buttons;
-            for (let i = 0; i < this.dialogButtons.length; i++) {
-                this.dialogButtons[i].id = this.id;
-            }
         }
 
     }
@@ -94,10 +91,26 @@ class CLASSmonster extends CLASSunit{
         this.isSpeaking = true;
     }
 
-    GETSpeak(){
+    GETSpeak(idDialog = ''){
         let info = {
             "dialog":this.dialog, 
-            "buttons" :this.dialogButtons
+            "buttons" :this.dialogButtons,
+            "id" : this.id
+        }
+        if(idDialog != ''){
+            let ids = idDialog.split('-').filter(Boolean).map(Number);
+
+            for (let i = 0; i < ids.length; i++) {
+                if (info.buttons[ids[i]] && info.buttons[ids[i]].info) {
+                    info = info.buttons[ids[i]].info;
+                    info.id = this.id;
+                }
+                
+                else{
+                    info = false;
+                    break;
+                }
+            }
         }
         return info;
     }
