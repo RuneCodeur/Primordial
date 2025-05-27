@@ -7,6 +7,7 @@ class CLASSprop {
         this.type = 0;
         this.assets = '';
         this.content = {};
+        this.loot = [];
         this.propActive = true;
         this.isWall = false;
         this.info = info;
@@ -34,6 +35,10 @@ class CLASSprop {
         return content;
     }
 
+    GETloot(){
+        return this.loot;
+    }
+
     GETafter(){
         return this.after;
     }
@@ -53,6 +58,10 @@ class CLASSprop {
     
     SETinactive(){
         this.propActive = false;
+    }
+    
+    POSTloot(loot){
+        this.loot = loot;
     }
 
     POSTRESSOURCEprops(RESSOURCEprop){

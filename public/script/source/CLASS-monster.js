@@ -16,6 +16,7 @@ class CLASSmonster extends CLASSunit{
         this.move = true;
         this.isSpeaking = false;
         this.itemsVendor = [];
+        this.loot = [];
     }
 
     POSTRESSOURCEmonster(RESSOURCEmonster){
@@ -32,6 +33,11 @@ class CLASSmonster extends CLASSunit{
         this.ARMO = RESSOURCEmonster.ARMO;
         this.XP = RESSOURCEmonster.XP;
         this.IA = RESSOURCEmonster.IA;
+
+        if(RESSOURCEmonster.loot){
+            this.loot = RESSOURCEmonster.loot;
+        }
+
         if(RESSOURCEmonster.IA == 'PNJ'){
             this.isAgressif = false;
         }
@@ -56,7 +62,10 @@ class CLASSmonster extends CLASSunit{
         if(info.buttons){
             this.dialogButtons = info.buttons;
         }
+    }
 
+    POSTloot(loot){
+        this.loot = loot;
     }
 
     POSTmove(move){
@@ -125,6 +134,10 @@ class CLASSmonster extends CLASSunit{
 
     GETitemVendor(idItem){
         return this.itemsVendor[idItem];
+    }
+
+    GETloot(){
+        return this.loot;
     }
 
     DELETEitemVendor(idItem){

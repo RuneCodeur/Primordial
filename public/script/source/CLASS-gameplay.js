@@ -17,6 +17,7 @@ class CLASSgameplay {
         this.monsters = {};
         this.monsterPosition = [];
         this.tableLoot = [];
+        this.idTableLoot = [];
         this.props = {};
         this.propPosition = [];
         this.RESSOURCEmapTAB = {};
@@ -215,6 +216,7 @@ class CLASSgameplay {
     // initialise la table des loots
     initLoot(){
         this.tableLoot = [];
+        this.idTableLoot = [];
 
         Object.keys(this.RESSOURCEequipments).forEach(id => {
             let equipment = JSON.parse(JSON.stringify(this.RESSOURCEequipments[id]));
@@ -245,6 +247,7 @@ class CLASSgameplay {
                 }
                 if(equipment.type != "broken"){
                     this.tableLoot.push(equipment);
+                    this.idTableLoot.push(Number(id));
                 }
             }
         });
@@ -264,6 +267,13 @@ class CLASSgameplay {
                     }
                     let InfoMonster = this.GETmonster(GETmonsters[i]);
                     this.monsters[idMonster].POSTRESSOURCEmonster(InfoMonster);
+                    if(GETmonsters[i].loot){
+                        console.log(GETmonsters[i].loot);
+                        this.monsters[idMonster].POSTloot(GETmonsters[i].loot);
+                    }
+                    else{
+                        this.monsters[idMonster].POSTloot(this.idTableLoot);
+                    }
                     if(GETmonsters[i].info){
                         this.monsters[idMonster].POSTinfo(GETmonsters[i].info);
                     }
@@ -295,7 +305,15 @@ class CLASSgameplay {
 
                     // si type coffre ou loot -> lui assigne un objet
                     if(this.props[idProps].GETtype() == 4 || this.props[idProps].GETtype() == 3){
-                        this.props[idProps].SETobject(this.dropObject());
+                        let loot = this.idTableLoot;
+
+                        if(GETProps[i].loot){
+                            loot = GETProps[i].loot;
+                        }
+
+                        this.props[idProps].POSTloot(loot);
+                        
+                        this.props[idProps].SETobject(this.dropObject(this.props[idProps].GETloot()));
                     }
                 }
             }
@@ -303,47 +321,26 @@ class CLASSgameplay {
     }
 
     // drop un loot
-    dropObject(id = null){
+    dropObject(loot){
         let objectLoot = {};
+        let tableLoot = [];
 
-        // loot unique
-        if(id != null){
-            this.tableLoot.forEach(object => {
-                if(object.id == id ){
-                    objectLoot = object;
-                }
-            });
-            if (objectLoot.id == undefined){
-                objectLoot = this.dropObject();
+        loot.forEach(id => {
+            if(this.tableLoot[id] && this.tableLoot[id].loot > 0){
+                tableLoot.push(this.tableLoot[id]);
             }
-        }
+        });
 
-        //loot aléatoire
-        else{
-            let tableLoot = [];
-
-            this.tableLoot.forEach(object => {
-                if(object.loot > 0){
-                    tableLoot.push(object);
-                }
-            });
-
-            let totalWeight = tableLoot.reduce((sum, object) => sum + object.loot, 0);
-            let randomLoot = Math.random() * totalWeight;
-          
-            let cumulativeWeight = 0;
-            for (let object of tableLoot) {
-              cumulativeWeight += object.loot;
-              if (randomLoot <= cumulativeWeight) {
-                objectLoot = object;
-                break;
-              }
+        let totalWeight = tableLoot.reduce((sum, object) => sum + object.loot, 0);
+        let randomLoot = Math.random() * totalWeight;
+        
+        let cumulativeWeight = 0;
+        for (let object of tableLoot) {
+            cumulativeWeight += object.loot;
+            if (randomLoot <= cumulativeWeight) {
+            objectLoot = object;
+            break;
             }
-        }
-
-        // si le loot est un objet unique -> le vire de la table de loot
-        if(objectLoot && objectLoot.isUnique === true){
-            this.tableLoot = this.tableLoot.filter(object => object.id !== objectLoot.id);
         }
 
         return objectLoot;
@@ -507,7 +504,8 @@ class CLASSgameplay {
     dropLoot(idMonster){
         if(this.monsters[idMonster] && this.monsters[idMonster].active() === false){
             if(this.monsters[idMonster].dropLoot()){
-                let item = this.dropObject();
+                let loot = this.monsters[idMonster].GETloot();
+                let item = this.dropObject(loot);
                 let position = this.monsters[idMonster].GETposition();
                 this.dropItem(item, position);
             }
@@ -706,7 +704,11 @@ class CLASSgameplay {
     // renvoie TRUE si la nouvelle position touche un mur
     touchWall(newPosition){
         let physicMap = this.map.GETphysics();
-        let physic = physicMap[newPosition[0]][newPosition[1]];
+        let physic = 1;
+        
+        if( Array.isArray(newPosition) && Array.isArray(physicMap) && physicMap[newPosition[0]] && !isNaN(physicMap[newPosition[0]][newPosition[1]]) ){
+            physic = physicMap[newPosition[0]][newPosition[1]];
+        }
 
         switch (physic) {
 
